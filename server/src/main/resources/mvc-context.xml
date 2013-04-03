@@ -13,7 +13,7 @@
 
     <mvc:annotation-driven/>
     <context:component-scan base-package="md.vcroitor.licenta.server"/>
-    <mvc:default-servlet-handler/>
+    <!--<mvc:default-servlet-handler/>-->
     <context:annotation-config/>
 
     <bean id="tilesviewResolver" class="org.springframework.web.servlet.view.tiles3.TilesViewResolver">
