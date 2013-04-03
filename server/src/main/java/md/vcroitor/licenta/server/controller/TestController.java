@@ -9,7 +9,7 @@ public class TestController {
 
     private static final Logger log = Logger.getLogger(TestController.class);
 
-    @RequestMapping(value = "/test")
+    @RequestMapping(value = "/index")
     public String test() {
         log.info("test test");
         return "index";

@@ -12,7 +12,7 @@
 
     <properties>
         <spring.version>3.2.1.RELEASE</spring.version>
-        <apache.tiles>3.0.1</apache.tiles>
+        <apache.tiles>2.2.2</apache.tiles>
     </properties>
 
     <build>

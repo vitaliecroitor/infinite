@@ -13,15 +13,16 @@
 
     <mvc:annotation-driven/>
     <context:component-scan base-package="md.vcroitor.licenta.server"/>
-    <!--<mvc:default-servlet-handler/>-->
     <context:annotation-config/>
 
-    <bean id="tilesviewResolver" class="org.springframework.web.servlet.view.tiles3.TilesViewResolver">
+    <!-- Tiles config -->
+    <bean id="viewResolve" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
         <property name="viewClass">
-            <value>org.springframework.web.servlet.view.tiles3.TilesView</value>
+            <value>org.springframework.web.servlet.view.tiles2.TilesView</value>
         </property>
     </bean>
-    <bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+
+    <bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles2.TilesConfigurer">
         <property name="definitions">
             <list>
                 <value>classpath:tiles.xml</value>
