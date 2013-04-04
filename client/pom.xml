@@ -9,8 +9,7 @@
 	<name>client</name>
 
 	<properties>
-		<platform.version> 4.1.1.4
-		</platform.version>
+		<platform.version>4.1.1.4</platform.version>
 	</properties>
 
 	<dependencies>
