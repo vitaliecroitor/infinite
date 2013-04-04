@@ -28,6 +28,7 @@
 
 	<build>
 		<plugins>
+			
 			<plugin>
 				<groupId>com.jayway.maven.plugins.android.generation2</groupId>
 				<artifactId>android-maven-plugin</artifactId>
@@ -41,6 +42,27 @@
 						<platform>16</platform>
 					</sdk>
 					<undeployBeforeDeploy>true</undeployBeforeDeploy>
+					<configuration>
+                    <manifest>
+                        <debuggable>true</debuggable>
+                    </manifest>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>manifestUpdate</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>manifest-update</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>alignApk</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>zipalign</goal>
+                        </goals>
+                    </execution>
+                </executions>
 				</configuration>
 				<extensions>true</extensions>
 			</plugin>
