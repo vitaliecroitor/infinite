@@ -2,4 +2,11 @@
 <resources>
     <string name="hello">Hello client!</string>
     <string name="app_name">client</string>
+    <string name="lorem_ipsum">Something</string>
+    <string name="title_template_step">Test</string>
+    <string name="action_previous">Previous</string>
+    <string name="action_next">Next</string>
+    <string name="action_finish">Finish</string>
+    <string name="go">GO!</string>
+    <string name="title_screen_slide">Slide</string>
 </resources>
