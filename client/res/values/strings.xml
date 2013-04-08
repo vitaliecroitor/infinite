@@ -9,4 +9,7 @@
     <string name="action_finish">Finish</string>
     <string name="get_started">Get started</string>
     <string name="title_screen_slide">Slide</string>
+    <string name="s_prom_desc_short">Descript Short</string>
+    <string name="s_prom_title">Some title</string>
+    <string name="s_some_number">143</string>
 </resources>
