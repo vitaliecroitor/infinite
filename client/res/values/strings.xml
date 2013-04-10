@@ -12,4 +12,5 @@
     <string name="s_prom_desc_short">Descript Short</string>
     <string name="s_prom_title">Some title</string>
     <string name="s_some_number">143</string>
+    <string name="some_string">Some other string</string>
 </resources>

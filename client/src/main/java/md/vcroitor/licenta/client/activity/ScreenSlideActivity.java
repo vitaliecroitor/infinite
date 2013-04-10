@@ -2,7 +2,6 @@ package md.vcroitor.licenta.client.activity;
 
 import md.vcroitor.licenta.client.R;
 import md.vcroitor.licenta.client.adapter.ScreenSlidePagerAdapter;
-import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
