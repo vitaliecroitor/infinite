@@ -1,4 +1,4 @@
-package md.vcroitor.licenta.server.enums;
+package md.vcroitor.licenta.common.enums;
 
 /**
  * User: Vitalie Croitor

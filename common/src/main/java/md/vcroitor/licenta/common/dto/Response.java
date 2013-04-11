@@ -1,4 +1,4 @@
-package md.vcroitor.licenta.server.dto;
+package md.vcroitor.licenta.common.dto;
 
 import md.vcroitor.licenta.server.enums.ResponseStatus;
 
