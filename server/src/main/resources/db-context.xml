@@ -6,19 +6,18 @@
           http://www.springframework.org/schema/beans
           http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
 
-
-    <mongo:mongo  host="localhost" port="27017">
-        <mongo:options connections-per-host="8"
-                       threads-allowed-to-block-for-connection-multiplier="4"
-                       connect-timeout="1000"
-                       max-wait-time="1500"
-                       auto-connect-retry="true"
-                       socket-keep-alive="true"
-                       socket-timeout="1500"
-                       slave-ok="true"
-                       write-number="1"
-                       write-timeout="0"
-                       write-fsync="true"/>
+    <mongo:mongo  host="${mongo.db.host}" port="${mongo.db.port}">
+        <mongo:options connections-per-host="${mongo.db.connections.per.host}"
+                       threads-allowed-to-block-for-connection-multiplier="${mongo.db.threads.allowed.to.block.for.connection.multiplier}"
+                       connect-timeout="${mongo.db.connect.timeout}"
+                       max-wait-time="${mongo.db.max.wait.time}"
+                       auto-connect-retry="${mongo.db.auto.connect.retry}"
+                       socket-keep-alive="${mongo.db.socket.keep.alive}"
+                       socket-timeout="${mongo.db.socket.timeout}"
+                       slave-ok="${mongo.db.slave.ok}"
+                       write-number="${mongo.db.write.number}"
+                       write-timeout="${mongo.db.write.timeout}"
+                       write-fsync="${mongo.db.write.fsync}"/>
     </mongo:mongo>
     <mongo:db-factory id="mongoDbFactory" dbname="infinite" />
 

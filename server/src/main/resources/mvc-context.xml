@@ -12,6 +12,7 @@
 
     <import resource="db-context.xml"/>
     <mvc:annotation-driven/>
+    <context:property-placeholder location="classpath:jdbc.properties"/>
     <context:component-scan base-package="md.vcroitor.licenta.server"/>
     <context:annotation-config/>
 
