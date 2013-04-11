@@ -6,7 +6,7 @@
           http://www.springframework.org/schema/beans
           http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
 
-    <mongo:mongo  host="${mongo.db.host}" port="${mongo.db.port}">
+    <mongo:mongo host="${mongo.db.host}" port="${mongo.db.port}" id="mongo-config">
         <mongo:options connections-per-host="${mongo.db.connections.per.host}"
                        threads-allowed-to-block-for-connection-multiplier="${mongo.db.threads.allowed.to.block.for.connection.multiplier}"
                        connect-timeout="${mongo.db.connect.timeout}"
@@ -19,10 +19,18 @@
                        write-timeout="${mongo.db.write.timeout}"
                        write-fsync="${mongo.db.write.fsync}"/>
     </mongo:mongo>
-    <mongo:db-factory id="mongoDbFactory" dbname="infinite" />
+    <mongo:db-factory id="mongoDbFactory" dbname="${mongo.db.name}" mongo-ref="mongo-config"/>
 
     <bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
-        <constructor-arg name="mongoDbFactory" ref="mongoDbFactory" />
+        <constructor-arg name="mongoDbFactory" ref="mongoDbFactory"/>
     </bean>
+
+    <!-- Factory bean that creates the Mongo instance -->
+    <bean id="mongo" class="org.springframework.data.mongodb.core.MongoFactoryBean">
+        <property name="host" value="localhost"/>
+    </bean>
+
+    <!-- Use this post processor to translate any MongoExceptions thrown in @Repository annotated classes -->
+    <bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"/>
 
 </beans>

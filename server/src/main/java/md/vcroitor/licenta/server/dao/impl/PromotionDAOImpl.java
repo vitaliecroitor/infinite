@@ -21,8 +21,8 @@ import static org.springframework.transaction.annotation.Propagation.REQUIRED;
 @Transactional(propagation = REQUIRED)
 public class PromotionDAOImpl extends AbstractDAO<Promotion> implements PromotionDAO {
 
-    public PromotionDAOImpl(Class<Promotion> clazz) {
-        super(clazz);
+    public PromotionDAOImpl() {
+        super(Promotion.class);
     }
 
     @Override

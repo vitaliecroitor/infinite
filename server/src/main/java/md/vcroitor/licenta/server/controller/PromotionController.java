@@ -4,6 +4,7 @@ import md.vcroitor.licenta.server.persistence.Promotion;
 import md.vcroitor.licenta.common.dto.Request;
 import md.vcroitor.licenta.common.dto.Response;
 import md.vcroitor.licenta.server.facade.PromotionFacade;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
@@ -16,6 +17,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.POST;
  * Date: 4/11/13
  * Time: 11:27 AM
  */
+@Controller
 @RequestMapping(value = "/promotion")
 public class PromotionController extends GenericController {
 
