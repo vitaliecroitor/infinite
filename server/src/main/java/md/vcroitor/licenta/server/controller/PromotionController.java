@@ -52,5 +52,6 @@ public class PromotionController extends GenericController {
         Promotion res = promotionFacade.getById(p.getId());
         log.info("res id: " + res.getId());
         log.info("res status:" + res.getStatus());
+        log.info("date:" + res.getCreatedDate());
     }
 }
