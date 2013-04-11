@@ -19,11 +19,10 @@ import static org.springframework.transaction.annotation.Propagation.REQUIRED;
  */
 @Repository("promotionDAO")
 @Transactional(propagation = REQUIRED)
-public class PromotionDAOImpl implements PromotionDAO {
+public class PromotionDAOImpl extends AbstractDAO<Promotion> implements PromotionDAO {
 
-    @Override
-    public Promotion getById(long id) {
-        return null;
+    public PromotionDAOImpl(Class<Promotion> clazz) {
+        super(clazz);
     }
 
     @Override

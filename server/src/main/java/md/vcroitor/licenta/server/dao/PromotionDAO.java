@@ -8,10 +8,12 @@ import java.util.Date;
 import java.util.Set;
 
 public interface PromotionDAO {
-
-    Promotion getById(long id);
-    Set<Promotion> getByShopId(long shopId);
-    Set<Promotion> getByStatus(PromotionStatus status);
-    Set<Promotion> getByCategory(PromotionCategory category);
-    Set<Promotion> getByPeriod(Date from, Date to);
+    void create(final Promotion promotion);
+    void delete(final Promotion promotion);
+    Promotion getById(final long id);
+    void deleteById(final long id);
+    Set<Promotion> getByShopId(final long shopId);
+    Set<Promotion> getByStatus(final PromotionStatus status);
+    Set<Promotion> getByCategory(final PromotionCategory category);
+    Set<Promotion> getByPeriod(final Date from, final Date to);
 }
