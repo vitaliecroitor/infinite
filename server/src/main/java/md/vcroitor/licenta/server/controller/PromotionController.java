@@ -1,8 +1,8 @@
 package md.vcroitor.licenta.server.controller;
 
 import md.vcroitor.licenta.server.persistence.Promotion;
-import md.vcroitor.licenta.server.dto.Request;
-import md.vcroitor.licenta.server.dto.Response;
+import md.vcroitor.licenta.common.dto.Request;
+import md.vcroitor.licenta.common.dto.Response;
 import md.vcroitor.licenta.server.facade.PromotionFacade;
 import org.springframework.web.bind.annotation.RequestMapping;
 

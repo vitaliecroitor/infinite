@@ -1,6 +1,6 @@
 package md.vcroitor.licenta.server.persistence;
 
-import md.vcroitor.licenta.server.enums.ShopCategory;
+import md.vcroitor.licenta.common.enums.ShopCategory;
 
 import java.util.Set;
 

@@ -1,9 +1,9 @@
 package md.vcroitor.licenta.server.dao.impl;
 
+import md.vcroitor.licenta.common.enums.PromotionCategory;
+import md.vcroitor.licenta.common.enums.PromotionStatus;
 import md.vcroitor.licenta.server.dao.PromotionDAO;
 import md.vcroitor.licenta.server.persistence.Promotion;
-import md.vcroitor.licenta.server.enums.PromotionCategory;
-import md.vcroitor.licenta.server.enums.PromotionStatus;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 

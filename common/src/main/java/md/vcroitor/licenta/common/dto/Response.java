@@ -1,6 +1,6 @@
 package md.vcroitor.licenta.common.dto;
 
-import md.vcroitor.licenta.server.enums.ResponseStatus;
+import md.vcroitor.licenta.common.enums.ResponseStatus;
 
 /**
  * User: Vitalie Croitor

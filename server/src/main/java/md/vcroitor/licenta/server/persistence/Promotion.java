@@ -1,7 +1,7 @@
 package md.vcroitor.licenta.server.persistence;
 
-import md.vcroitor.licenta.server.enums.PromotionCategory;
-import md.vcroitor.licenta.server.enums.PromotionStatus;
+import md.vcroitor.licenta.common.enums.PromotionCategory;
+import md.vcroitor.licenta.common.enums.PromotionStatus;
 
 import java.util.Date;
 

@@ -1,8 +1,8 @@
 package md.vcroitor.licenta.server.dao;
 
+import md.vcroitor.licenta.common.enums.PromotionCategory;
+import md.vcroitor.licenta.common.enums.PromotionStatus;
 import md.vcroitor.licenta.server.persistence.Promotion;
-import md.vcroitor.licenta.server.enums.PromotionCategory;
-import md.vcroitor.licenta.server.enums.PromotionStatus;
 
 import java.util.Date;
 import java.util.Set;

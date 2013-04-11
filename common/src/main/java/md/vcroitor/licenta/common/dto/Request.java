@@ -1,6 +1,5 @@
 package md.vcroitor.licenta.common.dto;
 
-import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
 /**
