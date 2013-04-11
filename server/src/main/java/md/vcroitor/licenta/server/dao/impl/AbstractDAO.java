@@ -39,11 +39,11 @@ public class AbstractDAO<T> {
         getMongoOperations().remove(entity);
     }
 
-    public T getById(final long id) {
+    public T getById(final String id) {
         return getMongoOperations().findById(id, clazz);
     }
 
-    public void deleteById(final long id) {
+    public void deleteById(final String id) {
         getMongoOperations().findAndRemove(query(where("id").is(id)), clazz);
     }
 

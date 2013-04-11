@@ -19,7 +19,12 @@ public class PromotionFacadeImpl implements PromotionFacade {
     PromotionService promotionService;
 
     @Override
-    public Promotion getById(long id) {
+    public Promotion getById(String id) {
         return promotionService.getById(id);
+    }
+
+    @Override
+    public void create(Promotion p) {
+        promotionService.create(p);
     }
 }

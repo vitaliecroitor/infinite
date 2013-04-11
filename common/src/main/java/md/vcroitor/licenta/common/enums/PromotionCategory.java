@@ -6,4 +6,5 @@ package md.vcroitor.licenta.common.enums;
  * Time: 10:24 AM
  */
 public enum PromotionCategory {
+    TEST
 }

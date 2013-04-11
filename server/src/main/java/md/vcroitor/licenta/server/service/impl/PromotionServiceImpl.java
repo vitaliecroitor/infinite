@@ -20,7 +20,12 @@ public class PromotionServiceImpl implements PromotionService{
     private PromotionDAO promotionDAO;
 
     @Override
-    public Promotion getById(long id) {
+    public Promotion getById(String id) {
         return promotionDAO.getById(id);
+    }
+
+    @Override
+    public void create(Promotion p) {
+        promotionDAO.create(p);
     }
 }

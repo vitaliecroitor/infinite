@@ -10,8 +10,8 @@ import java.util.Set;
 public interface PromotionDAO {
     void create(final Promotion promotion);
     void delete(final Promotion promotion);
-    Promotion getById(final long id);
-    void deleteById(final long id);
+    Promotion getById(final String id);
+    void deleteById(final String id);
     Set<Promotion> getByShopId(final long shopId);
     Set<Promotion> getByStatus(final PromotionStatus status);
     Set<Promotion> getByCategory(final PromotionCategory category);

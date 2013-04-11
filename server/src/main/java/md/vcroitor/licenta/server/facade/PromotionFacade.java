@@ -8,5 +8,6 @@ import md.vcroitor.licenta.server.persistence.Promotion;
  * Time: 11:28 AM
  */
 public interface PromotionFacade {
-    Promotion getById(long id);
+    Promotion getById(String id);
+    void create(Promotion p);
 }
