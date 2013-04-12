@@ -27,4 +27,14 @@ public class PromotionFacadeImpl implements PromotionFacade {
     public void create(Promotion p) {
         promotionService.create(p);
     }
+
+    @Override
+    public void deleteById(String id){
+        promotionService.deleteById(id);
+    }
+
+    @Override
+    public void delete(Promotion promotion) {
+       promotionService.delete(promotion);
+    }
 }

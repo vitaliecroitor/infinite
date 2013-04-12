@@ -39,19 +39,5 @@ public class PromotionController extends GenericController {
 
     @RequestMapping(value = "/test", method = GET)
     public void test(){
-        log.info("-----------------------------I'm here naaaaaaaa");
-        Promotion p = new Promotion();
-        p.setCategory(PromotionCategory.TEST);
-        p.setCreatedDate(new Date());
-        p.setExpireDate(new Date());
-        p.setNewPrice(2.2);
-        p.setOldPrice(5.3);
-        p.setStatus(PromotionStatus.AVAILABLE);
-        promotionFacade.create(p);
-        log.info(p.getId());
-        Promotion res = promotionFacade.getById(p.getId());
-        log.info("res id: " + res.getId());
-        log.info("res status:" + res.getStatus());
-        log.info("date:" + res.getCreatedDate());
     }
 }

@@ -16,15 +16,14 @@ import static org.springframework.transaction.annotation.Propagation.REQUIRED;
  * Time: 4:23 PM
  */
 @Repository
-@Transactional(propagation = REQUIRED)
+@Transactional(propagation = REQUIRED, readOnly = true)
 public class AbstractDAO<T> {
 
     @Resource(name = "mongoTemplate")
-    MongoOperations mongoOperations;
+    private MongoOperations mongoOperations;
     private Class<T> clazz;
 
-    public AbstractDAO(){
-
+    public AbstractDAO() {
     }
 
     public AbstractDAO(final Class<T> clazz) {
@@ -44,7 +43,7 @@ public class AbstractDAO<T> {
     }
 
     public void deleteById(final String id) {
-        getMongoOperations().findAndRemove(query(where("id").is(id)), clazz);
+        getMongoOperations().remove(query(where("_id").is(id)), clazz);
     }
 
     public MongoOperations getMongoOperations() {

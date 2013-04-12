@@ -9,5 +9,7 @@ import md.vcroitor.licenta.server.persistence.Promotion;
  */
 public interface PromotionFacade {
     Promotion getById(String id);
-    void create(Promotion p);
+    void create(Promotion promotion);
+    void deleteById(String id);
+    void delete(Promotion promotion);
 }

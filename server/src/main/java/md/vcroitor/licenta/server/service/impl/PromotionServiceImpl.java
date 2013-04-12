@@ -25,7 +25,17 @@ public class PromotionServiceImpl implements PromotionService{
     }
 
     @Override
-    public void create(Promotion p) {
-        promotionDAO.create(p);
+    public void create(Promotion promotion) {
+        promotionDAO.create(promotion);
+    }
+
+    @Override
+    public void deleteById(String id) {
+        promotionDAO.deleteById(id);
+    }
+
+    @Override
+    public void delete(Promotion promotion) {
+        promotionDAO.delete(promotion);
     }
 }
