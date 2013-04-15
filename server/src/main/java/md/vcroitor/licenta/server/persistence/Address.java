@@ -1,7 +1,5 @@
 package md.vcroitor.licenta.server.persistence;
 
-import java.util.Set;
-
 /**
  * User: Vitalie Croitor
  * Date: 4/11/13
@@ -10,10 +8,52 @@ import java.util.Set;
 public class Address {
 
     private String country;
+
     private int zip;
+
     private String city;
-    private String steet;
-    private Set<String> phone;
-    private String email;
-    private String fax;
+
+    private String street;
+
+    private Contact contact;
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public int getZip() {
+        return zip;
+    }
+
+    public void setZip(int zip) {
+        this.zip = zip;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getStreet() {
+        return street;
+    }
+
+    public void setStreet(String street) {
+        this.street = street;
+    }
+
+    public Contact getContact() {
+        return contact;
+    }
+
+    public void setContact(Contact contact) {
+        this.contact = contact;
+    }
 }

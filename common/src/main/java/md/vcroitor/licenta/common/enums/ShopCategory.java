@@ -6,4 +6,5 @@ package md.vcroitor.licenta.common.enums;
  * Time: 10:25 AM
  */
 public enum ShopCategory {
+    FOOD, SPORT, FUN, TOURISM, HOME, FASHION
 }

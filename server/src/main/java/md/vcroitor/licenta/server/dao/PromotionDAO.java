@@ -12,7 +12,7 @@ public interface PromotionDAO {
     void delete(final Promotion promotion);
     Promotion getById(final String id);
     void deleteById(final String id);
-    Set<Promotion> getByShopId(final long shopId);
+    Set<Promotion> getByShopId(final String shopId);
     Set<Promotion> getByStatus(final PromotionStatus status);
     Set<Promotion> getByCategory(final PromotionCategory category);
     Set<Promotion> getByPeriod(final Date from, final Date to);

@@ -6,11 +6,10 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import java.util.Date;
 
-import static javax.persistence.EnumType.*;
+import static javax.persistence.EnumType.STRING;
 import static md.vcroitor.licenta.server.persistence.Promotion.COLLECTION_NAME;
 
 /**
@@ -25,16 +24,25 @@ public class Promotion {
 
     @Id
     private String id;
+
     private Date createdDate;
+
     private Date expireDate;
+
     private double oldPrice;
+
     private double newPrice;
+
     @Enumerated(STRING)
     private PromotionStatus status;
+
     @Enumerated(STRING)
     private PromotionCategory category;
-   // private Shop shop;
-    //private PromotionInfo info;
+
+    @DBRef
+    private Shop shop;
+
+    private PromotionInfo info;
 
 
     public String getId() {
@@ -91,5 +99,21 @@ public class Promotion {
 
     public void setCategory(PromotionCategory category) {
         this.category = category;
+    }
+
+    public Shop getShop() {
+        return shop;
+    }
+
+    public void setShop(Shop shop) {
+        this.shop = shop;
+    }
+
+    public PromotionInfo getInfo() {
+        return info;
+    }
+
+    public void setInfo(PromotionInfo info) {
+        this.info = info;
     }
 }

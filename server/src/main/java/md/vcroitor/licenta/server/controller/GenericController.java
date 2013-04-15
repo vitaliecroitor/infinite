@@ -1,7 +1,10 @@
 package md.vcroitor.licenta.server.controller;
 
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+
+import java.util.Arrays;
 
 /**
  * User: Vitalie Croitor
@@ -10,6 +13,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
  */
 @Controller
 public class GenericController {
+
+    private static final Logger log = Logger.getLogger(GenericController.class);
 
     @ExceptionHandler(Throwable.class)
     public void handleThrowable(){
@@ -22,7 +27,7 @@ public class GenericController {
     }
 
     @ExceptionHandler
-    public void handleOther(){
-
+    public void handleOther(Throwable th){
+        log.info(Arrays.toString(th.getStackTrace()));
     }
 }

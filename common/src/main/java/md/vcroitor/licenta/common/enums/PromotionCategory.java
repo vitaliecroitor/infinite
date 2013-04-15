@@ -6,5 +6,5 @@ package md.vcroitor.licenta.common.enums;
  * Time: 10:24 AM
  */
 public enum PromotionCategory {
-    TEST
+    P_FOOD, P_SPORT, P_FUN, P_TOURISM, P_HOME, P_FASHION
 }

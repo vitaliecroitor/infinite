@@ -1,4 +1,4 @@
-package md.vcroitor.licenta.server.dao.impl;
+package md.vcroitor.licenta.server.dao;
 
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.stereotype.Repository;

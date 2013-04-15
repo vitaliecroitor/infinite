@@ -2,15 +2,20 @@ package md.vcroitor.licenta.server.dao.impl;
 
 import md.vcroitor.licenta.common.enums.PromotionCategory;
 import md.vcroitor.licenta.common.enums.PromotionStatus;
+import md.vcroitor.licenta.server.dao.AbstractDAO;
 import md.vcroitor.licenta.server.dao.PromotionDAO;
 import md.vcroitor.licenta.server.persistence.Promotion;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import static org.springframework.transaction.annotation.Propagation.REQUIRED;
+import static org.springframework.data.mongodb.core.query.Query.query;
+import static org.springframework.data.mongodb.core.query.Criteria.where;
 
 /**
  * User: Vitalie Croitor
@@ -26,8 +31,11 @@ public class PromotionDAOImpl extends AbstractDAO<Promotion> implements Promotio
     }
 
     @Override
-    public Set<Promotion> getByShopId(long shopId) {
-        return null;
+    public Set<Promotion> getByShopId(String shopId) {
+
+        List<Promotion> result = getMongoOperations().find(query(where("shop").is(shopId)) , Promotion.class);
+
+        return new HashSet<>(result);
     }
 
     @Override

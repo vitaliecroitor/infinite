@@ -2,6 +2,8 @@ package md.vcroitor.licenta.server.service;
 
 import md.vcroitor.licenta.server.persistence.Promotion;
 
+import java.util.Set;
+
 /**
  * User: Vitalie Croitor
  * Date: 4/11/13
