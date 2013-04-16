@@ -5,6 +5,7 @@ import md.vcroitor.licenta.common.enums.PromotionStatus;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 import javax.persistence.Enumerated;
 import java.util.Date;

@@ -6,6 +6,7 @@ import md.vcroitor.licenta.server.dao.ShopDAO;
 import md.vcroitor.licenta.server.persistence.*;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.data.mongodb.core.MongoTemplate;
 
@@ -46,8 +47,8 @@ public class PromotionDAOImplTest extends AbstractDAOTest {
 
     @After
     public void after() {
-       // mongoTemplate.dropCollection(PROMOTION_COLLECTION_NAME);
-       // mongoTemplate.dropCollection(SHOP_COLLECTION_NAME);
+       mongoTemplate.dropCollection(PROMOTION_COLLECTION_NAME);
+       mongoTemplate.dropCollection(SHOP_COLLECTION_NAME);
     }
 
     @Test
@@ -61,7 +62,7 @@ public class PromotionDAOImplTest extends AbstractDAOTest {
 
         Set<Promotion> promotions = promotionDAO.getByShopId(shop.getId());
 
-        assertThat(promotions.size(), equalTo(2));
+        assertThat(promotions.size(), equalTo(1));
         assertThat(promotions.iterator().next().getShop().getId(), equalTo(shop.getId()));
     }
 
