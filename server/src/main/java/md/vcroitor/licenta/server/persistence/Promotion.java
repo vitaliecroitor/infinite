@@ -10,17 +10,17 @@ import javax.persistence.Enumerated;
 import java.util.Date;
 
 import static javax.persistence.EnumType.STRING;
-import static md.vcroitor.licenta.server.persistence.Promotion.COLLECTION_NAME;
+import static md.vcroitor.licenta.server.persistence.Promotion.PROMOTION_COLLECTION_NAME;
 
 /**
  * User: Vitalie Croitor
  * Date: 4/11/13
  * Time: 9:40 AM
  */
-@Document(collection = COLLECTION_NAME)
+@Document(collection = PROMOTION_COLLECTION_NAME)
 public class Promotion {
 
-    public static final String COLLECTION_NAME = "promotions";
+    public static final String PROMOTION_COLLECTION_NAME = "promotions";
 
     @Id
     private String id;
@@ -29,9 +29,9 @@ public class Promotion {
 
     private Date expireDate;
 
-    private double oldPrice;
+    private int oldPrice;
 
-    private double newPrice;
+    private int newPrice;
 
     @Enumerated(STRING)
     private PromotionStatus status;
@@ -73,15 +73,15 @@ public class Promotion {
         return oldPrice;
     }
 
-    public void setOldPrice(double oldPrice) {
+    public void setOldPrice(int oldPrice) {
         this.oldPrice = oldPrice;
     }
 
-    public double getNewPrice() {
+    public int getNewPrice() {
         return newPrice;
     }
 
-    public void setNewPrice(double newPrice) {
+    public void setNewPrice(int newPrice) {
         this.newPrice = newPrice;
     }
 

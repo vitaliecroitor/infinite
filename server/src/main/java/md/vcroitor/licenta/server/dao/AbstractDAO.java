@@ -16,15 +16,13 @@ import static org.springframework.transaction.annotation.Propagation.REQUIRED;
  * Time: 4:23 PM
  */
 @Repository
-@Transactional(propagation = REQUIRED, readOnly = true)
-public class AbstractDAO<T> {
+//@Transactional(propagation = REQUIRED, readOnly = true)
+public abstract class AbstractDAO<T> {
+
+    private Class<T> clazz;
 
     @Resource(name = "mongoTemplate")
     private MongoOperations mongoOperations;
-    private Class<T> clazz;
-
-    public AbstractDAO() {
-    }
 
     public AbstractDAO(final Class<T> clazz) {
         this.clazz = clazz;

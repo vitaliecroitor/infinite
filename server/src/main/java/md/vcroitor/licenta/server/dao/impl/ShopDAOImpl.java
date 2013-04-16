@@ -14,7 +14,7 @@ import static org.springframework.transaction.annotation.Propagation.REQUIRED;
  * Time: 2:31 PM
  */
 @Repository("shopDAO")
-@Transactional(propagation = REQUIRED)
+//@Transactional(propagation = REQUIRED)
 public class ShopDAOImpl extends AbstractDAO<Shop> implements ShopDAO{
 
     public ShopDAOImpl(){

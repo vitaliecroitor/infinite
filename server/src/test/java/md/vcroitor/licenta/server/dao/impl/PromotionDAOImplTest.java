@@ -1,55 +1,87 @@
 package md.vcroitor.licenta.server.dao.impl;
 
-import com.mongodb.DB;
-import com.mongodb.DBCollection;
-import com.mongodb.Mongo;
+import md.vcroitor.licenta.server.dao.AbstractDAOTest;
+import md.vcroitor.licenta.server.dao.PromotionDAO;
+import md.vcroitor.licenta.server.dao.ShopDAO;
+import md.vcroitor.licenta.server.persistence.*;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.Mock;
-import org.mockito.Mockito;
-import org.mockito.runners.MockitoJUnitRunner;
-import org.springframework.data.mongodb.MongoDbFactory;
 import org.springframework.data.mongodb.core.MongoTemplate;
-import org.springframework.data.mongodb.core.convert.MappingMongoConverter;
-import org.springframework.data.mongodb.core.mapping.MongoMappingContext;
+
+import javax.annotation.Resource;
+import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
+
+import static md.vcroitor.licenta.common.enums.PromotionStatus.AVAILABLE;
+import static md.vcroitor.licenta.common.enums.ShopCategory.SPORT;
+import static md.vcroitor.licenta.server.DummyObjects.*;
+import static md.vcroitor.licenta.server.persistence.Promotion.PROMOTION_COLLECTION_NAME;
+import static md.vcroitor.licenta.server.persistence.Shop.SHOP_COLLECTION_NAME;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.equalTo;
 
 /**
  * User: Vitalie Croitor
  * Date: 4/15/13
  * Time: 4:47 PM
  */
-@RunWith(MockitoJUnitRunner.class)
-public class PromotionDAOImplTest{
+public class PromotionDAOImplTest extends AbstractDAOTest {
 
-    @Mock
-    private MongoDbFactory factory;
+    @Resource(name = "mongoTemplate")
+    private MongoTemplate mongoTemplate;
 
-    @Mock
-    private Mongo mongo;
+    @Resource(name = "shopDAO")
+    private ShopDAO shopDAO;
 
-    @Mock
-    private DB db;
-
-    @Mock
-    private DBCollection collection;
-
-    private MappingMongoConverter converter;
-    private MongoMappingContext mappingContext;
-    private MongoTemplate template;
+    @Resource(name = "promotionDAO")
+    private PromotionDAO promotionDAO;
 
     @Before
     public void setUp() {
+        mongoTemplate.dropCollection(PROMOTION_COLLECTION_NAME);
+        mongoTemplate.dropCollection(SHOP_COLLECTION_NAME);
+    }
 
-        this.mappingContext = new MongoMappingContext();
-        this.converter = new MappingMongoConverter(factory, mappingContext);
-        this.template = new MongoTemplate(factory, converter);
-
-        Mockito.when(factory.getDb()).thenReturn(db);
-        Mockito.when(db.getCollection(Mockito.any(String.class))).thenReturn(collection);
+    @After
+    public void after() {
+       // mongoTemplate.dropCollection(PROMOTION_COLLECTION_NAME);
+       // mongoTemplate.dropCollection(SHOP_COLLECTION_NAME);
     }
 
     @Test
     public void testGetByShopId() throws Exception {
+
+        Shop shop = getShop();
+        shopDAO.create(shop);
+
+        Promotion promotion = dummyPromotion(null, new Date(), new Date(), 123, 111, AVAILABLE, dummyPromotionInfo("Promotion description"), shop);
+        promotionDAO.create(promotion);
+
+        Set<Promotion> promotions = promotionDAO.getByShopId(shop.getId());
+
+        assertThat(promotions.size(), equalTo(2));
+        assertThat(promotions.iterator().next().getShop().getId(), equalTo(shop.getId()));
+    }
+
+
+    public Shop getShop() {
+        Set<String> phones = new HashSet<>();
+        phones.add("+37369111222");
+        phones.add("+37369111333");
+
+        Set<String> emails = new HashSet<>();
+        emails.add("abc@abc.com");
+        emails.add("def@def.com");
+        Contact contact = dummyContact(emails, phones, null);
+
+        Set<Address> addresses = new HashSet<>();
+        addresses.add(dummyAddress("country", "city", "street", 1234, contact));
+
+        Address main = dummyAddress("mainCountry", "mainCity", "mainStreet", 1311, contact);
+        ShopInfo shopInfo = dummyShopInfo(main, addresses, "http://abc.com", "mega description");
+
+        return dummyShop(null, "Shop1", shopInfo, SPORT, 4);
     }
 }

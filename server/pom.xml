@@ -13,6 +13,7 @@
     <properties>
         <spring.version>3.2.1.RELEASE</spring.version>
         <apache.tiles>2.2.2</apache.tiles>
+        <com.fasterxml.jackson-version>2.1.4</com.fasterxml.jackson-version>
     </properties>
 
     <build>
@@ -128,14 +129,9 @@
             <version>${spring.version}</version>
         </dependency>
         <dependency>
-            <groupId>javax</groupId>
-            <artifactId>javaee-api</artifactId>
-            <version>6.0</version>
-        </dependency>
-        <dependency>
-            <groupId>javax</groupId>
-            <artifactId>javaee-web-api</artifactId>
-            <version>6.0</version>
+            <groupId>javax.persistence</groupId>
+            <artifactId>persistence-api</artifactId>
+            <version>1.0.2</version>
         </dependency>
         <dependency>
             <groupId>log4j</groupId>
@@ -238,6 +234,16 @@
             <artifactId>mockito-all</artifactId>
             <version>1.9.5</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${com.fasterxml.jackson-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>${com.fasterxml.jackson-version}</version>
         </dependency>
     </dependencies>
 

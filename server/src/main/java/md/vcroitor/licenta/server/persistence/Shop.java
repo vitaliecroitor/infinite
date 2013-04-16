@@ -4,16 +4,20 @@ import md.vcroitor.licenta.common.enums.ShopCategory;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import javax.persistence.Enumerated;
+
+import static javax.persistence.EnumType.STRING;
+
 /**
  * User: Vitalie Croitor
  * Date: 4/11/13
  * Time: 9:43 AM
  */
 
-@Document(collection = Shop.COLLECTION_NAME)
+@Document(collection = Shop.SHOP_COLLECTION_NAME)
 public class Shop {
 
-    public static final String COLLECTION_NAME = "shops";
+    public static final String SHOP_COLLECTION_NAME = "shops";
 
     @Id
     private String id;
@@ -22,6 +26,7 @@ public class Shop {
 
     private ShopInfo info;
 
+    @Enumerated(STRING)
     private ShopCategory category;
 
     private int rating;

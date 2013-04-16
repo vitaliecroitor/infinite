@@ -5,17 +5,17 @@ import md.vcroitor.licenta.common.enums.PromotionStatus;
 import md.vcroitor.licenta.server.dao.AbstractDAO;
 import md.vcroitor.licenta.server.dao.PromotionDAO;
 import md.vcroitor.licenta.server.persistence.Promotion;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import static org.springframework.transaction.annotation.Propagation.REQUIRED;
-import static org.springframework.data.mongodb.core.query.Query.query;
 import static org.springframework.data.mongodb.core.query.Criteria.where;
+import static org.springframework.data.mongodb.core.query.Query.query;
 
 /**
  * User: Vitalie Croitor
@@ -23,7 +23,7 @@ import static org.springframework.data.mongodb.core.query.Criteria.where;
  * Time: 10:53 AM
  */
 @Repository("promotionDAO")
-@Transactional(propagation = REQUIRED)
+//@Transactional(propagation = REQUIRED)
 public class PromotionDAOImpl extends AbstractDAO<Promotion> implements PromotionDAO {
 
     public PromotionDAOImpl() {
@@ -33,7 +33,9 @@ public class PromotionDAOImpl extends AbstractDAO<Promotion> implements Promotio
     @Override
     public Set<Promotion> getByShopId(String shopId) {
 
-        List<Promotion> result = getMongoOperations().find(query(where("shop").is(shopId)) , Promotion.class);
+        Query query = new Query(Criteria.where("shop.$id").is(shopId));
+
+        List<Promotion> result = getMongoOperations().find(query, Promotion.class);
 
         return new HashSet<>(result);
     }

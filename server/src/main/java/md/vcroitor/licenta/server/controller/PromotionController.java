@@ -126,8 +126,8 @@ public class PromotionController extends GenericController {
         p.setCreatedDate(new Date());
         p.setExpireDate(new Date());
         p.setInfo(promotionInfo);
-        p.setNewPrice(12.1);
-        p.setOldPrice(13.2);
+        p.setNewPrice(12);
+        p.setOldPrice(13);
         p.setStatus(PromotionStatus.AVAILABLE);
         p.setShop(shopDAO.getById("516bf909e4b0bebcdad1ae4d"));
 
