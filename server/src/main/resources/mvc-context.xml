@@ -12,7 +12,7 @@
 
     <import resource="db-context.xml"/>
     <mvc:annotation-driven/>
-    <context:property-placeholder location="classpath:jdbc.properties"/>
+    <context:property-placeholder location="classpath:jdbc.properties, image.properties"/>
     <context:component-scan base-package="md.vcroitor.licenta"/>
     <context:annotation-config/>
 
@@ -29,6 +29,12 @@
                 <value>classpath:tiles.xml</value>
             </list>
         </property>
+    </bean>
+
+    <!-- Image service declaration -->
+    <bean id="imageService" class="md.vcroitor.licenta.server.service.ImageService">
+        <property name="rootPath" value="${image.root.path}" />
+        <property name="format" value="${image.format}" />
     </bean>
 
 </beans>
