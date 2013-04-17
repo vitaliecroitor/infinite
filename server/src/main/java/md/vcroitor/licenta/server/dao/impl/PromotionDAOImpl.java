@@ -12,7 +12,6 @@ import org.springframework.stereotype.Repository;
 
 import java.util.Date;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 /**
@@ -29,27 +28,22 @@ public class PromotionDAOImpl extends AbstractDAO<Promotion> implements Promotio
     }
 
     @Override
-    public Set<Promotion> getByShopId(String shopId) {
-
-        Query query = new Query(new Criteria("shop.$id").is(new ObjectId(shopId)));
-
-        List<Promotion> result = getMongoOperations().find(query, Promotion.class);
-
-        return new HashSet<>(result);
+    public Set<Promotion> getByShopId(final String shopId) {
+        return new HashSet<>(getMongoOperations().find(new Query(new Criteria("shop.$id").is(new ObjectId(shopId))), Promotion.class));
     }
 
     @Override
-    public Set<Promotion> getByStatus(PromotionStatus status) {
-        return null;
+    public Set<Promotion> getByStatus(final PromotionStatus status) {
+        return new HashSet<>(getMongoOperations().find(new Query(new Criteria("status").is(status.toString())), Promotion.class));
     }
 
     @Override
-    public Set<Promotion> getByCategory(PromotionCategory category) {
-        return null;
+    public Set<Promotion> getByCategory(final PromotionCategory category) {
+        return new HashSet<>(getMongoOperations().find(new Query(new Criteria("category").is(category.toString())), Promotion.class));
     }
 
     @Override
-    public Set<Promotion> getByPeriod(Date from, Date to) {
-        return null;
+    public Set<Promotion> getByPeriod(final Date from, final Date to) {
+        return new HashSet<>(getMongoOperations().find(new Query(Criteria.where("expireDate").gte(from).lte(to)), Promotion.class));
     }
 }

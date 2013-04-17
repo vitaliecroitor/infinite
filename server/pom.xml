@@ -245,6 +245,11 @@
             <artifactId>jackson-annotations</artifactId>
             <version>${com.fasterxml.jackson-version}</version>
         </dependency>
+        <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+            <version>2.2</version>
+        </dependency>
     </dependencies>
 
     <repositories>

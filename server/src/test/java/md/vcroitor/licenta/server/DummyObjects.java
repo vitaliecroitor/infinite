@@ -1,5 +1,6 @@
 package md.vcroitor.licenta.server;
 
+import md.vcroitor.licenta.common.enums.PromotionCategory;
 import md.vcroitor.licenta.common.enums.PromotionStatus;
 import md.vcroitor.licenta.common.enums.ShopCategory;
 import md.vcroitor.licenta.server.persistence.*;
@@ -15,7 +16,7 @@ import java.util.Set;
 public class DummyObjects {
 
     public static Promotion dummyPromotion(String id, Date createdDate, Date expireDate, int oldPrice,
-                                           int newPrice, PromotionStatus status, PromotionInfo promotionInfo, Shop shop) {
+                                           int newPrice, PromotionStatus status, PromotionCategory category, PromotionInfo promotionInfo, Shop shop) {
         Promotion promotion = new Promotion();
         promotion.setId(id);
         promotion.setCreatedDate(createdDate);
@@ -25,6 +26,7 @@ public class DummyObjects {
         promotion.setInfo(promotionInfo);
         promotion.setStatus(status);
         promotion.setShop(shop);
+        promotion.setCategory(category);
 
         return promotion;
     }
