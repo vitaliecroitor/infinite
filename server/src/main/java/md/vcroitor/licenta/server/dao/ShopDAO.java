@@ -2,6 +2,8 @@ package md.vcroitor.licenta.server.dao;
 
 import md.vcroitor.licenta.server.persistence.Shop;
 
+import java.util.Set;
+
 /**
  * User: Vitalie Croitor
  * Date: 4/15/13
@@ -10,4 +12,6 @@ import md.vcroitor.licenta.server.persistence.Shop;
 public interface ShopDAO {
     void create(Shop shop);
     Shop getById(String id);
+    Set<Shop> getPage(int offset, int limit);
+    Set<Shop> getAll();
 }
