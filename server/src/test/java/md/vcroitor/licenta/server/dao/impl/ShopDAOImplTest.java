@@ -2,7 +2,6 @@ package md.vcroitor.licenta.server.dao.impl;
 
 import md.vcroitor.licenta.common.enums.ShopCategory;
 import md.vcroitor.licenta.server.dao.AbstractDAOTest;
-import md.vcroitor.licenta.server.dao.PromotionDAO;
 import md.vcroitor.licenta.server.dao.ShopDAO;
 import md.vcroitor.licenta.server.persistence.Address;
 import md.vcroitor.licenta.server.persistence.Contact;
@@ -14,13 +13,10 @@ import org.junit.Test;
 import org.springframework.data.mongodb.core.MongoTemplate;
 
 import javax.annotation.Resource;
-
 import java.util.HashSet;
 import java.util.Set;
 
-import static md.vcroitor.licenta.common.enums.ShopCategory.SPORT;
 import static md.vcroitor.licenta.server.DummyObjects.*;
-import static md.vcroitor.licenta.server.persistence.Promotion.PROMOTION_COLLECTION_NAME;
 import static md.vcroitor.licenta.server.persistence.Shop.SHOP_COLLECTION_NAME;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
@@ -30,7 +26,7 @@ import static org.hamcrest.Matchers.equalTo;
  * Date: 4/17/13
  * Time: 11:39 AM
  */
-public class ShopDAOImplTest extends AbstractDAOTest{
+public class ShopDAOImplTest extends AbstractDAOTest {
 
     @Resource(name = "mongoTemplate")
     private MongoTemplate mongoTemplate;
@@ -52,7 +48,7 @@ public class ShopDAOImplTest extends AbstractDAOTest{
 
     @Test
     public void testGetPage() throws Exception {
-        Set<Shop> shops = shopDAO.getPage(1,1);
+        Set<Shop> shops = shopDAO.getPage(1, 1);
         assertThat(shops.size(), equalTo(1));
     }
 
