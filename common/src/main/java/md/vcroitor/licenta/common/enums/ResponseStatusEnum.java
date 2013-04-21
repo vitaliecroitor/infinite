@@ -3,8 +3,8 @@ package md.vcroitor.licenta.common.enums;
 /**
  * User: Vitalie Croitor
  * Date: 4/11/13
- * Time: 10:19 AM
+ * Time: 11:51 AM
  */
-public enum PromotionStatus {
-    AVAILABLE, EXPIRED, SUSPENDED
+public enum ResponseStatusEnum {
+    OK, ERROR
 }
