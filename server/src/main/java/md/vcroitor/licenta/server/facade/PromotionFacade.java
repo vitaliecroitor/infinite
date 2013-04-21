@@ -12,7 +12,7 @@ import java.util.Set;
  * Time: 11:28 AM
  */
 public interface PromotionFacade {
-    Promotion getById(String id);
+    PromotionDTO getById(String id) throws Exception;
     void create(Promotion promotion);
     void deleteById(String id);
     void delete(Promotion promotion);

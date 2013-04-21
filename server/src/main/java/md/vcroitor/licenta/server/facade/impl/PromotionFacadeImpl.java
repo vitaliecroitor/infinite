@@ -24,8 +24,11 @@ public class PromotionFacadeImpl implements PromotionFacade {
     PromotionService promotionService;
 
     @Override
-    public Promotion getById(String id) {
-        return promotionService.getById(id);
+    public PromotionDTO getById(String id) throws Exception{
+        Promotion promotion = promotionService.getById(id);
+        PromotionDTO promotionDTO = new PromotionDTO();
+        PromotionBuilder.toDTO(promotion, promotionDTO);
+        return promotionDTO;
     }
 
     @Override

@@ -38,10 +38,10 @@ public class PromotionController extends GenericController {
 
     @RequestMapping(value = "/get", method = POST)
     @ResponseBody
-    public Response<Promotion> getById(@RequestBody @Valid Request<String> request) {
+    public Response<PromotionDTO> getById(@RequestBody @Valid Request<String> request) throws Exception{
         log.info("Get by id:" + request.getObject());
-        Promotion result = promotionFacade.getById(request.getObject());
-        return result == null ? new Response<Promotion>(PROMOTION_NOT_FOUND): new Response<>(result);
+        PromotionDTO result = promotionFacade.getById(request.getObject());
+        return result == null ? new Response<PromotionDTO>(PROMOTION_NOT_FOUND): new Response<>(result);
     }
 
     @RequestMapping(value = "/getByShop", method = POST)

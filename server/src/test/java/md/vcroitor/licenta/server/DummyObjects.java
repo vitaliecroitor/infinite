@@ -1,5 +1,6 @@
 package md.vcroitor.licenta.server;
 
+import md.vcroitor.licenta.common.dto.PromotionDTO;
 import md.vcroitor.licenta.common.enums.PromotionCategoryEnum;
 import md.vcroitor.licenta.common.enums.PromotionStatusEnum;
 import md.vcroitor.licenta.common.enums.ShopCategoryEnum;
@@ -31,6 +32,21 @@ public class DummyObjects {
         return promotion;
     }
 
+    public static PromotionDTO dummyPromotionDTO(String id, Date createdDate, Date expireDate, int oldPrice,
+                       int newPrice, PromotionStatusEnum status, PromotionCategoryEnum category, String shopId) {
+        PromotionDTO promotionDTO = new PromotionDTO();
+        promotionDTO.setId(id);
+        promotionDTO.setCreatedDate(createdDate);
+        promotionDTO.setExpireDate(expireDate);
+        promotionDTO.setOldPrice(oldPrice);
+        promotionDTO.setNewPrice(newPrice);
+        promotionDTO.setStatus(status);
+        promotionDTO.setShopId(shopId);
+        promotionDTO.setCategory(category);
+
+        return promotionDTO;
+    }
+
     public static Shop dummyShop(String id, String name, ShopInfo info, ShopCategoryEnum category, int rating) {
         Shop shop = new Shop();
         shop.setRating(rating);
@@ -42,7 +58,7 @@ public class DummyObjects {
         return shop;
     }
 
-    public static Address dummyAddress(String country,  String city, String street, int zip, Contact contact) {
+    public static Address dummyAddress(String country, String city, String street, int zip, Contact contact) {
         Address address = new Address();
         address.setContact(contact);
         address.setZip(zip);

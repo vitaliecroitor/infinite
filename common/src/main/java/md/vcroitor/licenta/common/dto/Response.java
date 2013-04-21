@@ -3,6 +3,8 @@ package md.vcroitor.licenta.common.dto;
 import md.vcroitor.licenta.common.enums.ErrorEnum;
 import md.vcroitor.licenta.common.enums.ResponseStatusEnum;
 
+import static md.vcroitor.licenta.common.enums.ResponseStatusEnum.*;
+
 /**
  * User: Vitalie Croitor
  * Date: 4/11/13
@@ -14,15 +16,13 @@ public class Response<T> {
     private T object;
     private ErrorEnum error;
 
-    public Response(ResponseStatusEnum status){
-        this.status = status;
-    }
-
     public Response(T object) {
+        this.status = OK;
         this.object = object;
     }
 
     public Response(ErrorEnum errorEnum){
+        this.status = ERROR;
         this.error = errorEnum;
     }
 
