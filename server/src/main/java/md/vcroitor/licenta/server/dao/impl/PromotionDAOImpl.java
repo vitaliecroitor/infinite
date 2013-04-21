@@ -1,7 +1,7 @@
 package md.vcroitor.licenta.server.dao.impl;
 
-import md.vcroitor.licenta.common.enums.PromotionCategory;
-import md.vcroitor.licenta.common.enums.PromotionStatus;
+import md.vcroitor.licenta.common.enums.PromotionCategoryEnum;
+import md.vcroitor.licenta.common.enums.PromotionStatusEnum;
 import md.vcroitor.licenta.server.dao.AbstractDAO;
 import md.vcroitor.licenta.server.dao.PromotionDAO;
 import md.vcroitor.licenta.server.persistence.Promotion;
@@ -33,12 +33,12 @@ public class PromotionDAOImpl extends AbstractDAO<Promotion> implements Promotio
     }
 
     @Override
-    public Set<Promotion> getByStatus(final PromotionStatus status) {
+    public Set<Promotion> getByStatus(final PromotionStatusEnum status) {
         return new HashSet<>(getMongoOperations().find(new Query(new Criteria("status").is(status.toString())), Promotion.class));
     }
 
     @Override
-    public Set<Promotion> getByCategory(final PromotionCategory category) {
+    public Set<Promotion> getByCategory(final PromotionCategoryEnum category) {
         return new HashSet<>(getMongoOperations().find(new Query(new Criteria("category").is(category.toString())), Promotion.class));
     }
 

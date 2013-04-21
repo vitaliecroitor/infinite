@@ -1,5 +1,6 @@
 package md.vcroitor.licenta.server.service;
 
+import md.vcroitor.licenta.common.enums.PromotionStatusEnum;
 import md.vcroitor.licenta.server.persistence.Promotion;
 
 import java.util.Set;
@@ -11,7 +12,13 @@ import java.util.Set;
  */
 public interface PromotionService {
     Promotion getById(String id);
+
     void create(Promotion promotion);
+
     void deleteById(String id);
+
     void delete(Promotion promotion);
+
+    Set<Promotion> getByShopId(String shopId);
+    Set<Promotion> getByStatus(PromotionStatusEnum status);
 }

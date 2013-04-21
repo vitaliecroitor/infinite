@@ -1,6 +1,6 @@
 package md.vcroitor.licenta.server.dao.impl;
 
-import md.vcroitor.licenta.common.enums.ShopCategory;
+import md.vcroitor.licenta.common.enums.ShopCategoryEnum;
 import md.vcroitor.licenta.server.dao.AbstractDAOTest;
 import md.vcroitor.licenta.server.dao.ShopDAO;
 import md.vcroitor.licenta.server.persistence.Address;
@@ -37,8 +37,8 @@ public class ShopDAOImplTest extends AbstractDAOTest {
     @Before
     public void setUp() {
         mongoTemplate.dropCollection(SHOP_COLLECTION_NAME);
-        shopDAO.create(getShop("Nokia", ShopCategory.HOME));
-        shopDAO.create(getShop("Samsung", ShopCategory.FASHION));
+        shopDAO.create(getShop("Nokia", ShopCategoryEnum.HOME));
+        shopDAO.create(getShop("Samsung", ShopCategoryEnum.FASHION));
     }
 
     @After
@@ -58,7 +58,7 @@ public class ShopDAOImplTest extends AbstractDAOTest {
         assertThat(shops.size(), equalTo(2));
     }
 
-    public Shop getShop(String name, ShopCategory category) {
+    public Shop getShop(String name, ShopCategoryEnum category) {
         Set<String> phones = new HashSet<>();
         phones.add("+37369111222");
         phones.add("+37369111333");

@@ -1,11 +1,10 @@
 package md.vcroitor.licenta.server.persistence;
 
-import md.vcroitor.licenta.common.enums.PromotionCategory;
-import md.vcroitor.licenta.common.enums.PromotionStatus;
+import md.vcroitor.licenta.common.enums.PromotionCategoryEnum;
+import md.vcroitor.licenta.common.enums.PromotionStatusEnum;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.Field;
 
 import javax.persistence.Enumerated;
 import java.util.Date;
@@ -26,6 +25,8 @@ public class Promotion {
     @Id
     private String id;
 
+    private String title;
+
     private Date createdDate;
 
     private Date expireDate;
@@ -35,10 +36,10 @@ public class Promotion {
     private int newPrice;
 
     @Enumerated(STRING)
-    private PromotionStatus status;
+    private PromotionStatusEnum status;
 
     @Enumerated(STRING)
-    private PromotionCategory category;
+    private PromotionCategoryEnum category;
 
     @DBRef
     private Shop shop;
@@ -86,19 +87,19 @@ public class Promotion {
         this.newPrice = newPrice;
     }
 
-    public PromotionStatus getStatus() {
+    public PromotionStatusEnum getStatus() {
         return status;
     }
 
-    public void setStatus(PromotionStatus status) {
+    public void setStatus(PromotionStatusEnum status) {
         this.status = status;
     }
 
-    public PromotionCategory getCategory() {
+    public PromotionCategoryEnum getCategory() {
         return category;
     }
 
-    public void setCategory(PromotionCategory category) {
+    public void setCategory(PromotionCategoryEnum category) {
         this.category = category;
     }
 
@@ -116,5 +117,13 @@ public class Promotion {
 
     public void setInfo(PromotionInfo info) {
         this.info = info;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 }

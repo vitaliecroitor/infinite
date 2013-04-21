@@ -15,11 +15,11 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
-import static md.vcroitor.licenta.common.enums.PromotionCategory.P_FASHION;
-import static md.vcroitor.licenta.common.enums.PromotionCategory.P_FOOD;
-import static md.vcroitor.licenta.common.enums.PromotionStatus.AVAILABLE;
-import static md.vcroitor.licenta.common.enums.PromotionStatus.SUSPENDED;
-import static md.vcroitor.licenta.common.enums.ShopCategory.SPORT;
+import static md.vcroitor.licenta.common.enums.PromotionCategoryEnum.P_FASHION;
+import static md.vcroitor.licenta.common.enums.PromotionCategoryEnum.P_FOOD;
+import static md.vcroitor.licenta.common.enums.PromotionStatusEnum.AVAILABLE;
+import static md.vcroitor.licenta.common.enums.PromotionStatusEnum.SUSPENDED;
+import static md.vcroitor.licenta.common.enums.ShopCategoryEnum.SPORT;
 import static md.vcroitor.licenta.server.DummyObjects.*;
 import static md.vcroitor.licenta.server.persistence.Promotion.PROMOTION_COLLECTION_NAME;
 import static md.vcroitor.licenta.server.persistence.Shop.SHOP_COLLECTION_NAME;

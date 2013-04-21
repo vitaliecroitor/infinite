@@ -1,6 +1,7 @@
 package md.vcroitor.licenta.common.dto;
 
-import md.vcroitor.licenta.common.enums.ResponseStatus;
+import md.vcroitor.licenta.common.enums.ErrorEnum;
+import md.vcroitor.licenta.common.enums.ResponseStatusEnum;
 
 /**
  * User: Vitalie Croitor
@@ -9,7 +10,11 @@ import md.vcroitor.licenta.common.enums.ResponseStatus;
  */
 public class Response<T> {
 
-    public Response(ResponseStatus status){
+    private ResponseStatusEnum status;
+    private T object;
+    private ErrorEnum error;
+
+    public Response(ResponseStatusEnum status){
         this.status = status;
     }
 
@@ -17,14 +22,15 @@ public class Response<T> {
         this.object = object;
     }
 
-    private ResponseStatus status;
-    private T object;
+    public Response(ErrorEnum errorEnum){
+        this.error = errorEnum;
+    }
 
-    public ResponseStatus getStatus() {
+    public ResponseStatusEnum getStatus() {
         return status;
     }
 
-    public void setStatus(ResponseStatus status) {
+    public void setStatus(ResponseStatusEnum status) {
         this.status = status;
     }
 
@@ -34,5 +40,13 @@ public class Response<T> {
 
     public void setObject(T object) {
         this.object = object;
+    }
+
+    public ErrorEnum getError() {
+        return error;
+    }
+
+    public void setError(ErrorEnum error) {
+        this.error = error;
     }
 }

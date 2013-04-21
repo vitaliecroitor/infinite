@@ -8,4 +8,5 @@ package md.vcroitor.licenta.common.enums;
  * To change this template use File | Settings | File Templates.
  */
 public enum ErrorEnum {
+    PROMOTION_NOT_FOUND
 }

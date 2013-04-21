@@ -1,11 +1,13 @@
 package md.vcroitor.licenta.server.service.impl;
 
+import md.vcroitor.licenta.common.enums.PromotionStatusEnum;
 import md.vcroitor.licenta.server.dao.PromotionDAO;
 import md.vcroitor.licenta.server.persistence.Promotion;
 import md.vcroitor.licenta.server.service.PromotionService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.Set;
 
 /**
  * User: Vitalie Croitor
@@ -37,5 +39,15 @@ public class PromotionServiceImpl implements PromotionService{
     @Override
     public void delete(Promotion promotion) {
         promotionDAO.delete(promotion);
+    }
+
+    @Override
+    public Set<Promotion> getByShopId(String shopId){
+        return  promotionDAO.getByShopId(shopId);
+    }
+
+    @Override
+    public Set<Promotion> getByStatus(PromotionStatusEnum status) {
+        return promotionDAO.getByStatus(status);
     }
 }

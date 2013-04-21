@@ -1,7 +1,7 @@
 package md.vcroitor.licenta.server.dao;
 
-import md.vcroitor.licenta.common.enums.PromotionCategory;
-import md.vcroitor.licenta.common.enums.PromotionStatus;
+import md.vcroitor.licenta.common.enums.PromotionCategoryEnum;
+import md.vcroitor.licenta.common.enums.PromotionStatusEnum;
 import md.vcroitor.licenta.server.persistence.Promotion;
 
 import java.util.Date;
@@ -13,7 +13,7 @@ public interface PromotionDAO {
     Promotion getById(final String id);
     void deleteById(final String id);
     Set<Promotion> getByShopId(final String shopId);
-    Set<Promotion> getByStatus(final PromotionStatus status);
-    Set<Promotion> getByCategory(final PromotionCategory category);
+    Set<Promotion> getByStatus(final PromotionStatusEnum status);
+    Set<Promotion> getByCategory(final PromotionCategoryEnum category);
     Set<Promotion> getByPeriod(final Date from, final Date to);
 }

@@ -1,6 +1,6 @@
 package md.vcroitor.licenta.server.persistence;
 
-import md.vcroitor.licenta.common.enums.ShopCategory;
+import md.vcroitor.licenta.common.enums.ShopCategoryEnum;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -27,7 +27,7 @@ public class Shop {
     private ShopInfo info;
 
     @Enumerated(STRING)
-    private ShopCategory category;
+    private ShopCategoryEnum category;
 
     private int rating;
 
@@ -55,11 +55,11 @@ public class Shop {
         this.info = info;
     }
 
-    public ShopCategory getCategory() {
+    public ShopCategoryEnum getCategory() {
         return category;
     }
 
-    public void setCategory(ShopCategory category) {
+    public void setCategory(ShopCategoryEnum category) {
         this.category = category;
     }
 
