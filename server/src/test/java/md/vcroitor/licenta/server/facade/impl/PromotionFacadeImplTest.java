@@ -3,6 +3,7 @@ package md.vcroitor.licenta.server.facade.impl;
 import md.vcroitor.licenta.common.dto.PromotionDTO;
 import md.vcroitor.licenta.common.enums.PromotionStatusEnum;
 import md.vcroitor.licenta.server.persistence.Promotion;
+import md.vcroitor.licenta.server.persistence.Shop;
 import md.vcroitor.licenta.server.service.PromotionService;
 import org.junit.Before;
 import org.junit.Test;
@@ -10,12 +11,14 @@ import org.mockito.InjectMocks;
 import org.mockito.Matchers;
 import org.mockito.Mock;
 
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
 import static md.vcroitor.licenta.common.enums.PromotionCategoryEnum.P_FOOD;
 import static md.vcroitor.licenta.common.enums.PromotionStatusEnum.AVAILABLE;
 import static md.vcroitor.licenta.server.DummyObjects.dummyPromotion;
+import static md.vcroitor.licenta.server.DummyObjects.dummyShop;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.mockito.Matchers.anyString;
@@ -44,7 +47,8 @@ public class PromotionFacadeImplTest {
 
     @Test
     public void testGetById() throws Exception {
-        Promotion promotion = dummyPromotion("id", null, null, 321, 123, AVAILABLE, P_FOOD, null, null);
+        Shop shop = dummyShop("shopId",null, null, null, 0);
+        Promotion promotion = dummyPromotion("id", new Date(), new Date(), 321, 123, AVAILABLE, P_FOOD, null, shop);
         when(promotionService.getById(Matchers.anyString())).thenReturn(promotion);
 
         PromotionDTO promotionDTO = promotionFacade.getById("id");
@@ -53,7 +57,8 @@ public class PromotionFacadeImplTest {
 
     @Test
     public void testGetByShopId() throws Exception {
-        Promotion promotion = dummyPromotion("id", null, null, 321, 123, AVAILABLE, P_FOOD, null, null);
+        Shop shop = dummyShop("shopId",null, null, null, 0);
+        Promotion promotion = dummyPromotion("id", new Date(), new Date(), 321, 123, AVAILABLE, P_FOOD, null, shop);
         Set<Promotion> promotions = new HashSet<>();
         promotions.add(promotion);
 
@@ -65,12 +70,13 @@ public class PromotionFacadeImplTest {
 
     @Test
     public void testGetByStatus() throws Exception {
-        Promotion promotion = dummyPromotion("id", null, null, 321, 123, AVAILABLE, P_FOOD, null, null);
+        Shop shop = dummyShop("shopId",null, null, null, 0);
+        Promotion promotion = dummyPromotion("id", new Date(), new Date(), 321, 123, AVAILABLE, P_FOOD, null, shop);
         Set<Promotion> promotions = new HashSet<>();
         promotions.add(promotion);
 
         when(promotionService.getByStatus(isA(PromotionStatusEnum.class))).thenReturn(promotions);
-        Set<PromotionDTO> result = promotionFacade.getByShopId("shopId");
+        Set<PromotionDTO> result = promotionFacade.getByStatus(AVAILABLE);
 
         assertThat(result.iterator().next().getId(), equalTo(promotions.iterator().next().getId()));
         assertThat(result.iterator().next().getStatus(), equalTo(promotions.iterator().next().getStatus()));
