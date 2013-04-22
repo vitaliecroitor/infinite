@@ -9,6 +9,13 @@ import javax.validation.constraints.NotNull;
  */
 public class Request<T> {
 
+    public Request(){
+    }
+
+    public Request(T object){
+        this.object = object;
+    }
+
     @NotNull
     private T object;
 

@@ -2,6 +2,7 @@ package md.vcroitor.licenta.server.persistence;
 
 import md.vcroitor.licenta.common.enums.PromotionCategoryEnum;
 import md.vcroitor.licenta.common.enums.PromotionStatusEnum;
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -125,5 +126,10 @@ public class Promotion {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    @Override
+    public String toString() {
+        return ReflectionToStringBuilder.toString(this);
     }
 }

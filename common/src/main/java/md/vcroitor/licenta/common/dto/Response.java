@@ -16,6 +16,10 @@ public class Response<T> {
     private T object;
     private ErrorEnum error;
 
+    public Response(){
+        this.status = OK;
+    }
+
     public Response(T object) {
         this.status = OK;
         this.object = object;

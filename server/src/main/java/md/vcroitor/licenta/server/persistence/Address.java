@@ -1,5 +1,7 @@
 package md.vcroitor.licenta.server.persistence;
 
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+
 /**
  * User: Vitalie Croitor
  * Date: 4/11/13
@@ -55,5 +57,10 @@ public class Address {
 
     public void setContact(Contact contact) {
         this.contact = contact;
+    }
+
+    @Override
+    public String toString() {
+        return ReflectionToStringBuilder.toString(this);
     }
 }

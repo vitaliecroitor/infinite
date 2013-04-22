@@ -1,5 +1,7 @@
 package md.vcroitor.licenta.server.persistence;
 
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+
 import java.util.Set;
 
 /**
@@ -37,5 +39,10 @@ public class Contact {
 
     public void setFax(Set<String> fax) {
         this.fax = fax;
+    }
+
+    @Override
+    public String toString() {
+        return ReflectionToStringBuilder.toString(this);
     }
 }
