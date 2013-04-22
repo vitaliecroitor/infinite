@@ -3,16 +3,20 @@ package md.vcroitor.licenta.server.controller;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import md.vcroitor.licenta.common.dto.PromotionDTO;
 import md.vcroitor.licenta.common.dto.Request;
+import md.vcroitor.licenta.common.enums.PromotionStatusEnum;
 import md.vcroitor.licenta.common.enums.ResponseStatusEnum;
 import md.vcroitor.licenta.server.DummyObjects;
 import md.vcroitor.licenta.server.facade.PromotionFacade;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 import static md.vcroitor.licenta.common.enums.PromotionCategoryEnum.P_FOOD;
 import static md.vcroitor.licenta.common.enums.PromotionStatusEnum.AVAILABLE;
@@ -20,6 +24,7 @@ import static md.vcroitor.licenta.common.enums.ResponseStatusEnum.*;
 import static md.vcroitor.licenta.server.DummyObjects.*;
 import static org.hamcrest.Matchers.equalTo;
 import static org.mockito.Matchers.anyString;
+import static org.mockito.Matchers.isA;
 import static org.mockito.Mockito.when;
 import static org.mockito.MockitoAnnotations.initMocks;
 import static org.springframework.http.MediaType.APPLICATION_JSON;
@@ -68,5 +73,43 @@ public class PromotionControllerTest{
                 .andExpect(content().contentTypeCompatibleWith(APPLICATION_JSON_VALUE))
                 .andExpect(jsonPath("$status", equalTo(OK.toString())))
                 .andExpect(jsonPath("object.id", equalTo(promotionDTO.getId())));
+    }
+
+    @Test
+    public void testGetByShop() throws Exception {
+        PromotionDTO promotionDTO = dummyPromotionDTO("id", new Date(), new Date(), 123, 213, AVAILABLE, P_FOOD, "shop1");
+        Set<PromotionDTO> promotions = new HashSet<>();
+        promotions.add(promotionDTO);
+        when(promotionFacade.getByShopId(anyString())).thenReturn(promotions);
+
+        ObjectMapper mapper = new ObjectMapper();
+        Request<String> request = new Request<>();
+        request.setObject("shop1");
+        String object = mapper.writeValueAsString(request);
+
+        this.mockMvc.perform(post("/promotion/getByShop").contentType(APPLICATION_JSON)
+                .content(object.getBytes()))
+                .andExpect(content().contentTypeCompatibleWith(APPLICATION_JSON_VALUE))
+                .andExpect(jsonPath("$status", equalTo(OK.toString())))
+                .andExpect(jsonPath("object[0].id", equalTo(promotionDTO.getId())));
+    }
+
+    @Test
+    public void testGetByStatus() throws Exception {
+        PromotionDTO promotionDTO = dummyPromotionDTO("id", new Date(), new Date(), 123, 213, AVAILABLE, P_FOOD, "shop1");
+        Set<PromotionDTO> promotions = new HashSet<>();
+        promotions.add(promotionDTO);
+        when(promotionFacade.getByStatus(isA(PromotionStatusEnum.class))).thenReturn(promotions);
+
+        ObjectMapper mapper = new ObjectMapper();
+        Request<PromotionStatusEnum> request = new Request<>();
+        request.setObject(AVAILABLE);
+        String object = mapper.writeValueAsString(request);
+
+        this.mockMvc.perform(post("/promotion/getByStatus").contentType(APPLICATION_JSON)
+                .content(object.getBytes()))
+                .andExpect(content().contentTypeCompatibleWith(APPLICATION_JSON_VALUE))
+                .andExpect(jsonPath("$status", equalTo(OK.toString())))
+                .andExpect(jsonPath("object[0].id", equalTo(promotionDTO.getId())));
     }
 }
