@@ -56,6 +56,14 @@ public class Promotion {
         this.id = id;
     }
 
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
     public Date getCreatedDate() {
         return createdDate;
     }
@@ -72,7 +80,7 @@ public class Promotion {
         this.expireDate = expireDate;
     }
 
-    public double getOldPrice() {
+    public int getOldPrice() {
         return oldPrice;
     }
 
@@ -118,14 +126,6 @@ public class Promotion {
 
     public void setInfo(PromotionInfo info) {
         this.info = info;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
     }
 
     @Override

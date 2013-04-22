@@ -5,7 +5,8 @@ import md.vcroitor.licenta.server.persistence.Shop;
 
 import java.lang.reflect.InvocationTargetException;
 
-import static org.apache.commons.beanutils.BeanUtils.copyProperties;
+import static org.springframework.beans.BeanUtils.copyProperties;
+
 
 /**
  * User: Vitalie Croitor
@@ -15,12 +16,12 @@ import static org.apache.commons.beanutils.BeanUtils.copyProperties;
 public class ShopBuilder {
 
     public static void fromDTO(final Shop shop, final ShopDTO shopDTO) throws InvocationTargetException, IllegalAccessException {
-        copyProperties(shop, shopDTO);
+        copyProperties(shopDTO, shop, new String[]{"info"});
         // ignore manual set id
         shop.setId(null);
     }
 
     public static void toDTO(final Shop shop, final ShopDTO shopDTO) throws InvocationTargetException, IllegalAccessException {
-        copyProperties(shopDTO, shop);
+        copyProperties(shop, shopDTO, new String[]{"info"});
     }
 }

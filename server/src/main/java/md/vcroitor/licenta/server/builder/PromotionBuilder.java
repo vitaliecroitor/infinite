@@ -5,7 +5,7 @@ import md.vcroitor.licenta.server.persistence.Promotion;
 
 import java.lang.reflect.InvocationTargetException;
 
-import static org.apache.commons.beanutils.BeanUtils.copyProperties;
+import static org.springframework.beans.BeanUtils.copyProperties;
 
 /**
  * User: Vitalie Croitor
@@ -15,13 +15,13 @@ import static org.apache.commons.beanutils.BeanUtils.copyProperties;
 public class PromotionBuilder {
 
     public static void fromDTO(final Promotion promotion, final PromotionDTO promotionDTO) throws InvocationTargetException, IllegalAccessException {
-        copyProperties(promotion, promotionDTO);
+        copyProperties(promotionDTO, promotion, new String[]{"info"});
         // ignore manual set id
         promotion.setId(null);
     }
 
     public static void toDTO(final Promotion promotion, final PromotionDTO promotionDTO) throws InvocationTargetException, IllegalAccessException {
-        copyProperties(promotionDTO, promotion);
+        copyProperties(promotion, promotionDTO, new String[]{"info"});
         promotionDTO.setShopId(promotion.getShop().getId());
     }
 }
