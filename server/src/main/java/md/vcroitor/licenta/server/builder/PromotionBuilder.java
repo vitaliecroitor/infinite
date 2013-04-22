@@ -8,11 +8,9 @@ import java.lang.reflect.InvocationTargetException;
 import static org.apache.commons.beanutils.BeanUtils.copyProperties;
 
 /**
- * Created with IntelliJ IDEA.
- * User: vcroitor
+ * User: Vitalie Croitor
  * Date: 4/21/13
  * Time: 1:03 PM
- * To change this template use File | Settings | File Templates.
  */
 public class PromotionBuilder {
 

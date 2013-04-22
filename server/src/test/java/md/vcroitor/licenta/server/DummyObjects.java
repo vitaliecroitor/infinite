@@ -1,6 +1,6 @@
 package md.vcroitor.licenta.server;
 
-import md.vcroitor.licenta.common.dto.PromotionDTO;
+import md.vcroitor.licenta.common.dto.*;
 import md.vcroitor.licenta.common.enums.PromotionCategoryEnum;
 import md.vcroitor.licenta.common.enums.PromotionStatusEnum;
 import md.vcroitor.licenta.common.enums.ShopCategoryEnum;
@@ -33,7 +33,7 @@ public class DummyObjects {
     }
 
     public static PromotionDTO dummyPromotionDTO(String id, Date createdDate, Date expireDate, int oldPrice,
-                       int newPrice, PromotionStatusEnum status, PromotionCategoryEnum category, String shopId) {
+                                                 int newPrice, PromotionStatusEnum status, PromotionCategoryEnum category, String shopId) {
         PromotionDTO promotionDTO = new PromotionDTO();
         promotionDTO.setId(id);
         promotionDTO.setCreatedDate(createdDate);
@@ -58,6 +58,17 @@ public class DummyObjects {
         return shop;
     }
 
+    public static ShopDTO dummyShopDTO(String id, String name, ShopInfoDTO info, ShopCategoryEnum category, int rating) {
+        ShopDTO shopDTO = new ShopDTO();
+        shopDTO.setRating(rating);
+        shopDTO.setName(name);
+        shopDTO.setCategory(category);
+        shopDTO.setId(id);
+        shopDTO.setInfo(info);
+
+        return shopDTO;
+    }
+
     public static Address dummyAddress(String country, String city, String street, int zip, Contact contact) {
         Address address = new Address();
         address.setContact(contact);
@@ -69,6 +80,18 @@ public class DummyObjects {
         return address;
     }
 
+    public static AddressDTO dummyAddressDTO(String country, String city, String street, int zip, ContactDTO contact) {
+
+        AddressDTO addressDTO = new AddressDTO();
+        addressDTO.setContact(contact);
+        addressDTO.setZip(zip);
+        addressDTO.setStreet(street);
+        addressDTO.setCountry(country);
+        addressDTO.setCity(city);
+
+        return addressDTO;
+    }
+
     public static Contact dummyContact(Set<String> emails, Set<String> phones, Set<String> faxes) {
         Contact contact = new Contact();
         contact.setEmail(emails);
@@ -76,6 +99,15 @@ public class DummyObjects {
         contact.setFax(faxes);
 
         return contact;
+    }
+
+    public static ContactDTO dummyContactDTO(Set<String> emails, Set<String> phones, Set<String> faxes) {
+        ContactDTO contactDTO = new ContactDTO();
+        contactDTO.setEmail(emails);
+        contactDTO.setPhone(phones);
+        contactDTO.setFax(faxes);
+
+        return contactDTO;
     }
 
     public static ShopInfo dummyShopInfo(Address mainAddress, Set<Address> address, String url, String description) {
@@ -89,10 +121,29 @@ public class DummyObjects {
         return shopInfo;
     }
 
+    public static ShopInfoDTO dummyShopInfoDTO(AddressDTO mainAddress, Set<AddressDTO> address, String url, String description) {
+
+        ShopInfoDTO shopInfoDTO = new ShopInfoDTO();
+        shopInfoDTO.setMainAddress(mainAddress);
+        shopInfoDTO.setAddress(address);
+        shopInfoDTO.setUrl(url);
+        shopInfoDTO.setDescription(description);
+
+
+        return shopInfoDTO;
+    }
+
     public static PromotionInfo dummyPromotionInfo(String description) {
         PromotionInfo promotionInfo = new PromotionInfo();
         promotionInfo.setDescription(description);
 
         return promotionInfo;
+    }
+
+    public static PromotionInfoDTO dummyPromotionInfoDTO(String description) {
+        PromotionInfoDTO promotionInfoDTO = new PromotionInfoDTO();
+        promotionInfoDTO.setDescription(description);
+
+        return promotionInfoDTO;
     }
 }

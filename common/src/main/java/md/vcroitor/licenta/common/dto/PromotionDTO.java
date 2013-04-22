@@ -25,6 +25,8 @@ public class PromotionDTO {
 
     private String shopId;
 
+    private PromotionInfoDTO info;
+
     public String getId() {
         return id;
     }
@@ -95,5 +97,13 @@ public class PromotionDTO {
 
     public void setShopId(String shopId) {
         this.shopId = shopId;
+    }
+
+    public PromotionInfoDTO getInfo() {
+        return info;
+    }
+
+    public void setInfo(PromotionInfoDTO info) {
+        this.info = info;
     }
 }
