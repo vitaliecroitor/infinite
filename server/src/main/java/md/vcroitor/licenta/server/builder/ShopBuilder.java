@@ -1,6 +1,7 @@
 package md.vcroitor.licenta.server.builder;
 
 import md.vcroitor.licenta.common.dto.ShopDTO;
+import md.vcroitor.licenta.common.dto.ShopInfoDTO;
 import md.vcroitor.licenta.server.persistence.Shop;
 
 import java.lang.reflect.InvocationTargetException;
@@ -15,13 +16,12 @@ import static org.springframework.beans.BeanUtils.copyProperties;
  */
 public class ShopBuilder {
 
-    public static void fromDTO(final Shop shop, final ShopDTO shopDTO) throws InvocationTargetException, IllegalAccessException {
-        copyProperties(shopDTO, shop, new String[]{"info"});
-        // ignore manual set id
-        shop.setId(null);
-    }
-
     public static void toDTO(final Shop shop, final ShopDTO shopDTO) throws InvocationTargetException, IllegalAccessException {
         copyProperties(shop, shopDTO, new String[]{"info"});
+
+        // copy shop info as well
+        ShopInfoDTO shopInfoDTO = new ShopInfoDTO();
+        ShopInfoBuilder.toDTO(shop.getInfo(), shopInfoDTO);
+        shopDTO.setInfo(shopInfoDTO);
     }
 }
