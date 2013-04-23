@@ -1,21 +1,22 @@
 package md.vcroitor.licenta.client.activity;
 
+import com.actionbarsherlock.app.ActionBar;
+import com.actionbarsherlock.app.SherlockFragmentActivity;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuItem;
+
 import md.vcroitor.licenta.client.R;
 import md.vcroitor.licenta.client.adapter.ScreenSlidePagerAdapter;
-import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.NavUtils;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
-public class ScreenSlideActivity extends FragmentActivity {
+public class ScreenSlideActivity extends SherlockFragmentActivity implements ActionBar.OnNavigationListener{
 
 	private static final int NUM_PAGES = 5;
 
@@ -29,7 +30,7 @@ public class ScreenSlideActivity extends FragmentActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_screen_slide);
-		actionBar = getActionBar();
+		actionBar = getSupportActionBar();
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
 		actionBar.setListNavigationCallbacks(
 		// Specify a SpinnerAdapter to populate the dropdown list.
@@ -42,7 +43,7 @@ public class ScreenSlideActivity extends FragmentActivity {
 		mPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
 			@Override
 			public void onPageSelected(int position) {
-				invalidateOptionsMenu();
+				//invalidateOptionsMenu();
 			}
 		});
 	}
@@ -69,11 +70,11 @@ public class ScreenSlideActivity extends FragmentActivity {
 			return false;
 		}
 	};
-
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		super.onCreateOptionsMenu(menu);
-		getMenuInflater().inflate(R.menu.activity_screen_slide, menu);
+		getSupportMenuInflater().inflate(R.menu.activity_screen_slide, menu);
 
 		menu.findItem(R.id.action_previous).setEnabled(mPager.getCurrentItem() > 0);
 
@@ -89,12 +90,12 @@ public class ScreenSlideActivity extends FragmentActivity {
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
-		case android.R.id.home:
-			// Navigate "up" the demo structure to the launchpad activity.
-			// See http://developer.android.com/design/patterns/navigation.html
-			// for more.
-			NavUtils.navigateUpTo(this, new Intent(this, MainActivity.class));
-			return true;
+//		case android.R.id.home:
+//			// Navigate "up" the demo structure to the launchpad activity.
+//			// See http://developer.android.com/design/patterns/navigation.html
+//			// for more.
+//			NavUtils.navigateUpTo(this, new Intent(this, MainActivity.class));
+//			return true;
 
 		case R.id.action_previous:
 			// Go to the previous step in the wizard. If there is no previous
@@ -112,5 +113,11 @@ public class ScreenSlideActivity extends FragmentActivity {
 		}
 
 		return super.onOptionsItemSelected(item);
+	}
+
+	@Override
+	public boolean onNavigationItemSelected(int arg0, long arg1) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 }

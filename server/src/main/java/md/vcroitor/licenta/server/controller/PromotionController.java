@@ -4,9 +4,14 @@ import md.vcroitor.licenta.common.dto.PromotionDTO;
 import md.vcroitor.licenta.common.dto.Request;
 import md.vcroitor.licenta.common.dto.Response;
 import md.vcroitor.licenta.common.enums.PromotionStatusEnum;
+import md.vcroitor.licenta.server.dao.PromotionDAO;
+import md.vcroitor.licenta.server.dao.ShopDAO;
 import md.vcroitor.licenta.server.facade.PromotionFacade;
+import md.vcroitor.licenta.server.persistence.Promotion;
+import md.vcroitor.licenta.server.persistence.Shop;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -32,6 +37,12 @@ public class PromotionController extends GenericController {
     @Resource(name = "promotionFacade")
     private PromotionFacade promotionFacade;
 
+    @Resource(name ="shopDAO")
+    private ShopDAO shopDAO;
+
+    @Resource(name="promotionDAO")
+    private PromotionDAO promotionDAO;
+
     @RequestMapping(value = "/get", method = POST)
     @ResponseBody
     public Response<PromotionDTO> getById(@RequestBody @Valid Request<String> request) throws Exception {
@@ -53,4 +64,14 @@ public class PromotionController extends GenericController {
         log.info("Get by status:" + request.getObject());
         return new Response<>(promotionFacade.getByStatus(request.getObject()));
     }
+
+    @RequestMapping(value = "/add/{shopId}", method = POST)
+    @ResponseBody
+    public Response<?> add(@PathVariable String shopId, @RequestBody Promotion promotion) throws Exception {
+        Shop shop = shopDAO.getById(shopId);
+        promotion.setShop(shop);
+        promotionDAO.create(promotion);
+        return new Response<>();
+    }
+
 }

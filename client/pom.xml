@@ -24,11 +24,21 @@
 			<artifactId>support-v4</artifactId>
 			<version>r7</version>
 		</dependency>
+		<dependency>
+			<groupId>com.actionbarsherlock</groupId>
+			<artifactId>actionbarsherlock</artifactId>
+			<version>4.3.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.nostra13.universalimageloader</groupId>
+			<artifactId>universal-image-loader-sample</artifactId>
+			<version>1.8.4</version>
+		</dependency>
 	</dependencies>
 
 	<build>
 		<plugins>
-			
+
 			<plugin>
 				<groupId>com.jayway.maven.plugins.android.generation2</groupId>
 				<artifactId>android-maven-plugin</artifactId>
@@ -43,26 +53,26 @@
 					</sdk>
 					<undeployBeforeDeploy>true</undeployBeforeDeploy>
 					<configuration>
-                    <manifest>
-                        <debuggable>true</debuggable>
-                    </manifest>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>manifestUpdate</id>
-                        <phase>process-resources</phase>
-                        <goals>
-                            <goal>manifest-update</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>alignApk</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>zipalign</goal>
-                        </goals>
-                    </execution>
-                </executions>
+						<manifest>
+							<debuggable>true</debuggable>
+						</manifest>
+					</configuration>
+					<executions>
+						<execution>
+							<id>manifestUpdate</id>
+							<phase>process-resources</phase>
+							<goals>
+								<goal>manifest-update</goal>
+							</goals>
+						</execution>
+						<execution>
+							<id>alignApk</id>
+							<phase>package</phase>
+							<goals>
+								<goal>zipalign</goal>
+							</goals>
+						</execution>
+					</executions>
 				</configuration>
 				<extensions>true</extensions>
 			</plugin>
