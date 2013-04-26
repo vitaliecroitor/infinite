@@ -22,6 +22,7 @@ import static md.vcroitor.licenta.server.persistence.Promotion.PROMOTION_COLLECT
 public class Promotion {
 
     public static final String PROMOTION_COLLECTION_NAME = "promotions";
+    public static final String PROMOTION_CREATED_DATE = "createdDate";
 
     @Id
     private String id;

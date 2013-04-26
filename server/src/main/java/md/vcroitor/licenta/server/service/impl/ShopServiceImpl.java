@@ -6,6 +6,8 @@ import md.vcroitor.licenta.server.service.ShopService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.Date;
+import java.util.Set;
 
 /**
  * User: Vitalie Croitor
@@ -26,5 +28,10 @@ public class ShopServiceImpl implements ShopService {
     @Override
     public Shop getById(String id) {
         return shopDAO.getById(id);
+    }
+
+    @Override
+    public Set<Shop> list(int offset, int limit) {
+        return shopDAO.getPage(offset, limit);
     }
 }
