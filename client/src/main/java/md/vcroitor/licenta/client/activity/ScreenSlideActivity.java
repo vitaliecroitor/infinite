@@ -40,12 +40,6 @@ public class ScreenSlideActivity extends SherlockFragmentActivity implements Act
 		mPager = (ViewPager) findViewById(R.id.pager);
 		mPagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager(), NUM_PAGES);
 		mPager.setAdapter(mPagerAdapter);
-		mPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
-			@Override
-			public void onPageSelected(int position) {
-				//invalidateOptionsMenu();
-			}
-		});
 	}
 
 	private ActionBar.OnNavigationListener listener = new ActionBar.OnNavigationListener() {
@@ -71,50 +65,6 @@ public class ScreenSlideActivity extends SherlockFragmentActivity implements Act
 		}
 	};
 	
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		super.onCreateOptionsMenu(menu);
-		getSupportMenuInflater().inflate(R.menu.activity_screen_slide, menu);
-
-		menu.findItem(R.id.action_previous).setEnabled(mPager.getCurrentItem() > 0);
-
-		// Add either a "next" or "finish" button to the action bar, depending
-		// on which page
-		// is currently selected.
-		MenuItem item = menu.add(Menu.NONE, R.id.action_next, Menu.NONE, (mPager.getCurrentItem() == mPagerAdapter
-				.getCount() - 1) ? R.string.action_finish : R.string.action_next);
-		item.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM | MenuItem.SHOW_AS_ACTION_WITH_TEXT);
-		return true;
-	}
-
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		switch (item.getItemId()) {
-//		case android.R.id.home:
-//			// Navigate "up" the demo structure to the launchpad activity.
-//			// See http://developer.android.com/design/patterns/navigation.html
-//			// for more.
-//			NavUtils.navigateUpTo(this, new Intent(this, MainActivity.class));
-//			return true;
-
-		case R.id.action_previous:
-			// Go to the previous step in the wizard. If there is no previous
-			// step,
-			// setCurrentItem will do nothing.
-			mPager.setCurrentItem(mPager.getCurrentItem() - 1);
-			return true;
-
-		case R.id.action_next:
-			// Advance to the next step in the wizard. If there is no next step,
-			// setCurrentItem
-			// will do nothing.
-			mPager.setCurrentItem(mPager.getCurrentItem() + 1);
-			return true;
-		}
-
-		return super.onOptionsItemSelected(item);
-	}
-
 	@Override
 	public boolean onNavigationItemSelected(int arg0, long arg1) {
 		// TODO Auto-generated method stub
