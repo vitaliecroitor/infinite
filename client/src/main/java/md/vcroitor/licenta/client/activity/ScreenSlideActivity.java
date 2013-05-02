@@ -1,17 +1,19 @@
 package md.vcroitor.licenta.client.activity;
 
 import android.os.Bundle;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.widget.ArrayAdapter;
+import android.widget.TabHost;
 import android.widget.Toast;
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import md.vcroitor.licenta.client.R;
 import md.vcroitor.licenta.client.adapter.ScreenSlidePagerAdapter;
 
-public class ScreenSlideActivity extends SherlockFragmentActivity implements ActionBar.OnNavigationListener {
+public class ScreenSlideActivity extends SherlockFragmentActivity implements ActionBar.OnNavigationListener, ActionBar.TabListener{
 
     private static final int NUM_PAGES = 5;
 
@@ -32,12 +34,16 @@ public class ScreenSlideActivity extends SherlockFragmentActivity implements Act
         actionBar.setDisplayShowHomeEnabled(false);
         actionBar.setDisplayHomeAsUpEnabled(false);
         actionBar.setDisplayShowTitleEnabled(false);
-       /* actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
-        actionBar.setListNavigationCallbacks(
-                // Specify a SpinnerAdapter to populate the dropdown list.
-                new ArrayAdapter<String>(ScreenSlideActivity.this, android.R.layout.simple_list_item_1,
-                        android.R.id.text1, new String[]{"Item1", "Item2", "Item3",}), this);
-                        */
+
+        // add tabs
+        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+        for (int i = 1; i <= NUM_PAGES; i++) {
+            ActionBar.Tab tab = actionBar.newTab();
+            tab.setText("Tab " + i);
+            tab.setTabListener(this);
+            actionBar.addTab(tab);
+        }
+
         // Instantiate a ViewPager and a PagerAdapter.
         mPager = (ViewPager) findViewById(R.id.pager);
         mPagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager(), NUM_PAGES);
@@ -63,5 +69,20 @@ public class ScreenSlideActivity extends SherlockFragmentActivity implements Act
                 break;
         }
         return false;
+    }
+
+    @Override
+    public void onTabSelected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
+        Toast.makeText(ScreenSlideActivity.this,"tab selected", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
+        Toast.makeText(ScreenSlideActivity.this,"tab UNselected", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onTabReselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
+        Toast.makeText(ScreenSlideActivity.this,"tab REselected", Toast.LENGTH_SHORT).show();
     }
 }
