@@ -1,6 +1,7 @@
 package md.vcroitor.licenta.client.helper;
 
 import android.support.v4.app.Fragment;
+import md.vcroitor.licenta.client.enums.FragmentEnum;
 import md.vcroitor.licenta.client.fragment.PromotionFragment;
 import md.vcroitor.licenta.client.fragment.ShopFragment;
 
@@ -12,11 +13,13 @@ import md.vcroitor.licenta.client.fragment.ShopFragment;
 public class FragmentCreator {
 
     public static Fragment create(int position) {
-        switch (position) {
-            case 0: {
+        FragmentEnum fragmentEnum = FragmentEnum.values()[position];
+
+        switch (fragmentEnum) {
+            case PROMOTION_FRAGMENT: {
                 return new PromotionFragment();
             }
-            case 1: {
+            case SHOP_FRAGMENT: {
                 return new ShopFragment();
             }
 
