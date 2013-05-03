@@ -6,6 +6,8 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 import md.vcroitor.licenta.client.enums.FragmentEnum;
 import md.vcroitor.licenta.client.helper.FragmentCreator;
 
+import static md.vcroitor.licenta.client.helper.FragmentCreator.*;
+
 public class ScreenSlidePagerAdapter extends FragmentStatePagerAdapter {
 
     private int numberOfPages;
@@ -17,7 +19,7 @@ public class ScreenSlidePagerAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        return FragmentCreator.create(position);
+        return create(position);
     }
 
     @Override

@@ -36,6 +36,7 @@ public class ScreenSlideActivity extends SherlockFragmentActivity implements Act
         mPager = (ViewPager) findViewById(R.id.pager);
         mPagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager(), NUM_PAGES);
         mPager.setAdapter(mPagerAdapter);
+        mPager.setOnPageChangeListener(this);
 
         // add tabs
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
@@ -45,7 +46,6 @@ public class ScreenSlideActivity extends SherlockFragmentActivity implements Act
             tab.setTabListener(this);
             actionBar.addTab(tab);
         }
-        mPager.setOnPageChangeListener(this);
     }
 
     @Override

@@ -2,8 +2,9 @@ package md.vcroitor.licenta.client.helper;
 
 import android.support.v4.app.Fragment;
 import md.vcroitor.licenta.client.enums.FragmentEnum;
-import md.vcroitor.licenta.client.fragment.PromotionFragment;
-import md.vcroitor.licenta.client.fragment.ShopFragment;
+import md.vcroitor.licenta.client.fragment.*;
+
+import static md.vcroitor.licenta.client.enums.FragmentEnum.getByPosition;
 
 /**
  * User: Vitalie Croitor
@@ -13,7 +14,7 @@ import md.vcroitor.licenta.client.fragment.ShopFragment;
 public class FragmentCreator {
 
     public static Fragment create(int position) {
-        FragmentEnum fragmentEnum = FragmentEnum.values()[position];
+        FragmentEnum fragmentEnum = getByPosition(position);
 
         switch (fragmentEnum) {
             case PROMOTION_FRAGMENT: {
@@ -22,7 +23,18 @@ public class FragmentCreator {
             case SHOP_FRAGMENT: {
                 return new ShopFragment();
             }
-
+            case FAVORITE_FRAGMENT: {
+                return new FavoriteFragment();
+            }
+            case LAST_ACTIVITY_FRAGMENT: {
+                return new LastActivityFragment();
+            }
+            case PROMOTION_LIST_FRAGMENT: {
+                return new PromotionListFragment();
+            }
+            case SHOP_LIST_FRAGMENT: {
+                return new ShopListFragment();
+            }
         }
         return new PromotionFragment();
     }
