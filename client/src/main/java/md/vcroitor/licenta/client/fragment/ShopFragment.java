@@ -10,6 +10,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import md.vcroitor.licenta.client.R;
+import md.vcroitor.licenta.client.helper.JsonSkipper;
 import md.vcroitor.licenta.client.helper.Logger;
 import md.vcroitor.licenta.client.http.AsyncHttpRequest;
 import md.vcroitor.licenta.client.http.AsyncHttpResponseListener;
@@ -37,7 +38,11 @@ public class ShopFragment extends Fragment {
 
         @Override
         public void onClick(View v) {
-            makeRequest();
+            try {
+                makeRequest();
+            } catch (JsonProcessingException e) {
+                e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            }
         }
     };
 
@@ -55,7 +60,7 @@ public class ShopFragment extends Fragment {
         return view;
     }
 
-    private void makeRequest() {
+    private void makeRequest() throws JsonProcessingException {
         AsyncHttpRequest asyncHttpRequest = new AsyncHttpRequest(new AsyncHttpResponseListener() {
             @Override
             public void onResult(String response) {
@@ -69,14 +74,7 @@ public class ShopFragment extends Fragment {
             }
         });
         Request<String> request = new Request<String>("5185539d44ae65d09ed693fb");
-        ObjectMapper objectMapper = new ObjectMapper();
-        String json = "";
-        try {
-            json = objectMapper.writeValueAsString(request);
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-        }
-        asyncHttpRequest.execute(getResources().getString(R.string.basic_url) + "/promotion/getByShop", json, HttpMethod.POST.toString());
+        asyncHttpRequest.execute(getResources().getString(R.string.basic_url) + "/promotion/getByShop", JsonSkipper.toJson(request), HttpMethod.POST.toString());
     }
 
 }
