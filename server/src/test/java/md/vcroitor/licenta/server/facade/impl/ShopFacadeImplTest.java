@@ -1,11 +1,13 @@
 package md.vcroitor.licenta.server.facade.impl;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import md.vcroitor.licenta.common.dto.ShopDTO;
 import md.vcroitor.licenta.server.persistence.Address;
 import md.vcroitor.licenta.server.persistence.Contact;
 import md.vcroitor.licenta.server.persistence.Shop;
 import md.vcroitor.licenta.server.persistence.ShopInfo;
 import md.vcroitor.licenta.server.service.ShopService;
+import org.apache.log4j.Logger;
 import org.hamcrest.Matchers;
 import org.junit.Before;
 import org.junit.Test;
@@ -29,6 +31,8 @@ import static org.hamcrest.MatcherAssert.assertThat;
  * Time: 3:04 PM
  */
 public class ShopFacadeImplTest {
+
+    private static final Logger log = Logger.getLogger(ShopFacadeImplTest.class);
 
     @InjectMocks
     private ShopFacadeImpl shopFacade;
@@ -58,6 +62,9 @@ public class ShopFacadeImplTest {
         addresses.add(address);
         ShopInfo shopInfo = dummyShopInfo(address, addresses, "http://some.com", "Super shop");
         Shop shop = dummyShop("shop1", "Shop Mania", shopInfo, FASHION, 3);
+
+        log.info(new ObjectMapper().writeValueAsString(shop));
+
 
         when(shopService.getById(anyString())).thenReturn(shop);
         ShopDTO shopDTO = shopFacade.getById("shop1");

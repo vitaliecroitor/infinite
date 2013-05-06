@@ -13,6 +13,11 @@
 	</properties>
 
 	<dependencies>
+        <dependency>
+            <groupId>md.vcroitor.licenta</groupId>
+            <artifactId>common</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
 		<dependency>
 			<groupId>com.google.android</groupId>
 			<artifactId>android</artifactId>
@@ -34,11 +39,28 @@
 			<artifactId>universal-image-loader-sample</artifactId>
 			<version>1.8.4</version>
 		</dependency>
+        <dependency>
+            <groupId>org.springframework.android</groupId>
+            <artifactId>spring-android-rest-template</artifactId>
+            <version>1.0.1.RELEASE</version>
+        </dependency>
+
+        <!-- Gson JSON Processor -->
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.2.3</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.2.1</version>
+        </dependency>
+
 	</dependencies>
 
 	<build>
 		<plugins>
-
 			<plugin>
 				<groupId>com.jayway.maven.plugins.android.generation2</groupId>
 				<artifactId>android-maven-plugin</artifactId>
