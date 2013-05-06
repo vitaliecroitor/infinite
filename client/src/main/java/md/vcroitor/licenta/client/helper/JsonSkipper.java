@@ -20,7 +20,7 @@ public class JsonSkipper {
         return _objectMapper.readValue(json, clazz);
     }
 
-    public static <T> Response<Set<T>> fromJsonSet(String json, TypeReference typeReference) throws IOException {
+    public static <T> Response<Set<T>> fromJsonGeneric(String json, TypeReference typeReference) throws IOException {
         return _objectMapper.readValue(json, typeReference);
     }
 

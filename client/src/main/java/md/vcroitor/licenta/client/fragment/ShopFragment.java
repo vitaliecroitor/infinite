@@ -8,9 +8,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import md.vcroitor.licenta.client.R;
-import md.vcroitor.licenta.client.helper.JsonSkipper;
 import md.vcroitor.licenta.client.helper.Logger;
 import md.vcroitor.licenta.client.http.AsyncHttpRequest;
 import md.vcroitor.licenta.client.http.AsyncHttpResponseListener;
@@ -20,10 +18,12 @@ import md.vcroitor.licenta.common.dto.Response;
 import org.springframework.http.HttpMethod;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-import static md.vcroitor.licenta.client.helper.JsonSkipper.fromJsonSet;
+import static md.vcroitor.licenta.client.helper.JsonSkipper.fromJsonGeneric;
+import static md.vcroitor.licenta.client.helper.JsonSkipper.toJson;
 
 /**
  * User: Vitalie Croitor
@@ -41,7 +41,7 @@ public class ShopFragment extends Fragment {
             try {
                 makeRequest();
             } catch (JsonProcessingException e) {
-                e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+                log.e("unable to create json string: ", Arrays.toString(e.getStackTrace()));
             }
         }
     };
@@ -65,16 +65,15 @@ public class ShopFragment extends Fragment {
             @Override
             public void onResult(String response) {
                 try {
-                    Response<Set<PromotionDTO>> result = fromJsonSet(response, new TypeReference<Response<HashSet<PromotionDTO>>>() {
+                    Response<Set<PromotionDTO>> result = fromJsonGeneric(response, new TypeReference<Response<HashSet<PromotionDTO>>>() {
                     });
-                    result.getObject();
                 } catch (IOException e) {
-                    e.printStackTrace();
+                    log.e("unable to parse json string: ", Arrays.toString(e.getStackTrace()));
                 }
             }
         });
         Request<String> request = new Request<String>("5185539d44ae65d09ed693fb");
-        asyncHttpRequest.execute(getResources().getString(R.string.basic_url) + "/promotion/getByShop", JsonSkipper.toJson(request), HttpMethod.POST.toString());
+        asyncHttpRequest.execute(getResources().getString(R.string.basic_url) + "/promotion/getByShop", toJson(request), HttpMethod.POST.toString());
     }
 
 }
