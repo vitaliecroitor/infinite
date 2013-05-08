@@ -11,15 +11,17 @@ import static md.vcroitor.licenta.client.helper.FragmentCreator.*;
 public class ScreenSlidePagerAdapter extends FragmentStatePagerAdapter {
 
     private int numberOfPages;
+    private FragmentManager fragmentManager;
 
     public ScreenSlidePagerAdapter(FragmentManager fm, int numberOfPages) {
         super(fm);
         this.numberOfPages = numberOfPages;
+        this.fragmentManager = fm;
     }
 
     @Override
     public Fragment getItem(int position) {
-        return create(position);
+        return create(fragmentManager, position);
     }
 
     @Override

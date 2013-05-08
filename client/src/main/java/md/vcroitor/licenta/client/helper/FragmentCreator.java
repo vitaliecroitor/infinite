@@ -1,10 +1,11 @@
 package md.vcroitor.licenta.client.helper;
 
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import md.vcroitor.licenta.client.enums.FragmentEnum;
 import md.vcroitor.licenta.client.fragment.*;
 
-import static md.vcroitor.licenta.client.enums.FragmentEnum.getByPosition;
+import static md.vcroitor.licenta.client.enums.FragmentEnum.*;
 
 /**
  * User: Vitalie Croitor
@@ -13,29 +14,59 @@ import static md.vcroitor.licenta.client.enums.FragmentEnum.getByPosition;
  */
 public class FragmentCreator {
 
-    public static Fragment create(int position) {
+    public static Fragment create(FragmentManager fragmentManager, int position) {
         FragmentEnum fragmentEnum = getByPosition(position);
-
+        Fragment fragment = null;
         switch (fragmentEnum) {
             case PROMOTION_FRAGMENT: {
-                return new PromotionFragment();
+            	fragment = fragmentManager.findFragmentByTag(PROMOTION_FRAGMENT.toString());
+            	if (fragment == null){
+            		fragment = new PromotionFragment();
+            		fragmentManager.beginTransaction().add(fragment, PROMOTION_FRAGMENT.toString()).commit();
+            	}
+            	break;
             }
             case SHOP_FRAGMENT: {
-                return new ShopFragment();
+            	fragment = fragmentManager.findFragmentByTag(SHOP_FRAGMENT.toString());
+            	if (fragment == null){
+            		fragment = new ShopFragment();
+            		fragmentManager.beginTransaction().add(fragment, SHOP_FRAGMENT.toString()).commit();
+            	}
+            	break;
             }
             case FAVORITE_FRAGMENT: {
-                return new FavoriteFragment();
+            	fragment = fragmentManager.findFragmentByTag(FAVORITE_FRAGMENT.toString());
+            	if (fragment == null){
+            		fragment = new FavoriteFragment();
+            		fragmentManager.beginTransaction().add(fragment, FAVORITE_FRAGMENT.toString()).commit();
+            	}
+                break;
             }
             case LAST_ACTIVITY_FRAGMENT: {
-                return new LastActivityFragment();
+            	fragment = fragmentManager.findFragmentByTag(LAST_ACTIVITY_FRAGMENT.toString());
+            	if (fragment == null){
+            		fragment = new LastActivityFragment();
+            		fragmentManager.beginTransaction().add(fragment, LAST_ACTIVITY_FRAGMENT.toString()).commit();
+            	}
+                break;
             }
             case PROMOTION_LIST_FRAGMENT: {
-                return new PromotionListFragment();
+            	fragment = fragmentManager.findFragmentByTag(PROMOTION_LIST_FRAGMENT.toString());
+            	if (fragment == null){
+            		fragment = new PromotionListFragment();
+            		fragmentManager.beginTransaction().add(fragment, PROMOTION_LIST_FRAGMENT.toString()).commit();
+            	}
+                break;
             }
             case SHOP_LIST_FRAGMENT: {
-                return new ShopListFragment();
+            	fragment = fragmentManager.findFragmentByTag(SHOP_LIST_FRAGMENT.toString());
+            	if (fragment == null){
+            		fragment = new ShopListFragment();
+            		fragmentManager.beginTransaction().add(fragment, SHOP_LIST_FRAGMENT.toString()).commit();
+            	}
+                break;
             }
         }
-        return new PromotionFragment();
+        return fragment;
     }
 }

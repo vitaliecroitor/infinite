@@ -2,6 +2,11 @@ package md.vcroitor.licenta.client.adapter;
 
 import java.util.List;
 
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
+import com.nostra13.universalimageloader.core.assist.ImageScaleType;
+
 import md.vcroitor.licenta.client.R;
 import md.vcroitor.licenta.client.domain.Shop;
 import android.content.Context;
@@ -13,31 +18,61 @@ import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
-public class ShopListAdapter extends ArrayAdapter<Shop>{
-	
+public class ShopListAdapter extends ArrayAdapter<Shop> {
+
 	private Context context;
 	private List<Shop> shops;
+	private DisplayImageOptions options;
+	private ImageLoader imageLoader = ImageLoader.getInstance();
+	private Tag tag;
+	private LayoutInflater layoutInflater;
 
 	public ShopListAdapter(Context context, List<Shop> objects) {
 		super(context, R.layout.shop_list_item, objects);
 		this.context = context;
 		this.shops = objects;
+		
+		options = new DisplayImageOptions.Builder()
+							.imageScaleType(ImageScaleType.EXACTLY_STRETCHED)
+							.cacheInMemory()
+							.cacheOnDisc()
+							.resetViewBeforeLoading()
+							.showImageForEmptyUri(R.drawable.icon)
+							.showImageOnFail(R.drawable.icon)
+							.build();
+		
+        imageLoader.init(ImageLoaderConfiguration.createDefault(context)); 
+        layoutInflater = LayoutInflater.from(context);
 	}
-	
+
+	private static class Tag {
+		public TextView shopName;
+		public RatingBar rating;
+		public ImageView shopImage;
+	}
+
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
-		LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		View rowView = inflater.inflate(R.layout.shop_list_item, parent, false);
+
+		if (convertView == null) {
+			tag = new Tag();
+			convertView = layoutInflater.inflate(R.layout.shop_list_item, parent, false);
+			tag.shopName = (TextView) convertView.findViewById(R.id.id_shop_name);
+			tag.rating = (RatingBar) convertView.findViewById(R.id.id_shop_rating);
+			tag.shopImage = (ImageView) convertView.findViewById(R.id.id_shop_image);
+			convertView.setTag(tag);
+		} else {
+			tag = (Tag) convertView.getTag();
+		}
 		
-		Shop shop = shops.get(position);
+		final Shop shop = shops.get(position);
 		
-		TextView textView = (TextView)rowView.findViewById(R.id.id_shop_name);
-		RatingBar ratingBar = (RatingBar) rowView.findViewById(R.id.id_shop_rating);
-		ImageView imageView = (ImageView) rowView.findViewById(R.id.id_shop_image);
+		if (shop != null){
+			tag.shopName.setText(shop.getName());
+			tag.rating.setRating(shop.getRating());
+			imageLoader.displayImage("http://tabletpcssource.com/wp-content/uploads/2011/05/android-logo.png", tag.shopImage, options);
+		}
 		
-		textView.setText(shop.getName());
-		ratingBar.setRating(shop.getRating());
-		imageView.setImageResource(shop.getImage());
-		return rowView;
+		return convertView;
 	}
 }
