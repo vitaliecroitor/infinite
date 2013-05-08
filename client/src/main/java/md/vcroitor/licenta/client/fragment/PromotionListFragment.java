@@ -26,7 +26,7 @@ public class PromotionListFragment extends ListFragment {
 		promotion.setImage(R.drawable.img);
 		promotion.setNewPrice("220 lei");
 		promotion.setOldPrice("290 lei");
-		promotion.setTitle("Chiloti");
+		promotion.setTitle("Egypt");
 		List<Promotion> promotions = new ArrayList<Promotion>();
 		promotions.add(promotion);
         promotions.add(promotion);

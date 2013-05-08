@@ -70,7 +70,7 @@ public class ShopListAdapter extends ArrayAdapter<Shop> {
 		if (shop != null){
 			tag.shopName.setText(shop.getName());
 			tag.rating.setRating(shop.getRating());
-			imageLoader.displayImage("http://tabletpcssource.com/wp-content/uploads/2011/05/android-logo.png", tag.shopImage, options);
+			imageLoader.displayImage("https://ssl.gstatic.com/android/market/com.rovio.angrybirdsseasons/hi-256-9-347dae230614238a639d21508ae492302340b2ba", tag.shopImage, options);
 		}
 		
 		return convertView;
