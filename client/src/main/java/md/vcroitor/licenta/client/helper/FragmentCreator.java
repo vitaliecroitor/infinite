@@ -14,7 +14,7 @@ import static md.vcroitor.licenta.client.enums.FragmentEnum.*;
  */
 public class FragmentCreator {
 
-    public static Fragment create(FragmentManager fragmentManager, int position) {
+    public static Fragment createOrGet(FragmentManager fragmentManager, int position) {
         FragmentEnum fragmentEnum = getByPosition(position);
         Fragment fragment = null;
         switch (fragmentEnum) {
