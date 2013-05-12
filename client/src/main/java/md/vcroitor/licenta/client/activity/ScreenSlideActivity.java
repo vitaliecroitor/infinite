@@ -1,25 +1,26 @@
 package md.vcroitor.licenta.client.activity;
 
+import android.view.WindowManager;
+import md.vcroitor.licenta.client.R;
+import md.vcroitor.licenta.client.adapter.ScreenSlidePagerAdapter;
+import md.vcroitor.licenta.client.enums.FragmentEnum;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.widget.ScrollView;
+import android.view.View;
+
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
-import md.vcroitor.licenta.client.R;
-import md.vcroitor.licenta.client.adapter.ScreenSlidePagerAdapter;
-import md.vcroitor.licenta.client.enums.FragmentEnum;
+import com.actionbarsherlock.view.ActionMode;
 
 public class ScreenSlideActivity extends SherlockFragmentActivity implements ActionBar.TabListener, ViewPager.OnPageChangeListener {
 
     private static final int NUM_PAGES = FragmentEnum.values().length;
-
     private ViewPager mPager;
-
     private PagerAdapter mPagerAdapter;
-
     private ActionBar actionBar;
+    private ActionMode actionMode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,10 +29,6 @@ public class ScreenSlideActivity extends SherlockFragmentActivity implements Act
 
         // disable home and title
         actionBar = getSupportActionBar();
-        actionBar.setHomeButtonEnabled(false);
-        actionBar.setDisplayShowHomeEnabled(false);
-        actionBar.setDisplayHomeAsUpEnabled(false);
-        actionBar.setDisplayShowTitleEnabled(false);
 
         // Instantiate a ViewPager and a PagerAdapter.
         mPager = (ViewPager) findViewById(R.id.pager);

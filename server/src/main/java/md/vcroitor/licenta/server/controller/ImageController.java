@@ -31,14 +31,14 @@ public class ImageController extends GenericController {
     @Resource(name = "imageService")
     private ImageService imageService;
 
-    @RequestMapping(value = "/promotion/{shopId}_{promotionId}_{imageType}.png", method = GET)
+    @RequestMapping(value = "/promotion/{shopId}/{promotionId}/{imageType}.png", method = GET)
     @ResponseBody
     public byte[] getPromotionImage(@PathVariable String shopId, @PathVariable String promotionId, @PathVariable ImageType imageType) throws Exception {
         log.info("promotion image: " + shopId + "   " + promotionId + "  " + imageType.toString());
         return imageService.getPromotionImage(shopId, promotionId, imageType);
     }
 
-    @RequestMapping(value = "/shop/{shopId}_{imageType}.png", method = GET)
+    @RequestMapping(value = "/shop/{shopId}/{imageType}.png", method = GET)
     @ResponseBody
     public byte[] getShopImage(@PathVariable String shopId, @PathVariable ImageType imageType) throws Exception {
         log.info("shop image: " + shopId + "   " + imageType.toString());

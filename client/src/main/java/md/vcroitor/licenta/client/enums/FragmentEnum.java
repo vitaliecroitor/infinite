@@ -6,12 +6,10 @@ package md.vcroitor.licenta.client.enums;
  * Time: 9:38 AM
  */
 public enum FragmentEnum {
-    PROMOTION_FRAGMENT(0),
-    SHOP_FRAGMENT(1),
-    SHOP_LIST_FRAGMENT(2),
-    PROMOTION_LIST_FRAGMENT(3),
-    FAVORITE_FRAGMENT(4),
-    LAST_ACTIVITY_FRAGMENT(5);
+    SHOP_LIST_FRAGMENT(0),
+    PROMOTION_LIST_FRAGMENT(1),
+    FAVORITE_FRAGMENT(2),
+    LAST_ACTIVITY_FRAGMENT(3);
 
     private int position;
 
@@ -30,6 +28,6 @@ public enum FragmentEnum {
             }
         }
 
-        return PROMOTION_FRAGMENT;
+        return PROMOTION_LIST_FRAGMENT;
     }
 }

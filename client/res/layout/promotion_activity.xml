@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="fill_parent"
-              android:layout_height="wrap_content"
-              android:orientation="vertical"
-              android:padding="16dip">
-
-    <TextView
-            android:gravity="bottom"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            style="?android:textAppearanceLarge"
-            android:textStyle="bold"
-            android:textSize="30sp"
-            android:text="Super mega promotion"/>
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#EBE8D9"
+    android:orientation="vertical" >
+    
+    <RelativeLayout
+        android:layout_height="180dip"
+        android:layout_width="fill_parent">
+        <ImageView android:layout_height="150dip"
+            android:layout_width="150dip"
+            android:src="@drawable/img"
+            android:contentDescription="@null"/>
+    </RelativeLayout>
 
 </LinearLayout>

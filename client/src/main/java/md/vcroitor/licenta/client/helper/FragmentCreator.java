@@ -18,22 +18,6 @@ public class FragmentCreator {
         FragmentEnum fragmentEnum = getByPosition(position);
         Fragment fragment = null;
         switch (fragmentEnum) {
-            case PROMOTION_FRAGMENT: {
-            	fragment = fragmentManager.findFragmentByTag(PROMOTION_FRAGMENT.toString());
-            	if (fragment == null){
-            		fragment = new PromotionFragment();
-            		fragmentManager.beginTransaction().add(fragment, PROMOTION_FRAGMENT.toString()).commit();
-            	}
-            	break;
-            }
-            case SHOP_FRAGMENT: {
-            	fragment = fragmentManager.findFragmentByTag(SHOP_FRAGMENT.toString());
-            	if (fragment == null){
-            		fragment = new ShopFragment();
-            		fragmentManager.beginTransaction().add(fragment, SHOP_FRAGMENT.toString()).commit();
-            	}
-            	break;
-            }
             case FAVORITE_FRAGMENT: {
             	fragment = fragmentManager.findFragmentByTag(FAVORITE_FRAGMENT.toString());
             	if (fragment == null){
