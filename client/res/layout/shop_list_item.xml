@@ -1,59 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/prom_list_item"
-    android:layout_width="fill_parent"
-    android:layout_height="100dip"
-    android:layout_marginLeft="10dip"
-    android:layout_marginRight="10dip"
-    android:background="#e0e4e1"
-    android:orientation="horizontal" >
+              android:id="@+id/prom_list_item"
+              android:layout_width="fill_parent"
+              android:layout_height="100dip"
+              android:layout_marginLeft="5dip"
+              android:layout_marginRight="5dip"
+              android:background="#e0e4e1"
+              android:orientation="horizontal">
 
     <ImageView
-        android:id="@+id/id_shop_image"
-        android:layout_width="100dip"
-        android:layout_height="fill_parent"
-        android:layout_margin="3dip"
-        android:contentDescription="@null"
-        android:scaleType="fitXY"
-        android:src="@drawable/img" />
+            android:id="@+id/id_shop_image"
+            android:layout_width="100dip"
+            android:layout_height="fill_parent"
+            android:contentDescription="@null"
+            android:scaleType="fitXY"
+            android:src="@drawable/img"/>
 
     <RelativeLayout
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent" >
+            android:layout_width="150dip"
+            android:layout_margin="5dip"
+            android:layout_height="fill_parent">
 
         <TextView
-            android:id="@+id/id_shop_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dip"
-            android:ellipsize="marquee"
-            android:marqueeRepeatLimit="marquee_forever"
-            android:scrollHorizontally="true"
-            android:singleLine="true"
-            android:text="Maximum MD fdsajh lkasjdfkl lsakfjdslkafjalskdfjlaskdfjaskldf kasdjfa"
-            android:textSize="20sp" />
+                android:id="@+id/id_shop_name"
+                android:textColor="#000000"
+                style="?android:textAppearanceLarge"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="marquee"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:scrollHorizontally="true"
+                android:singleLine="true"
+                android:text="Maximum MD"
+                android:textSize="20sp"/>
+
+        <TextView
+                android:id="@+id/id_shop_category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:text="Food"
+                android:textSize="15sp"
+                android:layout_alignLeft="@id/id_shop_name" android:layout_below="@id/id_shop_name"/>
 
         <RatingBar
-            android:id="@+id/id_shop_rating"
-            style="?android:attr/ratingBarStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="5dip"
-            android:isIndicator="false"
-            android:numStars="10"
-            android:rating="0.0"
-            android:stepSize="1.0" />
+                android:id="@+id/id_shop_rating"
+                style="?android:attr/ratingBarStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:numStars="5"
+                android:rating="0.0"
+                android:stepSize="1.0"
+                android:layout_below="@id/id_shop_category"/>
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
-            android:layout_margin="5sp"
-            android:text="30"
-            android:textSize="30sp" />
+                android:id="@+id/id_nr_of_prom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="30"
+                android:textSize="15sp"
+                android:layout_alignTop="@+id/textView"/>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" promotii active"
+                android:textSize="15sp"
+                android:id="@+id/textView"
+                android:layout_toRightOf="@id/id_nr_of_prom"
+                android:layout_alignParentBottom="true"/>
     </RelativeLayout>
+    <LinearLayout
+            android:layout_width="30dip"
+            android:background="#f2c11a"
+            android:layout_height="fill_parent">
+        <ImageView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_navigation_next_item"
+                android:contentDescription="@null"
+                />
+    </LinearLayout>
 
 </LinearLayout>

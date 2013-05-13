@@ -1,6 +1,8 @@
 package md.vcroitor.licenta.client.activity;
 
 import android.view.WindowManager;
+import android.widget.Toast;
+import com.actionbarsherlock.view.Menu;
 import md.vcroitor.licenta.client.R;
 import md.vcroitor.licenta.client.adapter.ScreenSlidePagerAdapter;
 import md.vcroitor.licenta.client.enums.FragmentEnum;
@@ -44,6 +46,21 @@ public class ScreenSlideActivity extends SherlockFragmentActivity implements Act
             tab.setTabListener(this);
             actionBar.addTab(tab);
         }
+    }
+
+    public void onSettingsClick (View view){
+        Toast.makeText(getApplicationContext(),"THis is settings",Toast.LENGTH_SHORT).show();
+    }
+
+    public void onSearchClick (View view){
+        Toast.makeText(getApplicationContext(),"THis is settings",Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        menu.removeItem(android.R.id.home);
+        menu.add("Test").setIcon(R.drawable.icon);
+        return super.onCreateOptionsMenu(menu);
     }
 
     @Override

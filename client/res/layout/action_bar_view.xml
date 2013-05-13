@@ -1,26 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:background="#2E2D2A"
-    android:orientation="horizontal" >
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:layout_weight="3"
+              android:background="@drawable/action_bar_gradient"
+              android:orientation="horizontal">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="fill_parent"
-        android:layout_weight="1"
-        android:text="Some text" />
+    <LinearLayout
+            android:layout_height="fill_parent"
+            android:layout_width="wrap_content"
+            android:clickable="true"
+            android:onClick="onSettingsClick"
+            android:layout_weight="1">
+
+        <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dip"
+                android:src="@drawable/ic_action_settings"
+                android:contentDescription="@null"/>
+    </LinearLayout>
+
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="fill_parent"
-        android:layout_weight="1"
-        android:src="@drawable/icon" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="5dip"
+            android:contentDescription="@null"
+            android:src="@drawable/logo_small"/>
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="fill_parent"
-        android:layout_weight="1"
-        android:text="other text" />
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_gravity="bottom"
+            android:textSize="20dip"
+            />
+
+    <LinearLayout
+            android:layout_height="fill_parent"
+            android:layout_width="wrap_content"
+            android:clickable="true"
+            android:gravity="right"
+            android:onClick="onSearchClick"
+            android:layout_weight="1">
+        <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dip"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_action_search"/>
+    </LinearLayout>
 
 </LinearLayout>
