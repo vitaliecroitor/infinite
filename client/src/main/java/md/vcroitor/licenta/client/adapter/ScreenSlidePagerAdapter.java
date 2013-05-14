@@ -3,12 +3,12 @@ package md.vcroitor.licenta.client.adapter;
 import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentStatePagerAdapter;
 
 import static md.vcroitor.licenta.client.helper.FragmentCreator.create;
 import static md.vcroitor.licenta.client.helper.FragmentCreator.getName;
 
-public class ScreenSlidePagerAdapter extends FragmentPagerAdapter {
+public class ScreenSlidePagerAdapter extends FragmentStatePagerAdapter {
 
     private int numberOfPages;
     private FragmentManager fragmentManager;
@@ -23,7 +23,7 @@ public class ScreenSlidePagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        return create(position);
+        return create(fragmentManager,position);
     }
 
     @Override

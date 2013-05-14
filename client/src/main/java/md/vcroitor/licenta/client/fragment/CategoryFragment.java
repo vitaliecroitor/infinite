@@ -12,7 +12,7 @@ import md.vcroitor.licenta.client.R;
  * Date: 5/3/13
  * Time: 11:47 AM
  */
-public class LastActivityFragment extends Fragment {
+public class CategoryFragment extends Fragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
