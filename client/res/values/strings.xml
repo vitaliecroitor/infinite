@@ -17,4 +17,8 @@
     <string name="basic_url">http://192.168.2.5:8080/server</string>
     <string name="site_name">unu.md</string>
     <string name="loading">Loading...</string>
+    <string name="tab_promotions">Promotions</string>
+    <string name="tab_shops">Shops</string>
+    <string name="tab_categories">Categories</string>
+    <string name="tab_favorites">Favorites</string>
 </resources>

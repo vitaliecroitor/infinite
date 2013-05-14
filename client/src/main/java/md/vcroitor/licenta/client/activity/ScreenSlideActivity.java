@@ -32,7 +32,7 @@ public class ScreenSlideActivity extends SherlockFragmentActivity implements Act
 
         // Instantiate a ViewPager and a PagerAdapter.
         mPager = (ViewPager) findViewById(R.id.pager);
-        mPagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager(), NUM_PAGES);
+        mPagerAdapter = new ScreenSlidePagerAdapter(getApplicationContext(),getSupportFragmentManager(), NUM_PAGES);
         mPager.setAdapter(mPagerAdapter);
         mPager.setOnPageChangeListener(this);
 

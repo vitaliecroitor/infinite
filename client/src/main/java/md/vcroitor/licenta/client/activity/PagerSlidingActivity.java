@@ -28,7 +28,7 @@ public class PagerSlidingActivity extends FragmentActivity {
         setContentView(R.layout.pager_sliding);
         tabs = (PagerSlidingTabStrip) findViewById(R.id.tabs);
         pager = (ViewPager) findViewById(R.id.pager);
-        adapter = new ScreenSlidePagerAdapter(getSupportFragmentManager(), FragmentEnum.values().length);
+        adapter = new ScreenSlidePagerAdapter(getApplicationContext(),getSupportFragmentManager(), FragmentEnum.values().length);
 
         pager.setAdapter(adapter);
         tabs.setViewPager(pager);

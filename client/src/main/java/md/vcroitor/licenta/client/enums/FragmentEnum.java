@@ -9,7 +9,7 @@ public enum FragmentEnum {
     PROMOTION_LIST_FRAGMENT(0),
     SHOP_LIST_FRAGMENT(1),
     FAVORITE_FRAGMENT(2),
-    LAST_ACTIVITY_FRAGMENT(3);
+    CATEGORY_FRAGMENT(3);
 
     private int position;
 
