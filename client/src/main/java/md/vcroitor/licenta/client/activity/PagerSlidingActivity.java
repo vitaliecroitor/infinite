@@ -33,5 +33,4 @@ public class PagerSlidingActivity extends FragmentActivity {
         pager.setAdapter(adapter);
         tabs.setViewPager(pager);
     }
-
 }
