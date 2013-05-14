@@ -40,12 +40,40 @@ public class ScreenSlideActivity extends SherlockFragmentActivity implements Act
 
         // add tabs
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
-        for (int i = 1; i <= NUM_PAGES; i++) {
-            ActionBar.Tab tab = actionBar.newTab();
-            tab.setText("Tab " + i);
-            tab.setTabListener(this);
-            actionBar.addTab(tab);
-        }
+        createTabs();
+//        for (int i = 1; i <= NUM_PAGES; i++) {
+//            ActionBar.Tab tab = actionBar.newTab();
+//            tab.setText("Tab " + i);
+//            tab.setTabListener(this);
+//            actionBar.addTab(tab);
+//        }
+    }
+
+    private void createTabs(){
+
+        // create promotion
+        ActionBar.Tab promotions = actionBar.newTab();
+        promotions.setTabListener(this);
+        promotions.setText("Promotions");
+        actionBar.addTab(promotions);
+
+        // create shop
+        ActionBar.Tab shop = actionBar.newTab();
+        shop.setTabListener(this);
+        shop.setText("Shops");
+        actionBar.addTab(shop);
+
+        // create favorite
+        ActionBar.Tab favorite = actionBar.newTab();
+        favorite.setTabListener(this);
+        favorite.setText("Favorite");
+        actionBar.addTab(favorite);
+
+        // create categories
+        ActionBar.Tab categories = actionBar.newTab();
+        categories.setText("Categories");
+        categories.setTabListener(this);
+        actionBar.addTab(categories);
     }
 
     public void onSettingsClick (View view){

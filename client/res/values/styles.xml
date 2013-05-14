@@ -5,6 +5,9 @@
         <item name="actionBarStyle">@style/Widget.Styled.ActionBar</item>
         <item name="android:homeAsUpIndicator">@android:color/transparent</item>
         <item name="homeAsUpIndicator">@android:color/transparent</item>
+        <item name="android:actionBarTabStyle">@style/Widget.Styled.ActionBar.Tab</item>
+        <item name="android:actionBarTabTextStyle">@style/Widget.Styled.ActionBar.Tab.Text</item>
+        <item name="android:actionBarTabBarStyle">@style/Widget.Styled.ActionBar.TabBar</item>
     </style>
     <style name="Widget.Styled.ActionBar" parent="Widget.Sherlock.ActionBar.Solid">
         <item name="android:displayOptions">showCustom|showHome|useLogo</item>
@@ -13,5 +16,25 @@
         <item name="logo">@android:color/transparent</item>
         <item name="android:customNavigationLayout">@layout/action_bar_view</item>
         <item name="customNavigationLayout">@layout/action_bar_view</item>
+    </style>
+
+    <style name="Widget.Styled.ActionBar.Tab" parent="Widget.Sherlock.ActionBar.TabView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:background">#777777</item>
+    </style>
+
+    <style name="Widget.Styled.ActionBar.Tab.Text" parent="Widget.Sherlock.ActionBar.TabText">
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:textSize">20dip</item>
+        <item name="android:padding">0dip</item>
+        <item name="android:layout_margin">0dip</item>
+    </style>
+
+    <style name="Widget.Styled.ActionBar.TabBar" parent="Widget.Sherlock.ActionBar.TabBar">
+        <item name="android:layout_height">40dip</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:tabStripEnabled">false</item>
+        <!--<item name="android:layout_gravity">center</item>-->
+        <!--<item name="android:gravity">center</item>-->
     </style>
 </resources>

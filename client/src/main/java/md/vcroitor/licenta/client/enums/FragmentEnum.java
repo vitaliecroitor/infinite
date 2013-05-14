@@ -6,8 +6,8 @@ package md.vcroitor.licenta.client.enums;
  * Time: 9:38 AM
  */
 public enum FragmentEnum {
-    SHOP_LIST_FRAGMENT(0),
-    PROMOTION_LIST_FRAGMENT(1),
+    PROMOTION_LIST_FRAGMENT(0),
+    SHOP_LIST_FRAGMENT(1),
     FAVORITE_FRAGMENT(2),
     LAST_ACTIVITY_FRAGMENT(3);
 
