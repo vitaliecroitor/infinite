@@ -1,20 +1,18 @@
 package md.vcroitor.licenta.client.activity;
 
-import android.view.WindowManager;
-import android.widget.Toast;
-import com.actionbarsherlock.view.Menu;
-import md.vcroitor.licenta.client.R;
-import md.vcroitor.licenta.client.adapter.ScreenSlidePagerAdapter;
-import md.vcroitor.licenta.client.enums.FragmentEnum;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.View;
-
+import android.widget.Toast;
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.ActionMode;
+import com.actionbarsherlock.view.Menu;
+import md.vcroitor.licenta.client.R;
+import md.vcroitor.licenta.client.adapter.ScreenSlidePagerAdapter;
+import md.vcroitor.licenta.client.enums.FragmentEnum;
 
 public class ScreenSlideActivity extends SherlockFragmentActivity implements ActionBar.TabListener, ViewPager.OnPageChangeListener {
 
@@ -49,7 +47,7 @@ public class ScreenSlideActivity extends SherlockFragmentActivity implements Act
 //        }
     }
 
-    private void createTabs(){
+    private void createTabs() {
 
         // create promotion
         ActionBar.Tab promotions = actionBar.newTab();
@@ -74,14 +72,15 @@ public class ScreenSlideActivity extends SherlockFragmentActivity implements Act
         categories.setText("Categories");
         categories.setTabListener(this);
         actionBar.addTab(categories);
+
     }
 
-    public void onSettingsClick (View view){
-        Toast.makeText(getApplicationContext(),"THis is settings",Toast.LENGTH_SHORT).show();
+    public void onSettingsClick(View view) {
+        Toast.makeText(getApplicationContext(), "THis is settings", Toast.LENGTH_SHORT).show();
     }
 
-    public void onSearchClick (View view){
-        Toast.makeText(getApplicationContext(),"THis is settings",Toast.LENGTH_SHORT).show();
+    public void onSearchClick(View view) {
+        Toast.makeText(getApplicationContext(), "THis is settings", Toast.LENGTH_SHORT).show();
     }
 
     @Override
