@@ -21,42 +21,27 @@ public class SettingsActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.settings_view);
-
-        bindViews();
-        initState();
-    }
-
-    /**
-     * View binding
-     */
-    private void bindViews() {
         mSlidingLayer = (SlidingLayer) findViewById(R.id.slidingLayer1);
-    }
-
-    /**
-     * Initializes the origin state of the layer
-     */
-    private void initState() {
 
         // Sticks container to right or left
         RelativeLayout.LayoutParams rlp = (RelativeLayout.LayoutParams) mSlidingLayer.getLayoutParams();
         Drawable d;
 
         d = getResources().getDrawable(R.drawable.img);
-        rlp.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
+        rlp.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
 
         d.setBounds(0, 0, d.getIntrinsicWidth(), d.getIntrinsicHeight());
         mSlidingLayer.setLayoutParams(rlp);
 
-        // Sets the shadow of the container
-        if (false) {
-            mSlidingLayer.setShadowWidthRes(R.dimen.shadow_width);
-            mSlidingLayer.setShadowDrawable(R.drawable.sidebar_shadow);
-        } else {
-            mSlidingLayer.setShadowWidth(0);
-            mSlidingLayer.setShadowDrawable(null);
-        }
+
+        mSlidingLayer.setShadowWidthRes(R.dimen.shadow_width);
+        mSlidingLayer.setShadowDrawable(R.drawable.sidebar_shadow);
+
+        // mSlidingLayer.setShadowWidth(0);
+        // mSlidingLayer.setShadowDrawable(null);
+
     }
+
 
     public void buttonClicked(View v) {
         switch (v.getId()) {
@@ -81,7 +66,6 @@ public class SettingsActivity extends Activity {
                     mSlidingLayer.closeLayer(true);
                     return true;
                 }
-
             default:
                 return super.onKeyDown(keyCode, event);
         }
