@@ -8,13 +8,13 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 import static md.vcroitor.licenta.client.helper.FragmentCreator.create;
 import static md.vcroitor.licenta.client.helper.FragmentCreator.getName;
 
-public class ScreenSlidePagerAdapter extends FragmentStatePagerAdapter {
+public class SlidePagerAdapter extends FragmentStatePagerAdapter {
 
     private int numberOfPages;
     private FragmentManager fragmentManager;
     private Context context;
 
-    public ScreenSlidePagerAdapter(Context context, FragmentManager fm, int numberOfPages) {
+    public SlidePagerAdapter(Context context, FragmentManager fm, int numberOfPages) {
         super(fm);
         this.numberOfPages = numberOfPages;
         this.fragmentManager = fm;

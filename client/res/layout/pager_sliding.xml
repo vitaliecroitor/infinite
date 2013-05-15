@@ -1,20 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 xmlns:app="http://schemas.android.com/apk/res-auto"
                 xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
+    <!-- action bar -->
+    <LinearLayout
+            android:id="@+id/action_bar_layout"
+            android:layout_width="fill_parent"
+            android:layout_height="48dip"
+            android:layout_weight="3"
+            android:background="@drawable/action_bar_gradient"
+            android:orientation="horizontal">
 
+        <LinearLayout
+                android:layout_height="fill_parent"
+                android:layout_width="wrap_content"
+                android:clickable="true"
+                android:onClick="onSettingsClick"
+                android:layout_weight="1">
+
+            <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dip"
+                    android:src="@drawable/ic_action_settings"
+                    android:contentDescription="@null"/>
+        </LinearLayout>
+
+
+        <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="5dip"
+                android:contentDescription="@null"
+                android:src="@drawable/logo_small"/>
+
+        <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_gravity="bottom"
+                android:textSize="20dip"
+                />
+
+        <LinearLayout
+                android:layout_height="fill_parent"
+                android:layout_width="wrap_content"
+                android:clickable="true"
+                android:gravity="right"
+                android:onClick="onSearchClick"
+                android:layout_weight="1">
+
+            <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dip"
+                    android:contentDescription="@null"
+                    android:src="@drawable/ic_action_search"/>
+        </LinearLayout>
+
+    </LinearLayout>
+    <!-- end action bar -->
+
+    <!-- tabs -->
     <md.vcroitor.licenta.client.library.PagerSlidingTabStrip
             android:id="@+id/tabs"
             android:layout_width="match_parent"
-            android:layout_height="48dip"
+            android:layout_height="35dip"
             android:background="@drawable/background_tab"
             app:dividerColor="#00000000"
             app:indicatorColor="#FF33B5E6"
             app:tabPaddingLeftRight="14dip"
             app:underlineColor="#FF33B5E6"
+            android:layout_below="@id/action_bar_layout"
             />
 
+    <!-- view pager -->
     <android.support.v4.view.ViewPager
             android:id="@+id/pager"
             android:layout_width="match_parent"
@@ -22,4 +84,38 @@
             android:layout_above="@+id/colors"
             android:layout_below="@+id/tabs"
             tools:context=".MainActivity"/>
+
+    <!-- settings -->
+    <md.vcroitor.licenta.client.library.SlidingLayer
+            xmlns:slidingLayer="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/sliding_layer"
+            android:layout_width="@dimen/layer_width"
+            android:layout_height="match_parent">
+        <!--slidingLayer:shadowDrawable="@drawable/sidebar_shadow"
+            slidingLayer:shadowWidth="@dimen/shadow_width"
+            slidingLayer:stickTo="auto|right|left|middle"
+            slidingLayer:closeOnTapEnabled="true">-->
+
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#151515">
+
+            <TextView
+                    android:id="@+id/swipeText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:fontFamily="sans-serif-medium"
+                    android:drawablePadding="15dip"
+                    android:paddingBottom="80dp"
+                    android:textSize="17sp"
+                    android:text="Settings"
+                    android:textColor="#074035"/>
+
+        </RelativeLayout>
+
+    </md.vcroitor.licenta.client.library.SlidingLayer>
+
 </RelativeLayout>

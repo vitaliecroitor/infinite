@@ -17,49 +17,22 @@
                 android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
-
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
         <activity
-                android:name="md.vcroitor.licenta.client.activity.ScreenSlideActivity"
-                android:label="@string/title_screen_slide"
-                android:theme="@style/Theme.Styled"
-                android:parentActivityName=".MainActivity"
-                android:screenOrientation="portrait"
-                android:uiOptions="splitActionBarWhenNarrow">
-            <meta-data
-                    android:name="android.support.PARENT_ACTIVITY"
-                    android:value=".MainActivity"/>
-        </activity>
-        <activity
-                android:theme="@style/Theme.Styled"
-                android:name="md.vcroitor.licenta.client.activity.PromotionActivity"
-                android:label="promotion activity"
-                android:parentActivityName=".ScreenSlideActivity"
-                android:screenOrientation="portrait"
-                android:uiOptions="splitActionBarWhenNarrow">
-            <meta-data
-                    android:name="android.support.PARENT_ACTIVITY"
-                    android:value=".ScreenSlideActivity"/>
-        </activity>
-        <activity
-                android:theme="@style/Theme.Styled"
                 android:name="md.vcroitor.licenta.client.activity.PagerSlidingActivity"
-                android:screenOrientation="portrait"
-                android:uiOptions="splitActionBarWhenNarrow">
+                android:screenOrientation="portrait">
             <meta-data
                     android:name="android.support.PARENT_ACTIVITY"
                     android:value=".PagerSlidingActivity"/>
         </activity>
         <activity
-                android:name="md.vcroitor.licenta.client.activity.SettingsActivity"
-                android:screenOrientation="portrait"
-                android:uiOptions="splitActionBarWhenNarrow">
+                android:name="md.vcroitor.licenta.client.activity.PromotionActivity"
+                android:screenOrientation="portrait">
             <meta-data
                     android:name="android.support.PARENT_ACTIVITY"
-                    android:value=".SettingsActivity"/>
+                    android:value=".PromotionActivity"/>
         </activity>
     </application>
-
 </manifest>

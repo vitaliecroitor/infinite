@@ -30,12 +30,6 @@
 			<version>r7</version>
 		</dependency>
 		<dependency>
-			<groupId>com.actionbarsherlock</groupId>
-			<artifactId>actionbarsherlock</artifactId>
-			<version>4.3.0</version>
-            <type>apklib</type>
-		</dependency>
-		<dependency>
 			<groupId>com.nostra13.universalimageloader</groupId>
 			<artifactId>universal-image-loader-sample</artifactId>
 			<version>1.8.4</version>

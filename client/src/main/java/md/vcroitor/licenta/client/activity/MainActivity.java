@@ -1,7 +1,5 @@
 package md.vcroitor.licenta.client.activity;
 
-import com.actionbarsherlock.app.SherlockActivity;
-import md.vcroitor.licenta.client.R;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,8 +7,9 @@ import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import md.vcroitor.licenta.client.R;
 
-public class MainActivity extends SherlockActivity {
+public class MainActivity extends Activity {
 
     private static String TAG = "client";
     private Button startButton;
@@ -24,7 +23,7 @@ public class MainActivity extends SherlockActivity {
         startButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, SettingsActivity.class));
+                startActivity(new Intent(MainActivity.this, PagerSlidingActivity.class));
             }
         });
     }
