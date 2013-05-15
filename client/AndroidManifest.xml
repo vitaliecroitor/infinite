@@ -52,6 +52,14 @@
                     android:name="android.support.PARENT_ACTIVITY"
                     android:value=".PagerSlidingActivity"/>
         </activity>
+        <activity
+                android:name="md.vcroitor.licenta.client.activity.SettingsActivity"
+                android:screenOrientation="portrait"
+                android:uiOptions="splitActionBarWhenNarrow">
+            <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value=".SettingsActivity"/>
+        </activity>
     </application>
 
 </manifest>

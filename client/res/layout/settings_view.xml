@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context=".MainActivity" >
+
+    <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="45dp"
+            android:contentDescription="@null"
+            android:src="@drawable/img"/>
+
+    <Button
+            android:id="@+id/buttonOpen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="buttonClicked"
+            android:layout_centerInParent="true"
+            android:text="button1" />
+
+    <md.vcroitor.licenta.client.library.SlidingLayer
+            xmlns:slidingLayer="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/slidingLayer1"
+            android:layout_width="@dimen/layer_width"
+            android:layout_height="match_parent">
+        <!--slidingLayer:shadowDrawable="@drawable/sidebar_shadow"
+            slidingLayer:shadowWidth="@dimen/shadow_width"
+            slidingLayer:stickTo="auto|right|left|middle"
+            slidingLayer:closeOnTapEnabled="true">-->
+
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#14ad8f">
+
+            <TextView
+                    android:id="@+id/swipeText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:fontFamily="sans-serif-medium"
+                    android:drawablePadding="15dip"
+                    android:paddingBottom="80dp"
+                    android:textSize="17sp"
+                    android:text="This is dummy text"
+                    android:textColor="#074035"/>
+
+            <Button
+                    android:id="@+id/buttonClose"
+                    android:onClick="buttonClicked"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="60dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:text="button2" />
+
+        </RelativeLayout>
+
+    </md.vcroitor.licenta.client.library.SlidingLayer>
+
+</RelativeLayout>
