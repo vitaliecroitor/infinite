@@ -28,8 +28,8 @@ public class PromotionListFragment extends ListFragment {
         promotion.setDescription("this is a dummy description dasdklfk dkjasdfka;ls fsldkf skdfsaljf ls askjflskd fklasd fasdf jklsad jfas;dkf as;kdf as;dfasjd kf;as dfas");
         promotion.setId("id");
         promotion.setImage(R.drawable.img);
-        promotion.setNewPrice("220 lei");
-        promotion.setOldPrice("290 lei");
+        promotion.setNewPrice("220");
+        promotion.setOldPrice("290");
         promotion.setTitle("Egypt");
         List<Promotion> promotions = new ArrayList<Promotion>();
         promotions.add(promotion);

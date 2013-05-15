@@ -49,7 +49,6 @@ public class PromotionListAdapter extends ArrayAdapter<Promotion> {
         public TextView title;
         public TextView oldPrice;
         public TextView newPrice;
-        public TextView description;
     }
 
     @Override
@@ -58,12 +57,11 @@ public class PromotionListAdapter extends ArrayAdapter<Promotion> {
         if (convertView == null) {
             tag = new Tag();
             convertView = layoutInflater.inflate(R.layout.promotion_list_item, parent, false);
-            tag.promotionImage = (ImageView) convertView.findViewById(R.id.id_prom_image);
-            tag.nrOfOrders = (TextView) convertView.findViewById(R.id.id_nr_of_orders);
-            tag.title = (TextView) convertView.findViewById(R.id.id_title);
-            tag.oldPrice = (TextView) convertView.findViewById(R.id.id_prom_price_old);
-            tag.newPrice = (TextView) convertView.findViewById(R.id.id_prom_price_new);
-            tag.description = (TextView) convertView.findViewById(R.id.id_prom_description);
+            tag.promotionImage = (ImageView) convertView.findViewById(R.id.prom_image);
+           // tag.nrOfOrders = (TextView) convertView.findViewById(R.id.id_nr_of_orders);
+            tag.title = (TextView) convertView.findViewById(R.id.prom_title);
+            tag.oldPrice = (TextView) convertView.findViewById(R.id.prom_old_price);
+            tag.newPrice = (TextView) convertView.findViewById(R.id.prom_price);
             convertView.setTag(tag);
         } else {
             tag = (Tag) convertView.getTag();
@@ -72,11 +70,10 @@ public class PromotionListAdapter extends ArrayAdapter<Promotion> {
         final Promotion promotion = promotions.get(position);
 
         if (promotion != null) {
-            tag.nrOfOrders.setText("20");
+//            tag.nrOfOrders.setText("20");
             tag.title.setText(promotion.getTitle());
             tag.oldPrice.setText(promotion.getOldPrice());
             tag.newPrice.setText(promotion.getNewPrice());
-            tag.description.setText(promotion.getDescription());
             imageLoader.displayImage("https://lh3.googleusercontent.com/-n-xcJmiI0pg/T3R4mkSchHI/AAAAAAAAAFU/EoiNNb7kk3A/s1024/sample_image_05.jpg", tag.promotionImage, options);
         }
 
