@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Toast;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
@@ -36,8 +37,8 @@ public class PromotionImagePageAdapter extends PagerAdapter {
                 .cacheInMemory()
                 .cacheOnDisc()
                 .resetViewBeforeLoading()
-                .showImageForEmptyUri(md.vcroitor.licenta.client.R.drawable.icon)
-                .showImageOnFail(md.vcroitor.licenta.client.R.drawable.icon)
+                .showImageForEmptyUri(R.drawable.icon)
+                .showImageOnFail(R.drawable.icon)
                 .build();
 
         imageLoader.init(ImageLoaderConfiguration.createDefault(context));
@@ -56,9 +57,21 @@ public class PromotionImagePageAdapter extends PagerAdapter {
 
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
-        View view = layoutInflater.inflate(R.layout.item_pager_image, null);
+        View view = layoutInflater.inflate(R.layout.item_pager_image, container, false);
         ImageView image = (ImageView) view.findViewById(R.id.image);
-        imageLoader.displayImage("https://lh3.googleusercontent.com/-n-xcJmiI0pg/T3R4mkSchHI/AAAAAAAAAFU/EoiNNb7kk3A/s1024/sample_image_05.jpg", image, options);
+        container.addView(view);
+        imageLoader.displayImage(imageUrl.get(position), image, options);
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(context, "Item clicked", Toast.LENGTH_SHORT).show();
+            }
+        });
         return view;
+    }
+
+    @Override
+    public void destroyItem(ViewGroup container, int position, Object object) {
+        container.removeView((View)object);
     }
 }
