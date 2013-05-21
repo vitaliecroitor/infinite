@@ -1,394 +1,440 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-            android:layout_width="fill_parent"
-            android:layout_margin="5dip"
-            android:layout_height="fill_parent"
-            android:background="#EBE8D9">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_height="fill_parent"
+                android:background="#EBE8D9"
+                android:layout_width="fill_parent"
+                android:orientation="vertical"
+        >
+    <!-- Action bar -->
     <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dip"
-            android:background="#EBE8D9"
-            android:orientation="vertical">
+            android:id="@+id/action_bar"
+            android:layout_height="48dip"
+            android:background="@drawable/action_bar_gradient"
+            android:orientation="horizontal"
+            android:layout_width="fill_parent">
 
-        <!-- horizontal yellow line -->
-        <LinearLayout android:layout_width="fill_parent"
-                      android:layout_height="2dip"
-                      android:background="#f2c11a"/>
-
-        <md.vcroitor.licenta.client.library.PagerContainer
-                android:id="@+id/pager_container"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:background="#ffffff">
-            <android.support.v4.view.ViewPager
-                    android:layout_width="150dip"
-                    android:layout_height="200dip"
-                    android:clipChildren="false"
-                    android:background="#EBE8D9"
-                    android:layout_gravity="center_horizontal"/>
-        </md.vcroitor.licenta.client.library.PagerContainer>
-
-        <!-- horizontal yellow line -->
-        <LinearLayout android:layout_width="fill_parent"
-                      android:layout_height="2dip"
-                      android:background="#f2c11a"/>
-
-        <!--title-->
-        <TextView
-                android:id="@+id/prom_title"
-                android:layout_height="wrap_content"
-                android:singleLine="true"
-                android:ellipsize="marquee"
-                android:marqueeRepeatLimit ="marquee_forever"
-                android:scrollHorizontally="true"
-                android:focusable="true"
-                android:focusableInTouchMode="true"
-                android:layout_marginTop="5dip"
-                android:textColor="#000000"
-                android:background="#ffffffff"
-                android:textSize="25sp"
-                android:text="This is a title jfsd kjsadfj sal fjlas does not fit asdnsndf"
-                android:layout_width="fill_parent"/>
-
-
-        <!-- price, old price -->
-        <LinearLayout
-                android:layout_height="80dip"
-                android:layout_width="fill_parent"
-                android:layout_weight="1"
-                android:background="#ffffffff">
-
-            <!-- old price -->
-            <RelativeLayout android:layout_height="fill_parent"
-                            android:layout_weight="1"
-                            android:layout_width="0dip">
-
-                <RelativeLayout
-                        android:id="@+id/old_price_layout"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:layout_width="wrap_content">
-                    <TextView
-                            android:id="@+id/old_price"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textSize="20sp"
-                            android:layout_marginRight="5dip"
-                            android:text="540"
-                            />
-
-                    <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_toRightOf="@id/old_price"
-                            android:textSize="20sp"
-                            android:text="lei"
-                            />
-                </RelativeLayout>
-
-                <!-- discount percentage -->
-                <RelativeLayout
-                        android:layout_centerInParent="true"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="3dip"
-                        android:layout_alignParentBottom="true"
-                        android:layout_width="wrap_content">
-
-                    <TextView
-                            android:id="@+id/discount_title"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textSize="15sp"
-                            android:textColor="#000000"
-                            android:text="Reducere:"
-                            />
-                    <TextView
-                            android:id="@+id/discount_value"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="3dip"
-                            android:textSize="15sp"
-                            android:layout_toRightOf="@id/discount_title"
-                            android:textColor="#000000"
-                            android:text="70"
-                            />
-                    <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textSize="15sp"
-                            android:layout_marginLeft="2dip"
-                            android:layout_toRightOf="@id/discount_value"
-                            android:textColor="#000000"
-                            android:text="%"
-                            />
-                </RelativeLayout>
-            </RelativeLayout>
-
-            <!-- new price layout -->
-            <RelativeLayout android:layout_height="fill_parent"
-                            android:layout_weight="1"
-                            android:layout_width="0dip">
-
-                <RelativeLayout
-                        android:id="@+id/new_price_layout"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:layout_width="wrap_content">
-                    <TextView
-                            android:id="@+id/new_price"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textColor="#000000"
-                            android:textStyle="bold"
-                            android:textSize="35sp"
-                            android:layout_marginRight="5dip"
-                            android:text="540"
-                            />
-
-                    <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_toRightOf="@id/new_price"
-                            android:textSize="35sp"
-                            android:textStyle="bold"
-                            android:textColor="#000000"
-                            android:text="lei"
-                            />
-                </RelativeLayout>
-
-                <!-- discount value -->
-                <RelativeLayout
-                        android:layout_centerInParent="true"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="3dip"
-                        android:layout_alignParentBottom="true"
-                        android:layout_width="wrap_content">
-
-                    <TextView
-                            android:id="@+id/discount_value_title"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textColor="#000000"
-                            android:textSize="15sp"
-                            android:text="Economisesti:"
-                            />
-                    <TextView
-                            android:id="@+id/discount_value_curr"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textColor="#000000"
-                            android:layout_marginLeft="3dip"
-                            android:textSize="15sp"
-                            android:layout_toRightOf="@id/discount_value_title"
-                            android:text="300"
-                            />
-                    <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textSize="15sp"
-                            android:textColor="#000000"
-                            android:layout_marginLeft="2dip"
-                            android:layout_toRightOf="@id/discount_value_curr"
-                            android:text="lei"
-                            />
-                </RelativeLayout>
-
-            </RelativeLayout>
-        </LinearLayout>
-
-        <!-- rating & social -->
-        <LinearLayout
-                android:layout_height="50dip"
-                android:layout_width="fill_parent"
-                android:layout_weight="3"
-                android:background="#ffffffff">
-
-            <RelativeLayout
-                    android:layout_width="0dip"
+        <LinearLayout android:layout_height="fill_parent"
+                      android:layout_margin="5dip"
+                      android:clickable="true"
+                      android:onClick="goBack"
+                      android:layout_width="wrap_content">
+            <ImageView
                     android:layout_height="wrap_content"
-                    android:layout_weight="2" android:layout_gravity="center">
-                <RatingBar
-                        android:id="@+id/rating_bar"
-                        android:layout_height="wrap_content"
-                        android:layout_width="wrap_content"
-                        android:numStars="5"
-                        style="?android:attr/ratingBarStyleSmall"
-                        android:layout_gravity="center"/>
-                <TextView
-                        android:layout_toRightOf="@id/rating_bar"
-                        android:layout_height="wrap_content"
-                        android:layout_width="wrap_content"
-                        android:text="3/5"/>
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/ic_navigation_previous_item"
+                    android:contentDescription="@null"
+                    />
 
+            <ImageView
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:src="@drawable/logo_small"
+                    android:contentDescription="@null"
+                    android:layout_marginLeft="-15dp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!--  content -->
+    <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_below="@id/action_bar"
+            android:layout_height="fill_parent"
+            android:layout_margin="5dip"
+            android:background="#EBE8D9">
+        <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="#EBE8D9"
+                android:orientation="vertical">
+
+            <!-- horizontal yellow line -->
+            <LinearLayout android:layout_width="fill_parent"
+                          android:layout_height="2dip"
+                          android:background="#f2c11a"/>
+
+            <md.vcroitor.licenta.client.library.PagerContainer
+                    android:id="@+id/pager_container"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#ffffff">
+                <android.support.v4.view.ViewPager
+                        android:layout_width="150dip"
+                        android:layout_height="200dip"
+                        android:clipChildren="false"
+                        android:background="#EBE8D9"
+                        android:layout_gravity="center_horizontal"/>
+            </md.vcroitor.licenta.client.library.PagerContainer>
+
+            <!-- horizontal yellow line -->
+            <LinearLayout android:layout_width="fill_parent"
+                          android:layout_height="2dip"
+                          android:background="#f2c11a"/>
+
+            <!--title-->
+            <TextView
+                    android:id="@+id/prom_title"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:ellipsize="marquee"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:scrollHorizontally="true"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:layout_marginTop="5dip"
+                    android:textColor="#000000"
+                    android:background="#ffffffff"
+                    android:textSize="25sp"
+                    android:text="This is a title jfsd kjsadfj sal fjlas does not fit asdnsndf"
+                    android:layout_width="fill_parent"/>
+
+
+            <!-- price, old price -->
+            <LinearLayout
+                    android:layout_height="80dip"
+                    android:layout_width="fill_parent"
+                    android:layout_weight="1"
+                    android:background="#ffffffff">
+
+                <!-- old price -->
+                <RelativeLayout android:layout_height="fill_parent"
+                                android:layout_weight="1"
+                                android:layout_width="0dip">
+                    <RelativeLayout
+                            android:id="@+id/old_price_layout"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:layout_width="wrap_content">
+                        <TextView
+                                android:id="@+id/old_price"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="20sp"
+                                android:layout_marginRight="5dip"
+                                android:text="540"
+                                />
+
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_toRightOf="@id/old_price"
+                                android:textSize="20sp"
+                                android:text="lei"
+                                />
+                    </RelativeLayout>
+
+                    <!-- strike line -->
+                    <RelativeLayout
+                            android:layout_width="fill_parent"
+                            android:background="#000000"
+                            android:layout_centerInParent="true"
+                            android:layout_marginRight="35dip"
+                            android:layout_marginLeft="35dip"
+                            android:layout_height="1dip"/>
+
+                    <!-- discount percentage -->
+                    <RelativeLayout
+                            android:layout_centerInParent="true"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dip"
+                            android:layout_alignParentBottom="true"
+                            android:layout_width="wrap_content">
+
+                        <TextView
+                                android:id="@+id/discount_title"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="15sp"
+                                android:textColor="#000000"
+                                android:text="Reducere:"
+                                />
+                        <TextView
+                                android:id="@+id/discount_value"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="3dip"
+                                android:textSize="15sp"
+                                android:layout_toRightOf="@id/discount_title"
+                                android:textColor="#000000"
+                                android:text="70"
+                                />
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="15sp"
+                                android:layout_marginLeft="2dip"
+                                android:layout_toRightOf="@id/discount_value"
+                                android:textColor="#000000"
+                                android:text="%"
+                                />
+                    </RelativeLayout>
+                </RelativeLayout>
+
+                <!-- new price layout -->
+                <RelativeLayout android:layout_height="fill_parent"
+                                android:layout_weight="1"
+                                android:layout_width="0dip">
+
+                    <RelativeLayout
+                            android:id="@+id/new_price_layout"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:layout_width="wrap_content">
+                        <TextView
+                                android:id="@+id/new_price"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="#000000"
+                                android:textStyle="bold"
+                                android:textSize="35sp"
+                                android:layout_marginRight="5dip"
+                                android:text="540"
+                                />
+
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_toRightOf="@id/new_price"
+                                android:textSize="35sp"
+                                android:textStyle="bold"
+                                android:textColor="#000000"
+                                android:text="lei"
+                                />
+                    </RelativeLayout>
+
+                    <!-- discount value -->
+                    <RelativeLayout
+                            android:layout_centerInParent="true"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dip"
+                            android:layout_alignParentBottom="true"
+                            android:layout_width="wrap_content">
+
+                        <TextView
+                                android:id="@+id/discount_value_title"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="#000000"
+                                android:textSize="15sp"
+                                android:text="Economisesti:"
+                                />
+                        <TextView
+                                android:id="@+id/discount_value_curr"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="#000000"
+                                android:layout_marginLeft="3dip"
+                                android:textSize="15sp"
+                                android:layout_toRightOf="@id/discount_value_title"
+                                android:text="300"
+                                />
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="15sp"
+                                android:textColor="#000000"
+                                android:layout_marginLeft="2dip"
+                                android:layout_toRightOf="@id/discount_value_curr"
+                                android:text="lei"
+                                />
+                    </RelativeLayout>
+
+                </RelativeLayout>
+            </LinearLayout>
+
+            <!-- rating & social -->
+            <LinearLayout
+                    android:layout_height="50dip"
+                    android:layout_width="fill_parent"
+                    android:layout_weight="3"
+                    android:background="#ffffffff">
+
+                <RelativeLayout
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2" android:layout_gravity="center">
+                    <RatingBar
+                            android:id="@+id/rating_bar"
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            android:numStars="5"
+                            style="?android:attr/ratingBarStyleSmall"
+                            android:layout_gravity="center"/>
+                    <TextView
+                            android:layout_toRightOf="@id/rating_bar"
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            android:text="3/5"/>
+
+                </RelativeLayout>
+
+                <LinearLayout android:layout_height="fill_parent"
+                              android:layout_weight="1"
+                              android:orientation="horizontal"
+                              android:gravity="center"
+                              android:layout_width="0dip">
+
+                    <ImageView android:layout_height="wrap_content"
+                               android:contentDescription="@null"
+                               android:layout_margin="2dip"
+                               android:layout_width="wrap_content"
+                               android:src="@drawable/ic_facebook"/>
+                    <ImageView android:layout_height="wrap_content"
+                               android:layout_width="wrap_content"
+                               android:layout_margin="2dip"
+                               android:contentDescription="@null"
+                               android:src="@drawable/ic_twitter"/>
+                    <ImageView android:layout_height="fill_parent"
+                               android:layout_width="wrap_content"
+                               android:layout_margin="2dip"
+                               android:contentDescription="@null"
+                               android:src="@drawable/ic_googleplus"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- description rectangle shape expand -->
+            <RelativeLayout
+                    android:id="@+id/desc_separator_expand"
+                    android:layout_height="40dip"
+                    android:layout_marginTop="5dip"
+                    android:background="#ffffff"
+                    android:orientation="horizontal"
+                    android:layout_width="fill_parent">
+
+                <TextView
+                        android:id="@+id/description_title"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_width="wrap_content"
+                        android:textColor="#000000"
+                        android:textSize="20sp"
+                        android:text="Promotion description"
+                        android:singleLine="true"/>
+
+                <ImageView
+                        android:id="@+id/desc_image_expand"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="10dip"
+                        android:src="@drawable/ic_navigation_expand_dark"
+                        android:contentDescription="@null"
+                        android:clickable="true"
+                        android:onClick="doDescriptionAction"
+                        />
             </RelativeLayout>
 
-            <LinearLayout android:layout_height="fill_parent"
-                          android:layout_weight="1"
-                          android:orientation="horizontal"
-                          android:gravity="center"
-                          android:layout_width="0dip">
+            <!-- description content -->
+            <LinearLayout
+                    android:id="@+id/desc_view"
+                    android:layout_width="fill_parent"
+                    android:orientation="vertical"
+                    android:background="#ffffff"
+                    android:visibility="gone"
+                    android:layout_height="wrap_content">
 
-                <ImageView android:layout_height="wrap_content"
-                           android:contentDescription="@null"
-                           android:layout_margin="2dip"
-                           android:layout_width="wrap_content"
-                           android:src="@drawable/ic_facebook"/>
-                <ImageView android:layout_height="wrap_content"
-                           android:layout_width="wrap_content"
-                           android:layout_margin="2dip"
-                           android:contentDescription="@null"
-                           android:src="@drawable/ic_twitter"/>
-                <ImageView android:layout_height="fill_parent"
-                           android:layout_width="wrap_content"
-                           android:layout_margin="2dip"
-                           android:contentDescription="@null"
-                           android:src="@drawable/ic_googleplus"/>
+                <TextView android:layout_width="fill_parent"
+                          android:text="@string/big_text"
+                          android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <!-- terms & conditions rectangle shape expand -->
+            <RelativeLayout
+                    android:id="@+id/terms_separator_expand"
+                    android:layout_height="40dip"
+                    android:layout_marginTop="5dip"
+                    android:background="#ffffff"
+                    android:orientation="horizontal"
+                    android:layout_width="fill_parent">
+
+                <TextView
+                        android:id="@+id/terms_title"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_width="wrap_content"
+                        android:textColor="#000000"
+                        android:textSize="20sp"
+                        android:text="Terms and conditions"
+                        android:singleLine="true"/>
+
+                <ImageView
+                        android:id="@+id/terms_image_expand"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="10dip"
+                        android:src="@drawable/ic_navigation_expand_dark"
+                        android:contentDescription="@null"
+                        android:clickable="true"
+                        android:onClick="doTermsAction"
+                        />
+            </RelativeLayout>
+
+            <!-- terms & conditions content -->
+            <LinearLayout
+                    android:id="@+id/terms_view"
+                    android:layout_width="fill_parent"
+                    android:orientation="vertical"
+                    android:background="#ffffff"
+                    android:visibility="gone"
+                    android:layout_height="wrap_content">
+
+                <TextView android:layout_width="fill_parent"
+                          android:text="@string/big_text"
+                          android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <!-- shop details rectangle shape expand -->
+            <RelativeLayout
+                    android:id="@+id/shop_details_separator_expand"
+                    android:layout_height="40dip"
+                    android:layout_marginTop="5dip"
+                    android:background="#ffffff"
+                    android:orientation="horizontal"
+                    android:layout_width="fill_parent">
+
+                <TextView
+                        android:id="@+id/shop_details_title"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_width="wrap_content"
+                        android:textColor="#000000"
+                        android:textSize="20sp"
+                        android:text="Shop details"
+                        android:singleLine="true"/>
+
+                <ImageView
+                        android:id="@+id/shop_details_image_expand"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="10dip"
+                        android:src="@drawable/ic_navigation_expand_dark"
+                        android:contentDescription="@null"
+                        android:clickable="true"
+                        android:onClick="doShopDetailsAction"
+                        />
+            </RelativeLayout>
+
+            <!-- shop details content -->
+            <LinearLayout
+                    android:id="@+id/shop_details_view"
+                    android:layout_width="fill_parent"
+                    android:orientation="vertical"
+                    android:background="#ffffff"
+                    android:visibility="gone"
+                    android:layout_height="wrap_content">
+
+                <TextView android:layout_width="fill_parent"
+                          android:text="@string/big_text"
+                          android:layout_height="wrap_content"/>
             </LinearLayout>
 
         </LinearLayout>
 
-        <!-- description rectangle shape expand -->
-        <RelativeLayout
-                android:id="@+id/desc_separator_expand"
-                android:layout_height="40dip"
-                android:layout_marginTop="5dip"
-                android:background="#ffffff"
-                android:orientation="horizontal"
-                android:layout_width="fill_parent">
-
-            <TextView
-                    android:id="@+id/description_title"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_width="wrap_content"
-                    android:textColor="#000000"
-                    android:textSize="20sp"
-                    android:text="Promotion description"
-                    android:singleLine="true"/>
-
-            <ImageView
-                    android:id="@+id/desc_image_expand"
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginRight="10dip"
-                    android:src="@drawable/ic_navigation_expand_dark"
-                    android:contentDescription="@null"
-                    android:clickable="true"
-                    android:onClick="doDescriptionAction"
-                    />
-        </RelativeLayout>
-
-        <!-- description content -->
-        <LinearLayout
-                android:id="@+id/desc_view"
-                android:layout_width="fill_parent"
-                android:orientation="vertical"
-                android:background="#ffffff"
-                android:visibility="gone"
-                android:layout_height="wrap_content">
-
-            <TextView android:layout_width="fill_parent"
-                      android:text="@string/big_text"
-                      android:layout_height="wrap_content"/>
-        </LinearLayout>
-
-        <!-- terms & conditions rectangle shape expand -->
-        <RelativeLayout
-                android:id="@+id/terms_separator_expand"
-                android:layout_height="40dip"
-                android:layout_marginTop="5dip"
-                android:background="#ffffff"
-                android:orientation="horizontal"
-                android:layout_width="fill_parent">
-
-            <TextView
-                    android:id="@+id/terms_title"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_width="wrap_content"
-                    android:textColor="#000000"
-                    android:textSize="20sp"
-                    android:text="Terms and conditions"
-                    android:singleLine="true"/>
-
-            <ImageView
-                    android:id="@+id/terms_image_expand"
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginRight="10dip"
-                    android:src="@drawable/ic_navigation_expand_dark"
-                    android:contentDescription="@null"
-                    android:clickable="true"
-                    android:onClick="doTermsAction"
-                    />
-        </RelativeLayout>
-
-        <!-- terms & conditions content -->
-        <LinearLayout
-                android:id="@+id/terms_view"
-                android:layout_width="fill_parent"
-                android:orientation="vertical"
-                android:background="#ffffff"
-                android:visibility="gone"
-                android:layout_height="wrap_content">
-
-            <TextView android:layout_width="fill_parent"
-                      android:text="@string/big_text"
-                      android:layout_height="wrap_content"/>
-        </LinearLayout>
-
-        <!-- shop details rectangle shape expand -->
-        <RelativeLayout
-                android:id="@+id/shop_details_separator_expand"
-                android:layout_height="40dip"
-                android:layout_marginTop="5dip"
-                android:background="#ffffff"
-                android:orientation="horizontal"
-                android:layout_width="fill_parent">
-
-            <TextView
-                    android:id="@+id/shop_details_title"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_width="wrap_content"
-                    android:textColor="#000000"
-                    android:textSize="20sp"
-                    android:text="Shop details"
-                    android:singleLine="true"/>
-
-            <ImageView
-                    android:id="@+id/shop_details_image_expand"
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginRight="10dip"
-                    android:src="@drawable/ic_navigation_expand_dark"
-                    android:contentDescription="@null"
-                    android:clickable="true"
-                    android:onClick="doShopDetailsAction"
-                    />
-        </RelativeLayout>
-
-        <!-- shop details content -->
-        <LinearLayout
-                android:id="@+id/shop_details_view"
-                android:layout_width="fill_parent"
-                android:orientation="vertical"
-                android:background="#ffffff"
-                android:visibility="gone"
-                android:layout_height="wrap_content">
-
-            <TextView android:layout_width="fill_parent"
-                      android:text="@string/big_text"
-                      android:layout_height="wrap_content"/>
-        </LinearLayout>
-
-    </LinearLayout>
-
-</ScrollView>
+    </ScrollView>
+</RelativeLayout>

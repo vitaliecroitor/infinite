@@ -1,14 +1,19 @@
 package md.vcroitor.licenta.client.fragment;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Filter;
 import android.widget.ListView;
 import md.vcroitor.licenta.client.R;
+import md.vcroitor.licenta.client.activity.PagerSlidingActivity;
 import md.vcroitor.licenta.client.activity.PromotionActivity;
 import md.vcroitor.licenta.client.adapter.PromotionListAdapter;
 import md.vcroitor.licenta.client.domain.Promotion;
@@ -20,6 +25,9 @@ import java.util.List;
  * User: Vitalie Croitor Date: 5/3/13 Time: 11:48 AM
  */
 public class PromotionListFragment extends ListFragment {
+
+    private PromotionListAdapter adapter;
+    private PagerSlidingActivity parent;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -35,7 +43,10 @@ public class PromotionListFragment extends ListFragment {
         promotions.add(promotion);
         promotions.add(promotion);
         promotions.add(promotion);
-        setListAdapter(new PromotionListAdapter(getActivity(), promotions));
+        adapter = new PromotionListAdapter(getActivity(), promotions);
+        setListAdapter(adapter);
+        parent = (PagerSlidingActivity) getActivity();
+        parent.getSearchField().addTextChangedListener(textWatcher);
     }
 
     @Override
@@ -45,6 +56,25 @@ public class PromotionListFragment extends ListFragment {
         View view = inflater.inflate(R.layout.promotion_list_fragment, container, false);
 
         return view;
+    }
+
+    private TextWatcher textWatcher = new TextWatcher() {
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+        }
+
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+        }
+
+        @Override
+        public void afterTextChanged(Editable s) {
+            doSearchPromotions(s.toString().trim());
+        }
+    };
+
+    private void doSearchPromotions(String text) {
+        adapter.getFilter().filter(text);
     }
 
     @Override

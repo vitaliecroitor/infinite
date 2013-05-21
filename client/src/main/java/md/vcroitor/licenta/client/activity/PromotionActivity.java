@@ -1,6 +1,7 @@
 package md.vcroitor.licenta.client.activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -110,4 +111,7 @@ public class PromotionActivity extends Activity {
         }
     }
 
+    public void goBack(View view) {
+        startActivity(new Intent(PromotionActivity.this, PagerSlidingActivity.class));
+    }
 }
