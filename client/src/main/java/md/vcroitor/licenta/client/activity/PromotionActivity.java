@@ -1,21 +1,12 @@
 package md.vcroitor.licenta.client.activity;
 
 import android.app.Activity;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.nostra13.universalimageloader.core.DisplayImageOptions;
-import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.assist.ImageScaleType;
 import md.vcroitor.licenta.client.R;
 import md.vcroitor.licenta.client.adapter.PromotionImagePageAdapter;
 import md.vcroitor.licenta.client.helper.AnimationManager;
@@ -34,8 +25,8 @@ public class PromotionActivity extends Activity {
     private PagerContainer mContainer;
     private ViewPager pager;
     private LinearLayout descriptionLayout;
-    private RelativeLayout expandSeparator;
-    private RelativeLayout collapseSeparator;
+    private LinearLayout termsLayout;
+    private LinearLayout shopDetailsLayout;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -44,8 +35,8 @@ public class PromotionActivity extends Activity {
 
         mContainer = (PagerContainer) findViewById(R.id.pager_container);
         descriptionLayout = (LinearLayout) findViewById(R.id.desc_view);
-        expandSeparator = (RelativeLayout) findViewById(R.id.desc_separator_expand);
-        collapseSeparator = (RelativeLayout) findViewById(R.id.desc_separator_collapse);
+        termsLayout = (LinearLayout) findViewById(R.id.terms_view);
+        shopDetailsLayout = (LinearLayout) findViewById(R.id.shop_details_view);
         pager = mContainer.getViewPager();
 
         List<String> imageUrls = new ArrayList<String>();
@@ -68,20 +59,54 @@ public class PromotionActivity extends Activity {
         // clipping on the pager for its children. This is done in xml
     }
 
-    public void doExpand(View view) {
+    public void doDescriptionAction(View view) {
+        ImageView image = (ImageView) view;
 
+        // expand
         if (descriptionLayout.getVisibility() == View.GONE) {
             AnimationManager.expand(descriptionLayout);
-            expandSeparator.setVisibility(View.GONE);
-            collapseSeparator.setVisibility(View.VISIBLE);
+            image.setImageResource(R.drawable.ic_navigation_collapse_dark);
+            return;
+        }
+
+        // collapse
+        if (descriptionLayout.getVisibility() == View.VISIBLE) {
+            AnimationManager.collapse(descriptionLayout);
+            image.setImageResource(R.drawable.ic_navigation_expand_dark);
         }
     }
 
-    public void doCollapse(View view) {
-        if (descriptionLayout.getVisibility() == View.VISIBLE) {
-            AnimationManager.collapse(descriptionLayout);
-            expandSeparator.setVisibility(View.VISIBLE);
-            collapseSeparator.setVisibility(View.GONE);
+    public void doTermsAction(View view) {
+        ImageView image = (ImageView) view;
+
+        // expand
+        if (termsLayout.getVisibility() == View.GONE) {
+            AnimationManager.expand(termsLayout);
+            image.setImageResource(R.drawable.ic_navigation_collapse_dark);
+            return;
+        }
+
+        // collapse
+        if (termsLayout.getVisibility() == View.VISIBLE) {
+            AnimationManager.collapse(termsLayout);
+            image.setImageResource(R.drawable.ic_navigation_expand_dark);
+        }
+    }
+
+    public void doShopDetailsAction(View view) {
+        ImageView image = (ImageView) view;
+
+        // expand
+        if (shopDetailsLayout.getVisibility() == View.GONE) {
+            AnimationManager.expand(shopDetailsLayout);
+            image.setImageResource(R.drawable.ic_navigation_collapse_dark);
+            return;
+        }
+
+        // collapse
+        if (shopDetailsLayout.getVisibility() == View.VISIBLE) {
+            AnimationManager.collapse(shopDetailsLayout);
+            image.setImageResource(R.drawable.ic_navigation_expand_dark);
         }
     }
 
