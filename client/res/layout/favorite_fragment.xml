@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/fav_scroll"
+    android:background="@color/app_background"
+    android:padding="3dip"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content" >
 
@@ -13,6 +15,7 @@
             style="?android:textAppearanceLarge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/app_black"
             android:gravity="bottom"
             android:text="@string/big_text"
             android:textSize="30sp"

@@ -22,6 +22,6 @@ public class CategoryFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout containing a title and body text.
-        return inflater.inflate(R.layout.last_activity_fragment, container, false);
+        return inflater.inflate(R.layout.category_fragment, container, false);
     }
 }

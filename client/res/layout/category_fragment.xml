@@ -2,16 +2,14 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
+              android:background="@color/app_background"
               android:layout_width="fill_parent"
+              android:padding="3dip"
               android:layout_height="fill_parent">
 
-    <TextView
-            android:gravity="bottom"
-            android:layout_width="wrap_content"
+    <ListView
             android:layout_height="wrap_content"
-            style="?android:textAppearanceLarge"
-            android:textStyle="bold"
-            android:textSize="30sp"
-            android:text="Last activity screen"/>
+            android:layout_width="fill_parent"
+            />
 
 </LinearLayout>

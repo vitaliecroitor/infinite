@@ -10,4 +10,7 @@
     <string name="tab_categories">Categories</string>
     <string name="tab_favorites">Favorites</string>
     <string name="get_started">Get Started</string>
+    <string name="advanced_search">Cautare avansata</string>
+    <string name="search">Cautare cuvant cheie…</string>
+    <string name="filter">Filtreaza promotii</string>
 </resources>

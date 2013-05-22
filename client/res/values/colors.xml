@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="background_tab_pressed">#6633B5E5</color>
+    <color name="background_tab_pressed">#f2c11a</color>
+    <color name="app_background">#dfdfdf</color>
+    <color name="app_yellow">#f2c11a</color>
+    <color name="tab_background">#ffffff</color>
+    <color name="app_white">#ffffff</color>
+    <color name="app_black">#000000</color>
+    <color name="tab_divider">#777777</color>
 </resources>
