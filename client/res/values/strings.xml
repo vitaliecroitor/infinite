@@ -15,4 +15,8 @@
     <string name="filter">Filtreaza promotii</string>
     <string name="dummy">dummy</string>
     <string name="shop_name">Shop name</string>
+    <string name="shop_category">shop category</string>
+    <string name="dummy_rate">4.5</string>
+    <string name="dummy_number">5</string>
+    <string name="promotions">promotii</string>
 </resources>
