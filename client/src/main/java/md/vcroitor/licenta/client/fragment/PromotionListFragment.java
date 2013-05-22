@@ -1,6 +1,5 @@
 package md.vcroitor.licenta.client.fragment;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
@@ -9,8 +8,6 @@ import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.Filter;
 import android.widget.ListView;
 import md.vcroitor.licenta.client.R;
 import md.vcroitor.licenta.client.activity.PagerSlidingActivity;
@@ -27,7 +24,7 @@ import java.util.List;
 public class PromotionListFragment extends ListFragment {
 
     private PromotionListAdapter adapter;
-    private PagerSlidingActivity parent;
+    private PagerSlidingActivity parentActivity;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -45,8 +42,8 @@ public class PromotionListFragment extends ListFragment {
         promotions.add(promotion);
         adapter = new PromotionListAdapter(getActivity(), promotions);
         setListAdapter(adapter);
-        parent = (PagerSlidingActivity) getActivity();
-        parent.getSearchField().addTextChangedListener(textWatcher);
+        parentActivity = (PagerSlidingActivity) getActivity();
+        parentActivity.getSearchField().addTextChangedListener(textWatcher);
     }
 
     @Override

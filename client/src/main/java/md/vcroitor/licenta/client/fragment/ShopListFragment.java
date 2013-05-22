@@ -3,7 +3,10 @@ package md.vcroitor.licenta.client.fragment;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import md.vcroitor.licenta.client.R;
+import md.vcroitor.licenta.client.activity.PagerSlidingActivity;
 import md.vcroitor.licenta.client.adapter.ShopListAdapter;
 import md.vcroitor.licenta.client.domain.Shop;
 import android.os.Bundle;
@@ -18,6 +21,10 @@ import android.view.ViewGroup;
  * Time: 11:48 AM
  */
 public class ShopListFragment extends ListFragment {
+
+    private ShopListAdapter adapter;
+    private PagerSlidingActivity parentActivity;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,8 +41,10 @@ public class ShopListFragment extends ListFragment {
         shops.add(shop);
         shops.add(shop);
         shops.add(shop);
-
-        setListAdapter(new ShopListAdapter(getActivity(), shops));
+        parentActivity = (PagerSlidingActivity) getActivity();
+        adapter = new ShopListAdapter(getActivity(), shops);
+        setListAdapter(adapter);
+        parentActivity.getSearchField().addTextChangedListener(textWatcher);
     }
 
     @Override
@@ -43,5 +52,24 @@ public class ShopListFragment extends ListFragment {
                              Bundle savedInstanceState) {
         // Inflate the layout containing a title and body text.
         return inflater.inflate(R.layout.shop_list_fragment, container, false);
+    }
+
+    private TextWatcher textWatcher = new TextWatcher() {
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+        }
+
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+        }
+
+        @Override
+        public void afterTextChanged(Editable s) {
+            doSearchShops(s.toString().trim());
+        }
+    };
+
+    private void doSearchShops(String text) {
+        adapter.getFilter().filter(text);
     }
 }

@@ -26,7 +26,7 @@ public class PromotionListAdapter extends ArrayAdapter<Promotion> {
     private ImageLoader imageLoader = ImageLoader.getInstance();
     private Tag tag;
     private LayoutInflater layoutInflater;
-    private ModelFilter filter;
+    private PromotionFilter filter;
 
     public PromotionListAdapter(Context context, List<Promotion> objects) {
         super(context, R.layout.promotion_list_item, objects);
@@ -86,12 +86,12 @@ public class PromotionListAdapter extends ArrayAdapter<Promotion> {
     @Override
     public Filter getFilter() {
         if (filter == null) {
-            filter = new ModelFilter();
+            filter = new PromotionFilter();
         }
         return filter;
     }
 
-    private class ModelFilter extends Filter {
+    private class PromotionFilter extends Filter {
         @Override
         protected FilterResults performFiltering(CharSequence constraint) {
             constraint = constraint.toString().toLowerCase();
