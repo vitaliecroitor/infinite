@@ -7,4 +7,6 @@
     <color name="app_white">#ffffff</color>
     <color name="app_black">#000000</color>
     <color name="tab_divider">#777777</color>
+    <color name="app_disabled">#bebebe</color>
+    <color name="app_category_separator">#c8c8c8</color>
 </resources>

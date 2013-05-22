@@ -13,4 +13,6 @@
     <string name="advanced_search">Cautare avansata</string>
     <string name="search">Cautare cuvant cheie…</string>
     <string name="filter">Filtreaza promotii</string>
+    <string name="dummy">dummy</string>
+    <string name="shop_name">Shop name</string>
 </resources>
