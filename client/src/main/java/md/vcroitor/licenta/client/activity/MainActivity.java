@@ -3,10 +3,8 @@ package md.vcroitor.licenta.client.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.Button;
 import md.vcroitor.licenta.client.R;
 
 public class MainActivity extends Activity {
@@ -18,6 +16,13 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         Log.i(TAG, "onCreate");
         setContentView(R.layout.main);
-        startActivity(new Intent(MainActivity.this, PagerSlidingActivity.class));
+
+        int secondsDelayed = 5;
+        new Handler().postDelayed(new Runnable() {
+            public void run() {
+                startActivity(new Intent(MainActivity.this, PagerSlidingActivity.class));
+                finish();
+            }
+        }, secondsDelayed * 1000);
     }
 }
