@@ -29,15 +29,23 @@ public class FavoriteFragment extends ListFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         List<Favorite> favorites = new ArrayList<Favorite>();
-        Favorite favorite = new Favorite();
-        favorite.setName("DoxyTerra");
-        favorite.setUri("https://lh3.googleusercontent.com/-n-xcJmiI0pg/T3R4mkSchHI/AAAAAAAAAFU/EoiNNb7kk3A/s1024/sample_image_05.jpg");
 
-        favorites.add(favorite);
-        favorites.add(favorite);
-        favorites.add(favorite);
-        favorites.add(favorite);
-        favorites.add(favorite);
+
+        Favorite game = new Favorite();
+        game.setName("Game World");
+        game.setUri("http://s.zumzi.com/md/place/a/0/a0bb35776dcb1924b984d3b4c03850b8_1_square.jpg");
+
+        Favorite cinema = new Favorite();
+        cinema.setName("Autocinema");
+        cinema.setUri("http://s.zumzi.com/md/provider/square/c4e69b3070c8ae3a3617e0037667923b.jpg");
+
+        Favorite passo = new Favorite();
+        passo.setName("El Paso");
+        passo.setUri("http://s.zumzi.com/md/place/b/6/b6f43027a4b86bb1538fc6d06dfc7683_1_square.jpg");
+
+        favorites.add(passo);
+        favorites.add(cinema);
+        favorites.add(game);
 
         parent = (PagerSlidingActivity) getActivity();
         adapter = new FavoriteListAdapter(getActivity(), favorites);

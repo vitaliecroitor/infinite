@@ -7,7 +7,11 @@ public class Promotion {
 	private String description;
 	private String oldPrice;
 	private String newPrice;
+    private String imageUrl;
 	private int image;
+    private String nrOfOrders;
+    private String saveMoney;
+    private String discount;
 	
 	public String getId() {
 		return id;
@@ -45,4 +49,36 @@ public class Promotion {
 	public void setImage(int image) {
 		this.image = image;
 	}
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
+    public String getNrOfOrders() {
+        return nrOfOrders;
+    }
+
+    public void setNrOfOrders(String nrOfOrders) {
+        this.nrOfOrders = nrOfOrders;
+    }
+
+    public String getSaveMoney() {
+        return saveMoney;
+    }
+
+    public void setSaveMoney(String saveMoney) {
+        this.saveMoney = saveMoney;
+    }
+
+    public String getDiscount() {
+        return discount;
+    }
+
+    public void setDiscount(String discount) {
+        this.discount = discount;
+    }
 }

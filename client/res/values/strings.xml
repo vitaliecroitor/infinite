@@ -5,10 +5,10 @@
     <string name="big_text">These factors have contributed towards making Android the worlds most widely used smartphone platform,[19] overtaking Symbian in the fourth quarter of 2010,[20] and the software of choice for technology companies who require a low-cost, customizable, lightweight operating system for high tech devices without developing one from scratch.[21] As a result, despite being primarily designed for phones and tablets, it has seen additional applications on televisions, games consoles, digital cameras and other electronics. Androids open nature has further encouraged a large community of developers and enthusiasts to use the open source code as a foundation for community-driven projects, which add new features for advanced users[22] or bring Android to devices which were officially released running other operating systems.</string>
     <string name="basic_url">http://192.168.2.5:8080/server</string>
     <string name="site_name">unu.md</string>
-    <string name="tab_promotions">Promotions</string>
-    <string name="tab_shops">Shops</string>
-    <string name="tab_categories">Categories</string>
-    <string name="tab_favorites">Favorites</string>
+    <string name="tab_promotions">Promotii</string>
+    <string name="tab_shops">Magazine</string>
+    <string name="tab_categories">Categorii</string>
+    <string name="tab_favorites">Favorite</string>
     <string name="get_started">Get Started</string>
     <string name="advanced_search">Cautare avansata</string>
     <string name="search">Cautare cuvant cheie…</string>

@@ -32,10 +32,12 @@
                 android:textStyle="bold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:singleLine="true"
                 android:ellipsize="marquee"
                 android:marqueeRepeatLimit="marquee_forever"
                 android:scrollHorizontally="true"
-                android:singleLine="true"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
                 android:text="Maximum MD"
                 android:textSize="20sp"/>
 
@@ -46,6 +48,7 @@
                 android:textStyle="bold"
                 android:text="Food"
                 android:textSize="15sp"
+                android:textColor="@color/app_black"
                 android:layout_alignLeft="@id/id_shop_name"
                 android:layout_below="@id/id_shop_name"/>
 
@@ -64,6 +67,7 @@
                 android:id="@+id/id_nr_of_prom"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/app_black"
                 android:text="30"
                 android:textSize="15sp"
                 android:layout_alignTop="@+id/textView"/>
@@ -72,6 +76,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=" promotii active"
+                android:textColor="@color/app_black"
                 android:textSize="15sp"
                 android:id="@+id/textView"
                 android:layout_toRightOf="@id/id_nr_of_prom"

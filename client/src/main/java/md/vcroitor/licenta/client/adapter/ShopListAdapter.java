@@ -1,20 +1,19 @@
 package md.vcroitor.licenta.client.adapter;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.*;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.ImageScaleType;
-
 import md.vcroitor.licenta.client.R;
 import md.vcroitor.licenta.client.domain.Shop;
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ShopListAdapter extends ArrayAdapter<Shop> {
 
@@ -48,6 +47,8 @@ public class ShopListAdapter extends ArrayAdapter<Shop> {
         public TextView shopName;
         public RatingBar rating;
         public ImageView shopImage;
+        public TextView shopCategory;
+        public TextView nrOfPromotions;
     }
 
     @Override
@@ -59,6 +60,8 @@ public class ShopListAdapter extends ArrayAdapter<Shop> {
             tag.shopName = (TextView) convertView.findViewById(R.id.id_shop_name);
             tag.rating = (RatingBar) convertView.findViewById(R.id.id_shop_rating);
             tag.shopImage = (ImageView) convertView.findViewById(R.id.id_shop_image);
+            tag.shopCategory = (TextView) convertView.findViewById(R.id.id_shop_category);
+            tag.nrOfPromotions = (TextView) convertView.findViewById(R.id.id_nr_of_prom);
             convertView.setTag(tag);
         } else {
             tag = (Tag) convertView.getTag();
@@ -69,6 +72,8 @@ public class ShopListAdapter extends ArrayAdapter<Shop> {
         if (shop != null) {
             tag.shopName.setText(shop.getName());
             tag.rating.setRating(shop.getRating());
+            tag.shopCategory.setText(shop.getCategory().toString());
+            tag.nrOfPromotions.setText(shop.getNrOfPromotions());
             imageLoader.displayImage(shop.getImage(), tag.shopImage, options);
         }
 

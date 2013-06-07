@@ -52,6 +52,8 @@ public class PromotionListAdapter extends ArrayAdapter<Promotion> {
         public TextView title;
         public TextView oldPrice;
         public TextView newPrice;
+        public TextView saveMoney;
+        public TextView discount;
     }
 
     @Override
@@ -61,10 +63,12 @@ public class PromotionListAdapter extends ArrayAdapter<Promotion> {
             tag = new Tag();
             convertView = layoutInflater.inflate(R.layout.promotion_list_item, parent, false);
             tag.promotionImage = (ImageView) convertView.findViewById(R.id.prom_image);
-            // tag.nrOfOrders = (TextView) convertView.findViewById(R.id.id_nr_of_orders);
+            tag.nrOfOrders = (TextView) convertView.findViewById(R.id.nr_of_orders_value);
             tag.title = (TextView) convertView.findViewById(R.id.prom_title);
             tag.oldPrice = (TextView) convertView.findViewById(R.id.prom_old_price);
             tag.newPrice = (TextView) convertView.findViewById(R.id.prom_price);
+            tag.saveMoney = (TextView) convertView.findViewById(R.id.save_money_value);
+            tag.discount = (TextView) convertView.findViewById(R.id.prom_discount_value);
             convertView.setTag(tag);
         } else {
             tag = (Tag) convertView.getTag();
@@ -73,11 +77,13 @@ public class PromotionListAdapter extends ArrayAdapter<Promotion> {
         final Promotion promotion = promotions.get(position);
 
         if (promotion != null) {
-//            tag.nrOfOrders.setText("20");
             tag.title.setText(promotion.getTitle());
             tag.oldPrice.setText(promotion.getOldPrice());
             tag.newPrice.setText(promotion.getNewPrice());
-            imageLoader.displayImage("https://lh3.googleusercontent.com/-n-xcJmiI0pg/T3R4mkSchHI/AAAAAAAAAFU/EoiNNb7kk3A/s1024/sample_image_05.jpg", tag.promotionImage, options);
+            tag.nrOfOrders.setText(promotion.getNrOfOrders());
+            tag.discount.setText(promotion.getDiscount());
+            tag.saveMoney.setText(promotion.getSaveMoney());
+            imageLoader.displayImage(promotion.getImageUrl(), tag.promotionImage, options);
         }
 
         return convertView;
