@@ -36,8 +36,6 @@
                 android:ellipsize="marquee"
                 android:marqueeRepeatLimit="marquee_forever"
                 android:scrollHorizontally="true"
-                android:focusable="true"
-                android:focusableInTouchMode="true"
                 android:text="Maximum MD"
                 android:textSize="20sp"/>
 

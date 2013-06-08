@@ -144,7 +144,6 @@
             android:layout_below="@id/action_bar_layout"
             android:layout_width="@dimen/layer_width"
             android:layout_height="fill_parent">
-
         <RelativeLayout
                 android:layout_width="fill_parent"
                 android:background="#1f1f1f"
@@ -159,11 +158,10 @@
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
 
-                    <!-- search rectangle shape expand -->
+                    <!-- filter rectangle shape expand -->
                     <RelativeLayout
                             android:layout_height="40dip"
-                            android:layout_marginTop="5dip"
-                            android:background="#ffffff"
+                            android:background="@color/app_white"
                             android:orientation="horizontal"
                             android:layout_width="fill_parent">
 
@@ -171,7 +169,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_centerVertical="true"
                                 android:layout_width="wrap_content"
-                                android:textColor="#000000"
+                                android:textColor="@color/app_black"
                                 android:textSize="20sp"
                                 android:text="@string/advanced_search"
                                 android:singleLine="true"/>
@@ -190,35 +188,47 @@
                     </RelativeLayout>
 
                     <!-- search edit text layout -->
-                    <RelativeLayout android:layout_height="40dip"
-                                    android:layout_margin="5dip"
-                                    android:layout_width="fill_parent">
+                    <LinearLayout android:layout_height="40dip"
+                                  android:orientation="horizontal"
+                                  android:weightSum="6"
+                                  android:layout_width="fill_parent">
 
-                        <EditText
-                                android:background="#1f1f1f"
-                                android:singleLine="true"
-                                android:textCursorDrawable="@null"
-                                android:textColor="#ffffff"
-                                android:imeOptions="actionNone"
-                                android:gravity="center"
-                                android:hint="@string/search"
-                                android:layout_gravity="center_vertical"
-                                android:layout_height="fill_parent"
-                                android:layout_width="fill_parent"/>
                         <ImageView
+                                android:layout_weight="1"
                                 android:layout_height="wrap_content"
-                                android:layout_width="wrap_content"
+                                android:layout_width="0dip"
+                                android:clickable="true"
+                                android:layout_gravity="center_vertical"
+                                android:onClick="advancedSearch"
                                 android:contentDescription="@null"
                                 android:src="@drawable/ic_action_search"
                                 />
-                    </RelativeLayout>
+
+                        <EditText
+                                android:background="@color/app_white"
+                                android:layout_marginTop="2dip"
+                                android:layout_marginLeft="5dip"
+                                android:singleLine="true"
+                                android:layout_weight="5"
+                                android:textCursorDrawable="@null"
+                                android:textColor="@color/app_black"
+                                android:textColorHint="@color/app_disabled"
+                                android:focusable="true"
+                                android:focusableInTouchMode="true"
+                                android:clickable="true"
+                                android:imeOptions="actionNone"
+                                android:hint="@string/search"
+                                android:layout_gravity="center_vertical"
+                                android:layout_height="fill_parent"
+                                android:layout_width="0dip"/>
+                    </LinearLayout>
 
 
                     <!-- filter rectangle shape expand -->
                     <RelativeLayout
-                            android:layout_height="40dip"
                             android:layout_marginTop="5dip"
-                            android:background="#ffffff"
+                            android:layout_height="40dip"
+                            android:background="@color/app_white"
                             android:orientation="horizontal"
                             android:layout_width="fill_parent">
 
@@ -252,6 +262,7 @@
                         <!-- by price -->
                         <RelativeLayout android:layout_height="wrap_content"
                                         android:orientation="horizontal"
+                                        android:layout_marginBottom="5dip"
                                         android:layout_width="fill_parent">
 
                             <TextView
@@ -259,13 +270,15 @@
                                     android:layout_width="wrap_content"
                                     android:layout_alignParentLeft="true"
                                     android:layout_centerVertical="true"
+                                    android:textColor="@color/app_white"
                                     android:textSize="20sp"
-                                    android:text="By price"
+                                    android:text="Dupa pret"
                                     />
 
                             <CheckBox android:layout_width="wrap_content"
                                       android:layout_height="wrap_content"
                                       android:layout_alignParentRight="true"
+                                      android:onClick="changeState"
                                       android:layout_centerVertical="true"
                                       android:layout_marginRight="17dip"
                                     />
@@ -273,62 +286,46 @@
                         </RelativeLayout>
 
                         <!-- by price content -->
-                        <LinearLayout android:layout_height="wrap_content"
+                        <LinearLayout android:layout_height="40dip"
+                                      android:weightSum="2"
+                                      android:gravity="center"
                                       android:layout_width="fill_parent">
 
-                            <TextView
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginLeft="15dip"
-                                    android:textSize="20sp"
-                                    android:layout_width="wrap_content"
-                                    android:text="price"
+                            <EditText
+                                    android:layout_height="fill_parent"
+                                    android:layout_width="0dip"
+                                    android:textColor="@color/app_disabled"
+                                    android:background="@color/app_white"
+                                    android:editable="false"
+                                    android:layout_weight="1"
+                                    android:layout_marginRight="10dip"
+                                    android:hint="minim"
+                                    />
+
+                            <EditText
+                                    android:layout_height="fill_parent"
+                                    android:textColor="@color/app_disabled"
+                                    android:layout_width="0dip"
+                                    android:background="@color/app_white"
+                                    android:editable="false"
+                                    android:layout_weight="1"
+                                    android:hint="maxim"
                                     />
 
 
                         </LinearLayout>
-
-                        <!-- by category -->
-                        <RelativeLayout android:layout_height="wrap_content"
-                                        android:orientation="horizontal"
-                                        android:layout_width="fill_parent">
-
-                            <TextView
-                                    android:layout_height="wrap_content"
-                                    android:layout_width="wrap_content"
-                                    android:layout_alignParentLeft="true"
-                                    android:layout_centerVertical="true"
-                                    android:textSize="20sp"
-                                    android:text="By category"
-                                    />
-
-                            <CheckBox android:layout_width="wrap_content"
-                                      android:layout_height="wrap_content"
-                                      android:layout_alignParentRight="true"
-                                      android:layout_centerVertical="true"
-                                      android:layout_marginRight="17dip"
-                                    />
-
-                        </RelativeLayout>
-
-                        <!-- by category content -->
-                        <LinearLayout android:layout_height="wrap_content"
-                                      android:layout_marginTop="5dip"
-                                      android:layout_width="fill_parent">
-                            <ListView
-                                    android:layout_height="wrap_content"
-                                    android:layout_width="fill_parent"
-                                    />
-                        </LinearLayout>
-
 
                     </LinearLayout>
 
+                    <Button
+                            android:gravity="center"
+                            android:layout_height="50dip"
+                            android:layout_width="fill_parent"
+                            android:text="Filtreaza"
+                            />
+
                 </LinearLayout>
             </ScrollView>
-
-            <LinearLayout android:layout_height="0dip"
-                          android:layout_width="0dip">
-            </LinearLayout>
 
         </RelativeLayout>
 

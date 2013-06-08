@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Unu</string>
+    <string name="app_name">UNU</string>
     <string name="some_string">Some other string</string>
     <string name="big_text">These factors have contributed towards making Android the worlds most widely used smartphone platform,[19] overtaking Symbian in the fourth quarter of 2010,[20] and the software of choice for technology companies who require a low-cost, customizable, lightweight operating system for high tech devices without developing one from scratch.[21] As a result, despite being primarily designed for phones and tablets, it has seen additional applications on televisions, games consoles, digital cameras and other electronics. Androids open nature has further encouraged a large community of developers and enthusiasts to use the open source code as a foundation for community-driven projects, which add new features for advanced users[22] or bring Android to devices which were officially released running other operating systems.</string>
     <string name="basic_url">http://192.168.2.5:8080/server</string>
@@ -19,4 +19,6 @@
     <string name="dummy_rate">4.5</string>
     <string name="dummy_number">5</string>
     <string name="promotions">promotii</string>
+    <string name="currency">lei</string>
+    <string name="shop_description">Shop Description</string>
 </resources>

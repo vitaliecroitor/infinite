@@ -1,5 +1,6 @@
 package md.vcroitor.licenta.client.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
 import android.text.Editable;
@@ -7,8 +8,10 @@ import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 import md.vcroitor.licenta.client.R;
 import md.vcroitor.licenta.client.activity.PagerSlidingActivity;
+import md.vcroitor.licenta.client.activity.ShopActivity;
 import md.vcroitor.licenta.client.adapter.ShopListAdapter;
 import md.vcroitor.licenta.client.domain.Shop;
 
@@ -68,6 +71,13 @@ public class ShopListFragment extends ListFragment {
         adapter = new ShopListAdapter(getActivity(), shops);
         setListAdapter(adapter);
         parentActivity.getSearchField().addTextChangedListener(textWatcher);
+    }
+
+
+    @Override
+    public void onListItemClick(ListView l, View v, int position, long id) {
+        super.onListItemClick(l, v, position, id);
+        startActivity(new Intent(getActivity(), ShopActivity.class));
     }
 
     @Override

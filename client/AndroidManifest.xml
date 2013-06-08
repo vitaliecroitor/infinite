@@ -24,16 +24,14 @@
         <activity
                 android:name="md.vcroitor.licenta.client.activity.PagerSlidingActivity"
                 android:screenOrientation="portrait">
-            <meta-data
-                    android:name="android.support.PARENT_ACTIVITY"
-                    android:value=".PagerSlidingActivity"/>
         </activity>
         <activity
                 android:name="md.vcroitor.licenta.client.activity.PromotionActivity"
                 android:screenOrientation="portrait">
-            <meta-data
-                    android:name="android.support.PARENT_ACTIVITY"
-                    android:value=".PromotionActivity"/>
+        </activity>
+        <activity
+                android:name="md.vcroitor.licenta.client.activity.ShopActivity"
+                android:screenOrientation="portrait">
         </activity>
     </application>
 </manifest>

@@ -39,7 +39,10 @@
                 android:layout_centerInParent="true"
                 android:layout_height="fill_parent"
                 android:layout_width="wrap_content"
-                android:src="@drawable/ic_action_settings"
+                android:layout_marginRight="5dip"
+                android:clickable="true"
+                android:onClick="favorite"
+                android:src="@drawable/ic_favorite_disabled"
                 android:contentDescription="@null"
                 />
     </RelativeLayout>
@@ -51,9 +54,10 @@
             android:background="@color/app_background"
             android:layout_below="@id/action_bar">
 
-        <RelativeLayout
+        <LinearLayout
                 android:layout_height="wrap_content"
                 android:layout_margin="3dip"
+                android:orientation="vertical"
                 android:background="@color/app_background"
                 android:layout_width="fill_parent">
 
@@ -186,13 +190,6 @@
                                 android:layout_toLeftOf="@id/social_facebook"
                                 android:src="@drawable/ic_twitter"
                                 />
-                        <ImageView
-                                android:layout_height="wrap_content"
-                                android:layout_toLeftOf="@id/social_twitter"
-                                android:layout_width="wrap_content"
-                                android:contentDescription="@null"
-                                android:src="@drawable/ic_googleplus"
-                                />
                     </RelativeLayout>
 
                 </RelativeLayout>
@@ -210,36 +207,388 @@
                     android:weightSum="3"
                     >
 
-                <RelativeLayout android:layout_height="fill_parent"
-                                android:layout_weight="1"
-                                android:background="@color/app_white"
-                                android:layout_marginRight="5dip"
-                                android:layout_width="0dip">
+                <!-- first -->
+                <LinearLayout android:layout_height="fill_parent"
+                              android:layout_weight="1"
+                              android:orientation="vertical"
+                              android:background="@color/app_white"
+                              android:layout_marginRight="5dip"
+                              android:layout_width="0dip">
                     <ImageView
                             android:layout_height="80dip"
                             android:contentDescription="@null"
                             android:layout_width="80dip"
+                            android:layout_gravity="center"
                             android:layout_marginTop="5dip"
-                            android:layout_centerHorizontal="true"
                             android:src="@drawable/icon"/>
 
-                    <!--  add old price new price and title in this layout -->
-                </RelativeLayout>
-                <RelativeLayout android:layout_height="fill_parent"
-                                android:layout_weight="1"
-                                android:background="@color/app_white"
-                                android:layout_marginRight="5dip"
-                                android:layout_width="0dip">
-                </RelativeLayout>
-                <RelativeLayout android:layout_height="fill_parent"
-                                android:layout_weight="1"
-                                android:background="@color/app_white"
-                                android:layout_width="0dip">
-                </RelativeLayout>
+                    <RelativeLayout
+                            android:layout_height="wrap_content"
+                            android:layout_width="fill_parent">
+
+                        <TextView
+                                android:textColor="@color/app_black"
+                                style="?android:textAppearanceLarge"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:maxLines="2"
+                                android:layout_alignParentLeft="true"
+                                android:text="@string/dummy"
+                                android:textSize="15sp"/>
+
+                        <!-- new price -->
+                        <LinearLayout android:layout_height="wrap_content"
+                                      android:layout_width="wrap_content"
+                                      android:layout_alignParentBottom="true"
+                                      android:layout_alignParentRight="true"
+                                >
+
+                            <TextView
+                                    android:textColor="@color/app_black"
+                                    style="?android:textAppearanceLarge"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:maxLines="2"
+                                    android:layout_marginRight="3sp"
+                                    android:text="320"
+                                    android:textSize="17sp"/>
+
+                            <TextView
+                                    android:textColor="@color/app_black"
+                                    style="?android:textAppearanceLarge"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:maxLines="2"
+                                    android:text="@string/currency"
+                                    android:textSize="17sp"/>
+                        </LinearLayout>
+
+                        <!-- old price -->
+                        <RelativeLayout android:layout_height="wrap_content"
+                                        android:layout_width="wrap_content"
+                                        android:layout_alignParentBottom="true"
+                                        android:layout_alignParentLeft="true"
+                                >
+
+                            <TextView
+                                    android:id="@+id/old_price"
+                                    android:textColor="@color/app_disabled"
+                                    style="?android:textAppearanceLarge"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:maxLines="2"
+                                    android:layout_marginRight="3sp"
+                                    android:text="141"
+                                    android:textSize="14sp"/>
+
+                            <TextView
+                                    android:textColor="@color/app_disabled"
+                                    style="?android:textAppearanceLarge"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_toRightOf="@id/old_price"
+                                    android:maxLines="2"
+                                    android:text="@string/currency"
+                                    android:textSize="14sp"/>
+
+                            <LinearLayout
+                                    android:layout_height="2dip"
+                                    android:layout_centerInParent="true"
+                                    android:layout_width="35dip"
+                                    android:background="@color/app_disabled"
+                                    />
+
+                        </RelativeLayout>
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <!-- second -->
+                <LinearLayout android:layout_height="fill_parent"
+                              android:layout_weight="1"
+                              android:orientation="vertical"
+                              android:background="@color/app_white"
+                              android:layout_marginRight="5dip"
+                              android:layout_width="0dip">
+                    <ImageView
+                            android:layout_height="80dip"
+                            android:contentDescription="@null"
+                            android:layout_width="80dip"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="5dip"
+                            android:src="@drawable/icon"/>
+
+                    <RelativeLayout
+                            android:layout_height="wrap_content"
+                            android:layout_width="fill_parent">
+
+                        <TextView
+                                android:textColor="@color/app_black"
+                                style="?android:textAppearanceLarge"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:maxLines="2"
+                                android:layout_alignParentLeft="true"
+                                android:text="@string/dummy"
+                                android:textSize="15sp"/>
+
+                        <!-- new price -->
+                        <LinearLayout android:layout_height="wrap_content"
+                                      android:layout_width="wrap_content"
+                                      android:layout_alignParentBottom="true"
+                                      android:layout_alignParentRight="true"
+                                >
+
+                            <TextView
+                                    android:textColor="@color/app_black"
+                                    style="?android:textAppearanceLarge"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:maxLines="2"
+                                    android:layout_marginRight="3sp"
+                                    android:text="320"
+                                    android:textSize="17sp"/>
+
+                            <TextView
+                                    android:textColor="@color/app_black"
+                                    style="?android:textAppearanceLarge"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:maxLines="2"
+                                    android:text="@string/currency"
+                                    android:textSize="17sp"/>
+                        </LinearLayout>
+
+                        <!-- old price -->
+                        <RelativeLayout android:layout_height="wrap_content"
+                                        android:layout_width="wrap_content"
+                                        android:layout_alignParentBottom="true"
+                                        android:layout_alignParentLeft="true"
+                                >
+
+                            <TextView
+                                    android:id="@+id/old_price"
+                                    android:textColor="@color/app_disabled"
+                                    style="?android:textAppearanceLarge"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:maxLines="2"
+                                    android:layout_marginRight="3sp"
+                                    android:text="141"
+                                    android:textSize="14sp"/>
+
+                            <TextView
+                                    android:textColor="@color/app_disabled"
+                                    style="?android:textAppearanceLarge"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_toRightOf="@id/old_price"
+                                    android:maxLines="2"
+                                    android:text="@string/currency"
+                                    android:textSize="14sp"/>
+
+                            <LinearLayout
+                                    android:layout_height="2dip"
+                                    android:layout_centerInParent="true"
+                                    android:layout_width="35dip"
+                                    android:background="@color/app_disabled"
+                                    />
+
+                        </RelativeLayout>
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <!-- third -->
+                <LinearLayout android:layout_height="fill_parent"
+                              android:layout_weight="1"
+                              android:orientation="vertical"
+                              android:background="@color/app_white"
+                              android:layout_width="0dip">
+                    <ImageView
+                            android:layout_height="80dip"
+                            android:contentDescription="@null"
+                            android:layout_width="80dip"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="5dip"
+                            android:src="@drawable/icon"/>
+
+                    <RelativeLayout
+                            android:layout_height="wrap_content"
+                            android:layout_width="fill_parent">
+
+                        <TextView
+                                android:textColor="@color/app_black"
+                                style="?android:textAppearanceLarge"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:maxLines="2"
+                                android:layout_alignParentLeft="true"
+                                android:text="@string/dummy"
+                                android:textSize="15sp"/>
+
+                        <!-- new price -->
+                        <LinearLayout android:layout_height="wrap_content"
+                                      android:layout_width="wrap_content"
+                                      android:layout_alignParentBottom="true"
+                                      android:layout_alignParentRight="true"
+                                >
+
+                            <TextView
+                                    android:textColor="@color/app_black"
+                                    style="?android:textAppearanceLarge"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:maxLines="2"
+                                    android:layout_marginRight="3sp"
+                                    android:text="320"
+                                    android:textSize="17sp"/>
+
+                            <TextView
+                                    android:textColor="@color/app_black"
+                                    style="?android:textAppearanceLarge"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:maxLines="2"
+                                    android:text="@string/currency"
+                                    android:textSize="17sp"/>
+                        </LinearLayout>
+
+                        <!-- old price -->
+                        <RelativeLayout android:layout_height="wrap_content"
+                                        android:layout_width="wrap_content"
+                                        android:layout_alignParentBottom="true"
+                                        android:layout_alignParentLeft="true"
+                                >
+
+                            <TextView
+                                    android:id="@+id/old_price"
+                                    android:textColor="@color/app_disabled"
+                                    style="?android:textAppearanceLarge"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:maxLines="2"
+                                    android:layout_marginRight="3sp"
+                                    android:text="141"
+                                    android:textSize="14sp"/>
+
+                            <TextView
+                                    android:textColor="@color/app_disabled"
+                                    style="?android:textAppearanceLarge"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_toRightOf="@id/old_price"
+                                    android:maxLines="2"
+                                    android:text="@string/currency"
+                                    android:textSize="14sp"/>
+
+                            <LinearLayout
+                                    android:layout_height="2dip"
+                                    android:layout_centerInParent="true"
+                                    android:layout_width="35dip"
+                                    android:background="@color/app_disabled"
+                                    />
+
+                        </RelativeLayout>
+                    </RelativeLayout>
+                </LinearLayout>
 
             </LinearLayout>
 
-        </RelativeLayout>
+
+            <!-- shop description rectangle shape expand -->
+            <RelativeLayout
+                    android:id="@+id/desc_separator_expand"
+                    android:layout_height="40dip"
+                    android:layout_marginTop="5dip"
+                    android:background="#ffffff"
+                    android:orientation="horizontal"
+                    android:layout_width="fill_parent">
+
+                <TextView
+                        android:id="@+id/shop_description"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_width="wrap_content"
+                        android:textColor="#000000"
+                        android:textSize="20sp"
+                        android:text="@string/shop_description"
+                        android:singleLine="true"/>
+
+                <ImageView
+                        android:id="@+id/desc_image_expand"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="10dip"
+                        android:src="@drawable/ic_navigation_expand_dark"
+                        android:contentDescription="@null"
+                        android:clickable="true"
+                        android:onClick="showShopInformation"
+                        />
+            </RelativeLayout>
+
+            <!-- shop information content -->
+            <LinearLayout
+                    android:id="@+id/desc_view"
+                    android:layout_width="fill_parent"
+                    android:orientation="vertical"
+                    android:background="@color/app_black"
+                    android:visibility="gone"
+                    android:layout_height="wrap_content">
+
+                <TextView android:layout_width="fill_parent"
+                          android:text="@string/big_text"
+                          android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <!-- shop map rectangle shape expand -->
+            <RelativeLayout
+                    android:id="@+id/desc_separator_expand"
+                    android:layout_height="40dip"
+                    android:layout_marginTop="5dip"
+                    android:background="#ffffff"
+                    android:orientation="horizontal"
+                    android:layout_width="fill_parent">
+
+                <TextView
+                        android:id="@+id/shop_description"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_width="wrap_content"
+                        android:textColor="#000000"
+                        android:textSize="20sp"
+                        android:text="@string/shop_description"
+                        android:singleLine="true"/>
+
+                <ImageView
+                        android:id="@+id/desc_image_expand"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="10dip"
+                        android:src="@drawable/ic_navigation_expand_dark"
+                        android:contentDescription="@null"
+                        android:clickable="true"
+                        android:onClick="showShopInformation"
+                        />
+            </RelativeLayout>
+
+            <!-- map -->
+            <LinearLayout
+                    android:id="@+id/desc_view"
+                    android:layout_width="fill_parent"
+                    android:orientation="vertical"
+                    android:background="@color/app_black"
+                    android:visibility="gone"
+                    android:layout_height="wrap_content">
+
+                <TextView android:layout_width="fill_parent"
+                          android:text="@string/big_text"
+                          android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+        </LinearLayout>
 
     </ScrollView>
 
