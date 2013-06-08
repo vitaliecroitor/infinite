@@ -580,12 +580,13 @@
                     android:layout_width="fill_parent"
                     android:orientation="vertical"
                     android:background="@color/app_black"
-                    android:visibility="gone"
-                    android:layout_height="wrap_content">
+                    android:layout_height="400dip">
 
-                <TextView android:layout_width="fill_parent"
-                          android:text="@string/big_text"
-                          android:layout_height="wrap_content"/>
+            <fragment
+                          android:id="@+id/map"
+                          android:layout_width="fill_parent"
+                          android:layout_height="fill_parent"
+                          android:name="com.google.android.gms.maps.MapFragment"/>
             </LinearLayout>
 
         </LinearLayout>
