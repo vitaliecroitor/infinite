@@ -46,6 +46,7 @@ public class PagerSlidingActivity extends FragmentActivity {
         adapter = new SlidePagerAdapter(getApplicationContext(), getSupportFragmentManager(), FragmentEnum.values().length);
 
         pager.setAdapter(adapter);
+        pager.setOffscreenPageLimit(4);
         tabs.setViewPager(pager);
     }
 

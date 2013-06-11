@@ -112,6 +112,7 @@ public class PromotionActivity extends Activity {
     }
 
     public void goBack(View view) {
+        finish();
         startActivity(new Intent(PromotionActivity.this, PagerSlidingActivity.class));
     }
 }
