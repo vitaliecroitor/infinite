@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import md.vcroitor.licenta.client.DummyData;
 import md.vcroitor.licenta.client.R;
 import md.vcroitor.licenta.client.activity.PagerSlidingActivity;
 import md.vcroitor.licenta.client.activity.ShopActivity;
@@ -27,12 +28,13 @@ public class ShopListFragment extends ListFragment {
 
     private ShopListAdapter adapter;
     private PagerSlidingActivity parentActivity;
+    private List<Shop> shops = new ArrayList<Shop>();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        List<Shop> shops = new ArrayList<Shop>();
+
 
         Shop nefertit = new Shop();
         nefertit.setImage("http://s.zumzi.com/md/place/9/6/9629e98a88819ee5b3ad72f4b81ecefd_1_square.jpg");
@@ -77,7 +79,9 @@ public class ShopListFragment extends ListFragment {
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
-        startActivity(new Intent(getActivity(), ShopActivity.class));
+        Intent intent = new Intent(getActivity(), ShopActivity.class);
+        intent.putExtra(DummyData.IdEnum.Shop.name(), shops.get(position).getId());
+        startActivity(intent);
     }
 
     @Override

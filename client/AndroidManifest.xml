@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="md.vcroitor.licenta.client"
           android:versionCode="1"
-          android:installLocation="preferExternal"
+          android:installLocation="auto"
           android:versionName="0.0.1-SNAPSHOT">
 
     <uses-sdk

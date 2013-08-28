@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_height="fill_parent"
-                android:background="@color/app_background"
-                android:layout_width="fill_parent"
-                android:orientation="vertical"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_height="fill_parent"
+              android:background="@color/app_background"
+              android:layout_width="fill_parent"
+              android:orientation="vertical"
         >
     <!-- Action bar -->
     <RelativeLayout
@@ -51,8 +51,7 @@
     <ScrollView
             android:layout_height="fill_parent"
             android:layout_width="fill_parent"
-            android:background="@color/app_background"
-            android:layout_below="@id/action_bar">
+            android:background="@color/app_background">
 
         <LinearLayout
                 android:layout_height="wrap_content"
@@ -98,6 +97,7 @@
 
                 <!-- shop category -->
                 <TextView
+                        android:id="@+id/shop_category"
                         android:layout_height="wrap_content"
                         android:layout_width="wrap_content"
                         android:layout_marginLeft="5dip"
@@ -122,6 +122,7 @@
                             android:src="@drawable/ic_rating_star"/>
 
                     <TextView
+                            android:id="@+id/rating"
                             android:layout_height="wrap_content"
                             android:layout_width="wrap_content"
                             android:text="@string/dummy_rate"
@@ -215,6 +216,7 @@
                               android:layout_marginRight="5dip"
                               android:layout_width="0dip">
                     <ImageView
+                            android:id="@+id/prom_first_logo"
                             android:layout_height="80dip"
                             android:contentDescription="@null"
                             android:layout_width="80dip"
@@ -227,6 +229,7 @@
                             android:layout_width="fill_parent">
 
                         <TextView
+                                android:id="@+id/prom_first_title"
                                 android:textColor="@color/app_black"
                                 style="?android:textAppearanceLarge"
                                 android:layout_width="wrap_content"
@@ -244,6 +247,7 @@
                                 >
 
                             <TextView
+                                    android:id="@+id/prom_first_new_price"
                                     android:textColor="@color/app_black"
                                     style="?android:textAppearanceLarge"
                                     android:layout_width="wrap_content"
@@ -271,7 +275,7 @@
                                 >
 
                             <TextView
-                                    android:id="@+id/old_price"
+                                    android:id="@+id/prom_first_old_price"
                                     android:textColor="@color/app_disabled"
                                     style="?android:textAppearanceLarge"
                                     android:layout_width="wrap_content"
@@ -286,7 +290,7 @@
                                     style="?android:textAppearanceLarge"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_toRightOf="@id/old_price"
+                                    android:layout_toRightOf="@id/prom_first_old_price"
                                     android:maxLines="2"
                                     android:text="@string/currency"
                                     android:textSize="14sp"/>
@@ -310,6 +314,7 @@
                               android:layout_marginRight="5dip"
                               android:layout_width="0dip">
                     <ImageView
+                            android:id="@+id/prom_second_logo"
                             android:layout_height="80dip"
                             android:contentDescription="@null"
                             android:layout_width="80dip"
@@ -322,6 +327,7 @@
                             android:layout_width="fill_parent">
 
                         <TextView
+                                android:id="@+id/prom_second_title"
                                 android:textColor="@color/app_black"
                                 style="?android:textAppearanceLarge"
                                 android:layout_width="wrap_content"
@@ -339,6 +345,7 @@
                                 >
 
                             <TextView
+                                    android:id="@+id/prom_second_new_price"
                                     android:textColor="@color/app_black"
                                     style="?android:textAppearanceLarge"
                                     android:layout_width="wrap_content"
@@ -366,7 +373,7 @@
                                 >
 
                             <TextView
-                                    android:id="@+id/old_price"
+                                    android:id="@+id/prom_second_old_price"
                                     android:textColor="@color/app_disabled"
                                     style="?android:textAppearanceLarge"
                                     android:layout_width="wrap_content"
@@ -381,7 +388,7 @@
                                     style="?android:textAppearanceLarge"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_toRightOf="@id/old_price"
+                                    android:layout_toRightOf="@id/prom_second_old_price"
                                     android:maxLines="2"
                                     android:text="@string/currency"
                                     android:textSize="14sp"/>
@@ -404,6 +411,7 @@
                               android:background="@color/app_white"
                               android:layout_width="0dip">
                     <ImageView
+                            android:id="@+id/prom_third_logo"
                             android:layout_height="80dip"
                             android:contentDescription="@null"
                             android:layout_width="80dip"
@@ -416,6 +424,7 @@
                             android:layout_width="fill_parent">
 
                         <TextView
+                                android:id="@+id/prom_third_title"
                                 android:textColor="@color/app_black"
                                 style="?android:textAppearanceLarge"
                                 android:layout_width="wrap_content"
@@ -433,6 +442,7 @@
                                 >
 
                             <TextView
+                                    android:id="@+id/prom_third_new_price"
                                     android:textColor="@color/app_black"
                                     style="?android:textAppearanceLarge"
                                     android:layout_width="wrap_content"
@@ -460,7 +470,7 @@
                                 >
 
                             <TextView
-                                    android:id="@+id/old_price"
+                                    android:id="@+id/prom_third_old_price"
                                     android:textColor="@color/app_disabled"
                                     style="?android:textAppearanceLarge"
                                     android:layout_width="wrap_content"
@@ -475,7 +485,7 @@
                                     style="?android:textAppearanceLarge"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_toRightOf="@id/old_price"
+                                    android:layout_toRightOf="@id/prom_third_old_price"
                                     android:maxLines="2"
                                     android:text="@string/currency"
                                     android:textSize="14sp"/>
@@ -510,7 +520,7 @@
                         android:layout_width="wrap_content"
                         android:textColor="#000000"
                         android:textSize="20sp"
-                        android:text="@string/shop_description"
+                        android:text="Detalii Magazin"
                         android:singleLine="true"/>
 
                 <ImageView
@@ -529,68 +539,57 @@
 
             <!-- shop information content -->
             <LinearLayout
-                    android:id="@+id/desc_view"
+                    android:id="@+id/shop_info_view"
                     android:layout_width="fill_parent"
                     android:orientation="vertical"
-                    android:background="@color/app_black"
+                    android:background="@color/app_white"
                     android:visibility="gone"
                     android:layout_height="wrap_content">
 
-                <TextView android:layout_width="fill_parent"
-                          android:text="@string/big_text"
-                          android:layout_height="wrap_content"/>
-            </LinearLayout>
-
-            <!-- shop map rectangle shape expand -->
-            <RelativeLayout
-                    android:id="@+id/desc_separator_expand"
-                    android:layout_height="40dip"
-                    android:layout_marginTop="5dip"
-                    android:background="#ffffff"
-                    android:orientation="horizontal"
-                    android:layout_width="fill_parent">
-
                 <TextView
-                        android:id="@+id/shop_description"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_width="wrap_content"
-                        android:textColor="#000000"
-                        android:textSize="20sp"
-                        android:text="@string/shop_description"
-                        android:singleLine="true"/>
-
-                <ImageView
-                        android:id="@+id/desc_image_expand"
-                        android:layout_height="wrap_content"
-                        android:layout_width="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginRight="10dip"
-                        android:src="@drawable/ic_navigation_expand_dark"
-                        android:contentDescription="@null"
-                        android:clickable="true"
-                        android:onClick="showShopInformation"
-                        />
-            </RelativeLayout>
+                        android:id="@+id/shop_info"
+                        android:layout_width="fill_parent"
+                        android:text="@string/big_text"
+                        android:layout_height="wrap_content"/>
+            </LinearLayout>
 
             <!-- map -->
             <LinearLayout
-                    android:id="@+id/desc_view"
+                    android:id="@+id/map_layout"
                     android:layout_width="fill_parent"
+                    android:layout_marginTop="5dip"
                     android:orientation="vertical"
-                    android:background="@color/app_black"
+                    android:visibility="visible"
+                    android:background="@color/app_white"
                     android:layout_height="400dip">
 
-            <fragment
-                          android:id="@+id/map"
-                          android:layout_width="fill_parent"
-                          android:layout_height="fill_parent"
-                          android:name="com.google.android.gms.maps.MapFragment"/>
+                <TextView
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:maxLines="1"
+                        android:text="@string/address"
+                        android:textColor="@color/app_black"
+                        android:textSize="20sp"
+                        />
+
+                <TextView
+                        android:id="@+id/shop_address"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:maxLines="2"
+                        android:text="@string/dummy_address"
+                        android:textColor="@color/app_black"
+                        android:textSize="15sp"
+                        />
+
+                <fragment
+                        android:id="@+id/map"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:name="com.google.android.gms.maps.MapFragment"/>
             </LinearLayout>
 
         </LinearLayout>
 
     </ScrollView>
-
-</RelativeLayout>
+</LinearLayout>

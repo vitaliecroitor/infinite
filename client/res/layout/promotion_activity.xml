@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_height="fill_parent"
-                android:background="@color/app_background"
-                android:layout_width="fill_parent"
-                android:orientation="vertical"
+              android:layout_height="fill_parent"
+              android:background="@color/app_background"
+              android:layout_width="fill_parent"
+              android:orientation="vertical"
         >
     <!-- Action bar -->
     <LinearLayout
@@ -263,9 +263,11 @@
                             android:id="@+id/rating_bar"
                             android:layout_height="wrap_content"
                             android:layout_width="wrap_content"
+                            android:layout_centerInParent="true"
                             style="?android:attr/ratingBarStyleSmall"
                             android:rating="3"
-                            android:numStars="5"
+                            android:numStars="10"
+                            android:stepSize="1"
                             android:layout_gravity="center"/>
                 </RelativeLayout>
 
@@ -278,11 +280,15 @@
                     <ImageView android:layout_height="wrap_content"
                                android:contentDescription="@null"
                                android:layout_margin="2dip"
+                               android:clickable="true"
+                               android:onClick="facebook"
                                android:layout_width="wrap_content"
                                android:src="@drawable/ic_facebook"/>
                     <ImageView android:layout_height="wrap_content"
                                android:layout_width="wrap_content"
                                android:layout_margin="2dip"
+                               android:clickable="true"
+                               android:onClick="twitter"
                                android:contentDescription="@null"
                                android:src="@drawable/ic_twitter"/>
                 </LinearLayout>
@@ -294,7 +300,7 @@
                     android:id="@+id/desc_separator_expand"
                     android:layout_height="40dip"
                     android:layout_marginTop="5dip"
-                    android:background="#ffffff"
+                    android:background="@color/app_white"
                     android:orientation="horizontal"
                     android:layout_width="fill_parent">
 
@@ -303,9 +309,9 @@
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:layout_width="wrap_content"
-                        android:textColor="#000000"
+                        android:textColor="@color/app_black"
                         android:textSize="20sp"
-                        android:text="Promotion description"
+                        android:text="Detalii promotie"
                         android:singleLine="true"/>
 
                 <ImageView
@@ -331,9 +337,11 @@
                     android:visibility="gone"
                     android:layout_height="wrap_content">
 
-                <TextView android:layout_width="fill_parent"
-                          android:text="@string/big_text"
-                          android:layout_height="wrap_content"/>
+                <TextView
+                        android:id="@+id/desc_text"
+                        android:layout_width="fill_parent"
+                        android:text="@string/big_text"
+                        android:layout_height="wrap_content"/>
             </LinearLayout>
 
             <!-- terms & conditions rectangle shape expand -->
@@ -352,7 +360,7 @@
                         android:layout_width="wrap_content"
                         android:textColor="#000000"
                         android:textSize="20sp"
-                        android:text="Terms and conditions"
+                        android:text="Conditii promotie"
                         android:singleLine="true"/>
 
                 <ImageView
@@ -378,57 +386,65 @@
                     android:visibility="gone"
                     android:layout_height="wrap_content">
 
-                <TextView android:layout_width="fill_parent"
-                          android:text="@string/big_text"
-                          android:layout_height="wrap_content"/>
-            </LinearLayout>
-
-            <!-- shop details rectangle shape expand -->
-            <RelativeLayout
-                    android:id="@+id/shop_details_separator_expand"
-                    android:layout_height="40dip"
-                    android:layout_marginTop="5dip"
-                    android:background="#ffffff"
-                    android:orientation="horizontal"
-                    android:layout_width="fill_parent">
-
                 <TextView
-                        android:id="@+id/shop_details_title"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_width="wrap_content"
-                        android:textColor="#000000"
-                        android:textSize="20sp"
-                        android:text="Shop details"
-                        android:singleLine="true"/>
-
-                <ImageView
-                        android:id="@+id/shop_details_image_expand"
-                        android:layout_height="wrap_content"
-                        android:layout_width="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginRight="10dip"
-                        android:src="@drawable/ic_navigation_expand_dark"
-                        android:contentDescription="@null"
-                        android:clickable="true"
-                        android:onClick="doShopDetailsAction"
-                        />
-            </RelativeLayout>
-
-            <!-- shop details content -->
-            <LinearLayout
-                    android:id="@+id/shop_details_view"
-                    android:layout_width="fill_parent"
-                    android:orientation="vertical"
-                    android:background="#ffffff"
-                    android:visibility="gone"
-                    android:layout_height="wrap_content">
-
-                <TextView android:layout_width="fill_parent"
-                          android:text="@string/big_text"
-                          android:layout_height="wrap_content"/>
+                        android:id="@+id/condition_text"
+                        android:layout_width="fill_parent"
+                        android:text="@string/big_text"
+                        android:layout_height="wrap_content"/>
             </LinearLayout>
+
+            <!--&lt;!&ndash; shop details rectangle shape expand &ndash;&gt;-->
+            <!--<RelativeLayout-->
+            <!--android:id="@+id/shop_details_separator_expand"-->
+            <!--android:layout_height="40dip"-->
+            <!--android:layout_marginTop="5dip"-->
+            <!--android:background="#ffffff"-->
+            <!--android:orientation="horizontal"-->
+            <!--android:layout_width="fill_parent">-->
+
+            <!--<TextView-->
+            <!--android:id="@+id/shop_details_title"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:textColor="#000000"-->
+            <!--android:textSize="20sp"-->
+            <!--android:text="Detalii magazin"-->
+            <!--android:singleLine="true"/>-->
+
+            <!--<ImageView-->
+            <!--android:id="@+id/shop_details_image_expand"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:layout_marginRight="10dip"-->
+            <!--android:src="@drawable/ic_navigation_expand_dark"-->
+            <!--android:contentDescription="@null"-->
+            <!--android:clickable="true"-->
+            <!--android:onClick="doShopDetailsAction"-->
+            <!--/>-->
+            <!--</RelativeLayout>-->
+
+            <!--&lt;!&ndash; shop details content &ndash;&gt;-->
+            <!--<LinearLayout-->
+            <!--android:id="@+id/shop_details_view"-->
+            <!--android:layout_width="fill_parent"-->
+            <!--android:orientation="vertical"-->
+            <!--android:background="@color/app_white"-->
+            <!--android:visibility="gone"-->
+            <!--android:layout_height="wrap_content">-->
+
+            <!--<ImageView-->
+            <!--android:id="@+id/logo"-->
+            <!--android:layout_height="100dip"-->
+            <!--android:layout_width="100dip"-->
+            <!--android:contentDescription="@null" />-->
+
+            <!--<TextView android:layout_width="fill_parent"-->
+            <!--android:text="@string/big_text"-->
+            <!--android:layout_height="wrap_content"/>-->
+            <!--</LinearLayout>-->
 
         </LinearLayout>
 
